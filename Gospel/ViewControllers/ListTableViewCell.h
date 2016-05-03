@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProgressCircleView.h"
 
 @interface ListTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel     *txtTitle;
-@property (weak, nonatomic) IBOutlet UIImageView *imgCircle;
 @property (weak, nonatomic) IBOutlet UILabel     *txtDetail;
 
+@property (weak, nonatomic) IBOutlet ProgressCircleView *progressCircle;
 @end

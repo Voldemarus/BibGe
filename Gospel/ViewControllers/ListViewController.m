@@ -85,13 +85,12 @@
     if (!cell)
         cell = [[ListTableViewCell alloc] init];
 	
-	cell.imgCircle.image = prefs.themeCircle;
-	
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	cell.backgroundColor = prefs.themeCellBackgroundColor;
 	cell.txtTitle.textColor = prefs.themeTextColor;
 	cell.detailTextLabel.textColor = prefs.themeDetailColor;
-	
+	cell.progressCircle.progressValue = (indexPath.row % 10) / 10.0;
+	cell.txtDetail.text = [NSString stringWithFormat:@"%.2f", cell.progressCircle.progressValue];
     return cell;
 }
 

@@ -9,7 +9,7 @@
 #import "ListTableViewCell.h"
 
 @implementation ListTableViewCell
-@synthesize txtTitle, imgCircle, txtDetail;
+@synthesize txtTitle, txtDetail;
 
 - (void)awakeFromNib {
     // Initialization code

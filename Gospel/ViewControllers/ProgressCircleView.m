@@ -7,26 +7,11 @@
 //
 
 #import "ProgressCircleView.h"
-
-@interface ProgressCircleView () {
-	Preferences *prefs;
-}
-
-@end
-
+#import "DebugPrint.h"
 
 @implementation ProgressCircleView
 
 @synthesize progressValue = _progressValue;;
-
-- (id) initWithFrame:(CGRect)frame
-{
-	if (self = [super initWithFrame:frame]) {
-		prefs = [Preferences sharedInstance];
-		self.backgroundColor = [UIColor clearColor];
-	}
-	return self;
-}
 
 
 - (void) setProgressValue:(CGFloat)progressValue
@@ -38,6 +23,7 @@
 
 - (void)drawRect:(CGRect)rect
 {
+	Preferences *prefs = [Preferences sharedInstance];
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	// set border color
 	UIColor *foreColor = prefs.themeProgressBorder;
@@ -53,10 +39,13 @@
 
 	// and fill it if progress is defined
 	if (_progressValue > 0.05) {
-		CGFloat angle = (M_PI * 2 / _progressValue);
-		CGContextAddArc(context, rect.size.width/2.0, rect.size.height/2.0,
-						rect.size.width/2.0,
-						0.0, angle , 1);
+		CGFloat center = rect.size.width * 0.5;
+		CGFloat angle = - M_PI_2 + (M_PI * 2 * _progressValue);
+		CGContextMoveToPoint(context, center, center);
+		CGContextAddArc(context, center, center,
+						center,
+						-M_PI_2, angle , 0);
+		CGContextClosePath(context);
 	}
 	
 	CGContextFillPath(context);
