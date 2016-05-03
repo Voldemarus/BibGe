@@ -155,7 +155,6 @@ NSString * const VVVThemeName = @"VVThemeName";
 	}
 }
 
-
 - (UIColor *) themeDetailColor
 {
 	switch (self.currentTheme) {
@@ -165,6 +164,26 @@ NSString * const VVVThemeName = @"VVThemeName";
 			return [UIColor lightGrayColor];
 	}
 }
+
+- (UIColor *)themeProgressBorder
+{
+	switch(self.currentTheme) {
+		case ThemeDefault:	return RED_COLOR;
+		case ThemeNightView: return [UIColor whiteColor];
+		case ThemeBlue: return BLUE_COLOR;
+	}
+}
+
+- (UIColor *) themeProgressFiller
+{
+	switch(self.currentTheme) {
+		case ThemeDefault: return RED_COLOR;
+		case ThemeBlue:		return BLUE_COLOR;
+		case ThemeNightView:	return [UIColor whiteColor];
+	}
+}
+
+#pragma mark -
 
 - (void) selectNextTheme
 {

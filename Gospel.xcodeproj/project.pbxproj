@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B213C971CD8994500B8E673 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213C961CD8994500B8E673 /* Preferences.m */; };
 		1B213C9A1CD8AF1C00B8E673 /* img_sidebar_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B213C991CD8AF1C00B8E673 /* img_sidebar_black.png */; };
+		1B213C9E1CD8C88800B8E673 /* ProgressCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213C9D1CD8C88800B8E673 /* ProgressCircleView.m */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
 		8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD91CC4D30F001BE270 /* ViewController.m */; };
@@ -47,6 +48,8 @@
 		1B213C961CD8994500B8E673 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 		1B213C981CD8A81300B8E673 /* DebugPrint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DebugPrint.h; sourceTree = "<group>"; };
 		1B213C991CD8AF1C00B8E673 /* img_sidebar_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_sidebar_black.png; sourceTree = "<group>"; };
+		1B213C9C1CD8C88800B8E673 /* ProgressCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressCircleView.h; sourceTree = "<group>"; };
+		1B213C9D1CD8C88800B8E673 /* ProgressCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressCircleView.m; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B852BD31CC4D30F001BE270 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B852BD51CC4D30F001BE270 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -107,6 +110,15 @@
 				1B213C961CD8994500B8E673 /* Preferences.m */,
 			);
 			name = Preferences;
+			sourceTree = "<group>";
+		};
+		1B213C9B1CD8C86000B8E673 /* ProgressCircle */ = {
+			isa = PBXGroup;
+			children = (
+				1B213C9C1CD8C88800B8E673 /* ProgressCircleView.h */,
+				1B213C9D1CD8C88800B8E673 /* ProgressCircleView.m */,
+			);
+			name = ProgressCircle;
 			sourceTree = "<group>";
 		};
 		8B852BC61CC4D30F001BE270 = {
@@ -192,6 +204,7 @@
 		8B8D067B1CC4D44D003EAC28 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1B213C9B1CD8C86000B8E673 /* ProgressCircle */,
 				8BF1E3571CC5FFDB009DC8F2 /* ListViewController.h */,
 				8BF1E3581CC5FFDB009DC8F2 /* ListViewController.m */,
 				8BF1E35A1CC60028009DC8F2 /* ListTableViewCell.h */,
@@ -300,6 +313,7 @@
 				8B852BE01CC4D30F001BE270 /* Gospel.xcdatamodeld in Sources */,
 				8BF1E36E1CC60ADF009DC8F2 /* SettingViewController.m in Sources */,
 				8BFEBE0A1CC703F100DDB4BE /* ContentViewController.m in Sources */,
+				1B213C9E1CD8C88800B8E673 /* ProgressCircleView.m in Sources */,
 				8BF1E35C1CC60028009DC8F2 /* ListTableViewCell.m in Sources */,
 				8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */,
 				8B852BD41CC4D30F001BE270 /* main.m in Sources */,
