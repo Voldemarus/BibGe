@@ -42,6 +42,7 @@ extern NSString * const VVVthemeChanged;		// theme is changed
 // definitions for progrescircle view
 @property (nonatomic, readonly) UIColor *themeProgressBorder;
 @property (nonatomic, readonly) UIColor *themeProgressFiller;
+@property (nonatomic, readonly) UIColor *themeProgressBackgroundColor;
 
 - (void) selectNextTheme;
 

@@ -174,11 +174,19 @@ NSString * const VVVThemeName = @"VVThemeName";
 	}
 }
 
+- (UIColor *) themeProgressBackgroundColor
+{
+	switch (self.currentTheme) {
+		case ThemeNightView:	return BLACK_COLOR;
+		default:	return [UIColor whiteColor];
+	}
+}
+
 - (UIColor *) themeProgressFiller
 {
 	switch(self.currentTheme) {
-		case ThemeDefault: return RED_COLOR;
-		case ThemeBlue:		return BLUE_COLOR;
+		case ThemeDefault:		return RED_COLOR;
+		case ThemeBlue:			return BLUE_COLOR;
 		case ThemeNightView:	return [UIColor whiteColor];
 	}
 }

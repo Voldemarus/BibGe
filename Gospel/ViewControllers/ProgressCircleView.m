@@ -19,6 +19,9 @@
 	if (progressValue < 0.0) progressValue = 0.0;
 	if (progressValue > 1.0) progressValue = 1.0;
 	_progressValue = progressValue;
+	Preferences *prefs = [Preferences sharedInstance];
+	self.backgroundColor = prefs.themeProgressBackgroundColor;
+	[self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect
