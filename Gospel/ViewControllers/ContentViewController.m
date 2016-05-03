@@ -54,22 +54,9 @@
     [super viewWillAppear:YES];
 	
 	[btnBack setImage:prefs.themeBackButton forState:UIControlStateNormal];
+	[btnUpload setImage:prefs.themeUploadButton forState:UIControlStateNormal];
 	
-	
-    if ([strTheme isEqualToString:@"blue"])
-    {
-        colorTheme = BLUE_COLOR;
-        [btnBack setImage:[UIImage imageNamed:@"icon_Back.png"] forState:UIControlStateNormal];
-        [btnUpload setImage:[UIImage imageNamed:@"icon_upload_blue.png"] forState:UIControlStateNormal];
-    }
-    else
-    {
-        colorTheme = RED_COLOR;
-        [btnBack setImage:[UIImage imageNamed:@"icon_Back_red.png"] forState:UIControlStateNormal];
-        [btnUpload setImage:[UIImage imageNamed:@"icon_upload_red.png"] forState:UIControlStateNormal];
-    }
-    
-    [lblTitle setTextColor:colorTheme];
+    [lblTitle setTextColor:prefs.themeTextColor];
     
     [self clickTab:1];
 }
@@ -97,22 +84,20 @@
     uv2.hidden = YES;
     uv3.hidden = YES;
     
-    [tab1 setTitleColor:colorTheme forState:UIControlStateNormal];
-    [tab2 setTitleColor:colorTheme forState:UIControlStateNormal];
-    [tab3 setTitleColor:colorTheme forState:UIControlStateNormal];
+    [tab1 setTitleColor:prefs.themeTextColor forState:UIControlStateNormal];
+    [tab2 setTitleColor:prefs.themeTextColor forState:UIControlStateNormal];
+    [tab3 setTitleColor:prefs.themeTextColor forState:UIControlStateNormal];
     
     if (index == 1) {
         uv1.hidden = NO;
         [tab1 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [m_lblLine setBackgroundColor:colorTheme];
+        [m_lblLine setBackgroundColor:prefs.themeTextColor];
     }
-    else if (index ==2)
-    {
+    else if (index ==2) {
         uv2.hidden = NO;
         [tab2 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }
-    else
-    {
+    else {
         uv3.hidden = NO;
         [tab3 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }

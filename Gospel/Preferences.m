@@ -120,6 +120,27 @@ NSString * const VVVThemeName = @"VVThemeName";
 	return [UIImage imageNamed:image];
 }
 
+- (UIImage *) themeUploadButton
+{
+	NSString *image = @"icon_upload_red.png";
+	switch (self.currentTheme) {
+		case ThemeBlue: image = @"icon_upload_blue.png";
+			break;
+		default:
+			break;
+	}
+	return [UIImage imageNamed:image];
+}
+
+- (UIColor *) themeTextColor
+{
+	switch (self.currentTheme) {
+		case ThemeBlue: return BLUE_COLOR;
+			
+		default: return RED_COLOR;
+	}
+}
+
 
 - (UIColor *) themeTintColor
 {
