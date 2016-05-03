@@ -96,7 +96,7 @@ NSString * const VVVThemeName = @"VVThemeName";
 		case ThemeNightView:	sideBarImage = @"img_sidebar_black.png";
 			break;
 
-		default:
+		default: sideBarImage = @"img_sidebar.png";
 			break;
 	}
 	return [UIImage imageNamed:sideBarImage];
@@ -108,7 +108,7 @@ NSString * const VVVThemeName = @"VVThemeName";
 	switch (self.currentTheme) {
 		case ThemeBlue: themeCircleImage = @"icon_circle_blue.png";
 			break;
-		default:
+		default: themeCircleImage = @"icon_circle_red.png";
 			break;
 	}
 	return [UIImage imageNamed:themeCircleImage];
@@ -120,7 +120,7 @@ NSString * const VVVThemeName = @"VVThemeName";
 	switch (self.currentTheme) {
 		case ThemeBlue: image = @"icon_Back.png";
 			break;
-		default:
+		default: image = @"icon_Back_red.png";
 			break;
 	}
 	return [UIImage imageNamed:image];
@@ -132,7 +132,7 @@ NSString * const VVVThemeName = @"VVThemeName";
 	switch (self.currentTheme) {
 		case ThemeBlue: image = @"icon_upload_blue.png";
 			break;
-		default:
+		default: image = @"icon_upload_red.png";
 			break;
 	}
 	return [UIImage imageNamed:image];

@@ -33,13 +33,13 @@
 		8BF1E3691CC609DC009DC8F2 /* txt_reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1E3621CC609DC009DC8F2 /* txt_reset.png */; };
 		8BF1E36A1CC609DC009DC8F2 /* txt_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1E3631CC609DC009DC8F2 /* txt_settings.png */; };
 		8BF1E36B1CC609DC009DC8F2 /* txt_tracking.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1E3641CC609DC009DC8F2 /* txt_tracking.png */; };
-		8BF1E36E1CC60ADF009DC8F2 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1E36D1CC60ADF009DC8F2 /* SettingViewController.m */; };
 		8BFEBE021CC6E8B400DDB4BE /* icon_Back_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BFEBE001CC6E8B400DDB4BE /* icon_Back_red.png */; };
 		8BFEBE031CC6E8B400DDB4BE /* icon_upload_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BFEBE011CC6E8B400DDB4BE /* icon_upload_red.png */; };
 		8BFEBE061CC6F80100DDB4BE /* icon_circle_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BFEBE041CC6F80100DDB4BE /* icon_circle_blue.png */; };
 		8BFEBE071CC6F80100DDB4BE /* img_sidebar_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BFEBE051CC6F80100DDB4BE /* img_sidebar_blue.png */; };
 		8BFEBE0A1CC703F100DDB4BE /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFEBE091CC703F100DDB4BE /* ContentViewController.m */; };
 		8BFEBE0C1CC706A500DDB4BE /* icon_upload_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BFEBE0B1CC706A500DDB4BE /* icon_upload_blue.png */; };
+		AED53AD01CD8BEDC0043A1EB /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED53ACF1CD8BEDC0043A1EB /* SettingsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,8 +77,6 @@
 		8BF1E3621CC609DC009DC8F2 /* txt_reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = txt_reset.png; sourceTree = "<group>"; };
 		8BF1E3631CC609DC009DC8F2 /* txt_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = txt_settings.png; sourceTree = "<group>"; };
 		8BF1E3641CC609DC009DC8F2 /* txt_tracking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = txt_tracking.png; sourceTree = "<group>"; };
-		8BF1E36C1CC60ADF009DC8F2 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		8BF1E36D1CC60ADF009DC8F2 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		8BFEBE001CC6E8B400DDB4BE /* icon_Back_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_Back_red.png; sourceTree = "<group>"; };
 		8BFEBE011CC6E8B400DDB4BE /* icon_upload_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_upload_red.png; sourceTree = "<group>"; };
 		8BFEBE041CC6F80100DDB4BE /* icon_circle_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_circle_blue.png; sourceTree = "<group>"; };
@@ -86,6 +84,8 @@
 		8BFEBE081CC703F100DDB4BE /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
 		8BFEBE091CC703F100DDB4BE /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		8BFEBE0B1CC706A500DDB4BE /* icon_upload_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_upload_blue.png; sourceTree = "<group>"; };
+		AED53ACE1CD8BEDC0043A1EB /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		AED53ACF1CD8BEDC0043A1EB /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,10 +196,10 @@
 				8BF1E3581CC5FFDB009DC8F2 /* ListViewController.m */,
 				8BF1E35A1CC60028009DC8F2 /* ListTableViewCell.h */,
 				8BF1E35B1CC60028009DC8F2 /* ListTableViewCell.m */,
-				8BF1E36C1CC60ADF009DC8F2 /* SettingViewController.h */,
-				8BF1E36D1CC60ADF009DC8F2 /* SettingViewController.m */,
 				8BFEBE081CC703F100DDB4BE /* ContentViewController.h */,
 				8BFEBE091CC703F100DDB4BE /* ContentViewController.m */,
+				AED53ACE1CD8BEDC0043A1EB /* SettingsTableViewController.h */,
+				AED53ACF1CD8BEDC0043A1EB /* SettingsTableViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -297,8 +297,8 @@
 			files = (
 				8BF1E3591CC5FFDB009DC8F2 /* ListViewController.m in Sources */,
 				8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */,
+				AED53AD01CD8BEDC0043A1EB /* SettingsTableViewController.m in Sources */,
 				8B852BE01CC4D30F001BE270 /* Gospel.xcdatamodeld in Sources */,
-				8BF1E36E1CC60ADF009DC8F2 /* SettingViewController.m in Sources */,
 				8BFEBE0A1CC703F100DDB4BE /* ContentViewController.m in Sources */,
 				8BF1E35C1CC60028009DC8F2 /* ListTableViewCell.m in Sources */,
 				8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */,
@@ -416,7 +416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Gospel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alex.Gospel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,7 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Gospel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alex.Gospel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
