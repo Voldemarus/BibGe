@@ -7,8 +7,11 @@
 //
 
 #import "SettingsTableViewController.h"
+#import "Preferences.h"
 
-@interface SettingsTableViewController ()
+@interface SettingsTableViewController () {
+	Preferences *prefs;
+}
 
 @end
 
@@ -16,12 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	prefs = [Preferences sharedInstance];
+	
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	// set up switch positions
+	self.swTrackSwitch.on = prefs.trackReading;
+	self.iCloudSyncSwitch.on = prefs.storeInCloud;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,42 +48,32 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewCell *cell;
-    
-    // Configure the cell...
-    
-    
-    switch ((int)indexPath.row) {
-        case 0:
-        {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"trackReadingCell" forIndexPath:indexPath];
-        }
-            break;
-        case 1:
-        {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"iCloudCell" forIndexPath:indexPath];
-        }
-            break;
-        case 2:
-        {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"contactUsCell" forIndexPath:indexPath];
-        }
-            break;
-        case 3:
-        {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"resetCell" forIndexPath:indexPath];
-        }
-            break;
-            
-        default:
-            break;
-    }
-
-    
-    return cell;
+ 	
+	switch (indexPath.row) {
+		case 0:	return self.trackReadingCell;
+		case 1: return self.iCloudCell;
+		case 2: return self.contactUsCell;
+		default: return self.resetReadingCell;
+	}
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+	if (indexPath.row == 0) {
+		// switch trackReading
+		BOOL newValue = !prefs.trackReading;
+		self.swTrackSwitch.on = newValue;
+		prefs.trackReading = newValue;
+	} else if (indexPath.row == 1) {
+		BOOL newValue = !prefs.storeInCloud;
+		self.iCloudSyncSwitch.on = newValue;
+		prefs.storeInCloud = newValue;
+	} else if (indexPath.row == 2) {
+		// contact us. Open Mailcomposer if mail account is set up correctly
+		
+	}
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -122,4 +119,11 @@
 }
 */
 
+- (IBAction)trackSwitchChanged:(id)sender {
+	prefs.trackReading = self.swTrackSwitch.on;
+}
+
+- (IBAction)cloudSwitchChanged:(id)sender {
+	prefs.storeInCloud = self.iCloudSyncSwitch.on;
+}
 @end

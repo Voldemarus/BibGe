@@ -44,6 +44,13 @@ extern NSString * const VVVthemeChanged;		// theme is changed
 @property (nonatomic, readonly) UIColor *themeProgressFiller;
 @property (nonatomic, readonly) UIColor *themeProgressBackgroundColor;
 
+
+// user settings
+
+@property (nonatomic, readwrite) BOOL trackReading;
+@property (nonatomic, readwrite) BOOL storeInCloud;
+
+
 - (void) selectNextTheme;
 
 

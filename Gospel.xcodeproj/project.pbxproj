@@ -121,6 +121,14 @@
 			name = ProgressCircle;
 			sourceTree = "<group>";
 		};
+		1B213C9F1CD8E3F400B8E673 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B852BDE1CC4D30F001BE270 /* Gospel.xcdatamodeld */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
 		8B852BC61CC4D30F001BE270 = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +160,7 @@
 				8B852BE11CC4D30F001BE270 /* Assets.xcassets */,
 				8B852BE31CC4D30F001BE270 /* LaunchScreen.storyboard */,
 				8B852BE61CC4D30F001BE270 /* Info.plist */,
-				8B852BDE1CC4D30F001BE270 /* Gospel.xcdatamodeld */,
+				1B213C9F1CD8E3F400B8E673 /* Data Model */,
 				8B852BD21CC4D30F001BE270 /* Supporting Files */,
 			);
 			path = Gospel;

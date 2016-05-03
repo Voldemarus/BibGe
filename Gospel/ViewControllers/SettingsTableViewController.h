@@ -9,5 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsTableViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UISwitch *swTrackSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *iCloudSyncSwitch;
+
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *trackReadingCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *iCloudCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *contactUsCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *resetReadingCell;
+
+
+- (IBAction)trackSwitchChanged:(id)sender;
+- (IBAction)cloudSwitchChanged:(id)sender;
+
 
 @end

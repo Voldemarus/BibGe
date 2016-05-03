@@ -34,7 +34,9 @@ NSString * const VVVthemeChanged = @"VVVthemeChanged";
 
 // Local keys
 
-NSString * const VVVThemeName = @"VVThemeName";
+NSString * const VVVThemeName		=	@"VVThemeName";
+NSString * const VVVtrackReading	=	@"VVVTrackReading";
+NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 
 @implementation Preferences
 
@@ -55,6 +57,8 @@ NSString * const VVVThemeName = @"VVThemeName";
 	NSMutableDictionary  *defaultValues = [NSMutableDictionary dictionary];
 	// set up default parameters
 	[defaultValues setObject:@(ThemeDefault) forKey:VVVThemeName];
+	[defaultValues setObject:@(NO) forKey:VVVtrackReading];
+	[defaultValues setObject:@(NO) forKey:VVVstoreInCloud];
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults: defaultValues];
 	
@@ -201,6 +205,28 @@ NSString * const VVVThemeName = @"VVThemeName";
 		self.currentTheme++;
 	}
 	[[NSNotificationCenter defaultCenter] postNotificationName:VVVthemeChanged object:nil];
+}
+
+#pragma mark -
+
+- (BOOL) trackReading
+{
+	return [prefs boolForKey:VVVtrackReading];
+}
+
+- (void) setTrackReading:(BOOL)trackReading
+{
+	[prefs setBool:trackReading forKey:VVVtrackReading];
+}
+
+- (BOOL) storeInCloud
+{
+	return [prefs boolForKey:VVVstoreInCloud];
+}
+
+- (void) setStoreInCloud:(BOOL)storeInCloud
+{
+	[prefs setBool:storeInCloud forKey:VVVstoreInCloud];
 }
 
 @end
