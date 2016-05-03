@@ -25,6 +25,10 @@
 #define BLUE_COLOR [UIColor colorWithRed:19.0/255.0 green:141.0/255.0 blue:255.0/255.0 alpha:1.0]
 #define DARK_BLUE_COLOR [UIColor colorWithRed:19.0/255.0 green:141.0/255.0 blue:255.0/255.0 alpha:0.75]
 #define LOW_WHITE_COLOR [UIColor colorWithRed:119.0/255.0 green:119.0/255.0 blue:119.0/255.0 alpha:1.0]
+#define DARK_BACKGROUND_COLOR [UIColor colorWithRed:35.0/255.0 green:36.0/255.0 blue:38.0/255.0 alpha:1.0]
+#define LIGHT_BACKGROUND_COLOR [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0]
+#define DARK_NAVBAR_COLOR [UIColor colorWithRed:31.0/255.0 green:32.0/255.0 blue:34.0/255.0 alpha:1.0]
+#define LIGHT_NAVBAR_COLOR [UIColor colorWithRed:242.0/255.0 green:242.0/255.0 blue:242.0/255.0 alpha:1.0]
 
 
 
@@ -150,13 +154,39 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 	}
 }
 
+- (UIColor *) themeBackgroundColor
+{
+    switch (self.currentTheme) {
+        case ThemeNightView: return DARK_BACKGROUND_COLOR;
+        default: return LIGHT_BACKGROUND_COLOR;
+    }
+}
+
+- (UIColor *) themeNavBarBackgroundColor
+{
+    switch (self.currentTheme) {
+        case ThemeNightView: return DARK_NAVBAR_COLOR;
+        default: return LIGHT_NAVBAR_COLOR;
+    }
+}
+
+
 - (UIColor *) themeTextColor
 {
 	switch (self.currentTheme) {
-		case ThemeBlue: return BLUE_COLOR;
+		case ThemeBlue: return BLACK_COLOR;
 		case ThemeNightView: return LOW_WHITE_COLOR;
-		default: return RED_COLOR;
+		default: return BLACK_COLOR;
 	}
+}
+
+- (UIColor *) themeTintColor
+{
+    switch (self.currentTheme) {
+        case ThemeBlue: return BLUE_COLOR;
+        case ThemeNightView: return BLACK_COLOR;
+        default: return  RED_COLOR;
+    }
 }
 
 - (UIColor *) themeDetailColor

@@ -14,35 +14,41 @@
 	Preferences *prefs;
 }
 
-@property (weak, nonatomic) IBOutlet UIButton *btnBack;
-@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
-@property (weak, nonatomic) IBOutlet UIButton *btnUpload;
 
-@property (weak, nonatomic) IBOutlet UIView *uv1;
-@property (weak, nonatomic) IBOutlet UILabel *m_txtTitle;
-@property (weak, nonatomic) IBOutlet UILabel *m_lblLine;
-@property (weak, nonatomic) IBOutlet UITextView *m_txtContent;
-
-
-@property (weak, nonatomic) IBOutlet UIView *uv2;
-@property (weak, nonatomic) IBOutlet UIView *uv3;
-
-@property (weak, nonatomic) IBOutlet UIButton *tab1;
-@property (weak, nonatomic) IBOutlet UIButton *tab2;
-@property (weak, nonatomic) IBOutlet UIButton *tab3;
 
 @end
 
 @implementation ContentViewController
-@synthesize btnBack, lblTitle, btnUpload;
-@synthesize uv1, m_txtTitle, m_lblLine, m_txtContent;
-@synthesize uv2, uv3;
-@synthesize tab1, tab2, tab3;
+
+@synthesize uv1, tab1, tab2, tab3;
+@synthesize contentTextView, titleLabel, titleUnderlineImageView, titleUnderlineLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+
+    prefs = [Preferences sharedInstance];
+
+    
+    [[UINavigationBar appearance]  setTintColor:prefs.themeTintColor];
+
+    self.navigationController.navigationBar.barTintColor = prefs.themeNavBarBackgroundColor;
+    self.navigationController.navigationBar.tintColor = prefs.themeTintColor;
+    [self.navigationController.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : prefs.themeTintColor}];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    self.view.backgroundColor = prefs.themeNavBarBackgroundColor;
+    
+    [titleUnderlineLabel setTextColor:prefs.themeTintColor];
+    
+    
+    uv1.backgroundColor = prefs.themeBackgroundColor;
+    contentTextView.backgroundColor = prefs.themeBackgroundColor;
+    
+    [contentTextView setTextColor:prefs.themeTextColor];
+    [titleLabel setTextColor:prefs.themeTextColor];
+    
 
 }
 
@@ -55,10 +61,7 @@
 {
     [super viewWillAppear:YES];
 	
-	[btnBack setImage:prefs.themeBackButton forState:UIControlStateNormal];
-	[btnUpload setImage:prefs.themeUploadButton forState:UIControlStateNormal];
 	
-    [lblTitle setTextColor:prefs.themeTextColor];
     
     [self clickTab:1];
 }
@@ -83,24 +86,20 @@
 - (void)clickTab:(int)index
 {
     uv1.hidden = YES;
-    uv2.hidden = YES;
-    uv3.hidden = YES;
+
     
-    [tab1 setTitleColor:prefs.themeTextColor forState:UIControlStateNormal];
-    [tab2 setTitleColor:prefs.themeTextColor forState:UIControlStateNormal];
-    [tab3 setTitleColor:prefs.themeTextColor forState:UIControlStateNormal];
+    [tab1 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
+    [tab2 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
+    [tab3 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
     
     if (index == 1) {
         uv1.hidden = NO;
         [tab1 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [m_lblLine setBackgroundColor:prefs.themeTextColor];
     }
     else if (index ==2) {
-        uv2.hidden = NO;
         [tab2 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }
     else {
-        uv3.hidden = NO;
         [tab3 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }
 }
