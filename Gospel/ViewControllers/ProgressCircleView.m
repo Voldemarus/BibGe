@@ -12,7 +12,7 @@
 @implementation ProgressCircleView
 
 @synthesize progressValue = _progressValue;;
-
+@synthesize color;
 
 - (void) setProgressValue:(CGFloat)progressValue
 {

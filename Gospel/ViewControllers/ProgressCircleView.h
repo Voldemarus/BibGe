@@ -11,6 +11,8 @@
 
 @interface ProgressCircleView : UIView
 
-@property (nonatomic, readwrite) CGFloat progressValue;		// 0 - 1.0
+@property (nonatomic, readwrite) CGFloat progressValue;		// 0..1.0
+@property (nonatomic, readwrite) UIColor *color;
+
 
 @end

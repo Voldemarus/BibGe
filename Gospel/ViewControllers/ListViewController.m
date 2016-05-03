@@ -53,6 +53,9 @@
 - (void)drawDefault
 {
 	m_imgSidebar.image = prefs.themeSideBar;
+    
+    
+    
     [tvList reloadData];
 }
 
@@ -89,7 +92,10 @@
 	cell.backgroundColor = prefs.themeCellBackgroundColor;
 	cell.txtTitle.textColor = prefs.themeTextColor;
 	cell.detailTextLabel.textColor = prefs.themeDetailColor;
-	cell.progressCircle.progressValue = (indexPath.row % 10) / 10.0;
+	
+    cell.progressCircle.progressValue = (indexPath.row % 10) / 10.0;
+    cell.progressCircle.color = prefs.themeProgressFiller;
+    
 	cell.txtDetail.text = [NSString stringWithFormat:@"%.2f", cell.progressCircle.progressValue];
     return cell;
 }

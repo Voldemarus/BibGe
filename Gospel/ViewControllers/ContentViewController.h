@@ -10,4 +10,17 @@
 
 @interface ContentViewController : UIViewController
 
+
+
+@property (weak, nonatomic) IBOutlet UIView *uv1;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *titleUnderlineImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleUnderlineLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *tab1;
+@property (weak, nonatomic) IBOutlet UIButton *tab2;
+@property (weak, nonatomic) IBOutlet UIButton *tab3;
+
 @end
