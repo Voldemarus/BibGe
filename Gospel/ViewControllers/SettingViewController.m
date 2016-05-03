@@ -7,11 +7,11 @@
 //
 
 #import "SettingViewController.h"
-#import "CommonHeader.h"
+#import "Preferences.h"
 
 @interface SettingViewController ()
 {
-    NSString *colorTheme;
+	Preferences *prefs;
 }
 @property (weak, nonatomic) IBOutlet UIButton *btnBack;
 @property (weak, nonatomic) IBOutlet UISwitch *swTrack;
@@ -25,30 +25,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+	prefs = [Preferences sharedInstance];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    colorTheme = GETVALUE(@"ThemeColor");
     [self drawDefault];
 }
 
 - (void)drawDefault
 {
-    if ([colorTheme isEqualToString:@"blue"])
-    {
-        [btnBack setImage:[UIImage imageNamed:@"icon_Back.png"] forState:UIControlStateNormal];
-        [swTrack setOnTintColor:BLUE_COLOR];
-        [swiClud setOnTintColor:BLUE_COLOR];
-    }
-    else
-    {
-        [btnBack setImage:[UIImage imageNamed:@"icon_Back_red.png"] forState:UIControlStateNormal];
-        [swTrack setOnTintColor:RED_COLOR];
-        [swiClud setOnTintColor:RED_COLOR];
-    }
+	[btnBack setImage:prefs.themeBackButton forState:UIControlStateNormal];
+	[swTrack setOnTintColor:prefs.themeTintColor];
+	[swiClud setOnTintColor:prefs.themeTintColor];
 }
 
 - (void)didReceiveMemoryWarning {

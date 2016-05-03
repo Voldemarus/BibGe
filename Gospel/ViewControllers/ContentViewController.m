@@ -7,13 +7,13 @@
 //
 
 #import "ContentViewController.h"
-#import "CommonHeader.h"
+#import "Preferences.h"
 
 @interface ContentViewController ()
 {
-    NSString *strTheme;
-    UIColor  *colorTheme;
+	Preferences *prefs;
 }
+
 @property (weak, nonatomic) IBOutlet UIButton *btnBack;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UIButton *btnUpload;
@@ -52,8 +52,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    strTheme = GETVALUE(@"ThemeColor");
-    
+	
+	[btnBack setImage:prefs.themeBackButton forState:UIControlStateNormal];
+	
+	
     if ([strTheme isEqualToString:@"blue"])
     {
         colorTheme = BLUE_COLOR;

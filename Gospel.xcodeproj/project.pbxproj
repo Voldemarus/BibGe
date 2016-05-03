@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B213C971CD8994500B8E673 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213C961CD8994500B8E673 /* Preferences.m */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
 		8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD91CC4D30F001BE270 /* ViewController.m */; };
@@ -41,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B213C951CD8994500B8E673 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
+		1B213C961CD8994500B8E673 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B852BD31CC4D30F001BE270 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B852BD51CC4D30F001BE270 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B213C941CD8992900B8E673 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				1B213C951CD8994500B8E673 /* Preferences.h */,
+				1B213C961CD8994500B8E673 /* Preferences.m */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
 		8B852BC61CC4D30F001BE270 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +125,7 @@
 		8B852BD11CC4D30F001BE270 /* Gospel */ = {
 			isa = PBXGroup;
 			children = (
+				1B213C941CD8992900B8E673 /* Preferences */,
 				8B8D06791CC4D44D003EAC28 /* Library */,
 				8B8D067A1CC4D44D003EAC28 /* Resource */,
 				8B8D067B1CC4D44D003EAC28 /* ViewControllers */,
@@ -286,6 +299,7 @@
 				8BF1E35C1CC60028009DC8F2 /* ListTableViewCell.m in Sources */,
 				8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */,
 				8B852BD41CC4D30F001BE270 /* main.m in Sources */,
+				1B213C971CD8994500B8E673 /* Preferences.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
