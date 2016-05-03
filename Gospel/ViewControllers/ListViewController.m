@@ -8,10 +8,11 @@
 
 #import "ListViewController.h"
 #import "CommonHeader.h"
+#import "Preferences.h"
 
 @interface ListViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
-    NSString *colorTheme;
+	Preferences *prefs;
     BOOL bTheme;
 }
 
@@ -25,17 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    if ([colorTheme isEqualToString:@"blue"])
-        bTheme = NO;
-    else
-        bTheme = YES;
+	
+	prefs = [Preferences sharedInstance];
+ 
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    colorTheme = GETVALUE(@"ThemeColor");
     [self drawDefault];
 }
 
@@ -46,24 +44,14 @@
 
 - (void)drawDefault
 {
-    if ([colorTheme isEqualToString:@"blue"])
-        [m_imgSidebar setImage:[UIImage imageNamed:@"img_sidebar_blue.png"]];
-    else
-        [m_imgSidebar setImage:[UIImage imageNamed:@"img_sidebar.png"]];
-    
+	m_imgSidebar.image = prefs.themeSideBar;
     [tvList reloadData];
 }
 
 - (IBAction)processClickTheme:(id)sender
 {
-    bTheme = !bTheme;
-    
-    if (bTheme) {
-        UPDATE_DEFAULTS(@"ThemeColor", @"red");
-    }
-    else
-        UPDATE_DEFAULTS(@"ThemeColor", @"blue");
-    [self viewWillAppear:YES];
+	[prefs selectNextTheme];
+	[self drawDefault];
 }
 
 - (IBAction)processClickSetting:(id)sender {
@@ -88,12 +76,9 @@
     ListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier forIndexPath: indexPath];
     if (!cell)
         cell = [[ListTableViewCell alloc] init];
-    
-    if ([colorTheme isEqualToString:@"blue"])
-        [cell.imgCircle setImage:[UIImage imageNamed:@"icon_circle_blue.png"]];
-    else
-        [cell.imgCircle setImage:[UIImage imageNamed:@"icon_circle_red.png"]];
-    
+	
+	cell.imgCircle.image = prefs.themeCircle;
+	
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
