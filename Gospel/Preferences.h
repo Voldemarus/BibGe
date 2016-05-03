@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#define PRODUCT_NAME		@"Bible In One Year (GE)"
+
+
 // Theme list enumerator
 typedef NS_ENUM(NSInteger, ThemeStyle) {
 	ThemeDefault,

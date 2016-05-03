@@ -10,6 +10,8 @@
 		1B213C971CD8994500B8E673 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213C961CD8994500B8E673 /* Preferences.m */; };
 		1B213C9A1CD8AF1C00B8E673 /* img_sidebar_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B213C991CD8AF1C00B8E673 /* img_sidebar_black.png */; };
 		1B213C9E1CD8C88800B8E673 /* ProgressCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213C9D1CD8C88800B8E673 /* ProgressCircleView.m */; };
+		1B213CA11CD8EF5B00B8E673 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B213CA01CD8EF5B00B8E673 /* MessageUI.framework */; };
+		1B213CA61CD8F06A00B8E673 /* SDiPhoneVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213CA51CD8F06A00B8E673 /* SDiPhoneVersion.m */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
 		8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD91CC4D30F001BE270 /* ViewController.m */; };
@@ -50,6 +52,9 @@
 		1B213C991CD8AF1C00B8E673 /* img_sidebar_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_sidebar_black.png; sourceTree = "<group>"; };
 		1B213C9C1CD8C88800B8E673 /* ProgressCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressCircleView.h; sourceTree = "<group>"; };
 		1B213C9D1CD8C88800B8E673 /* ProgressCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressCircleView.m; sourceTree = "<group>"; };
+		1B213CA01CD8EF5B00B8E673 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		1B213CA41CD8F06A00B8E673 /* SDiPhoneVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDiPhoneVersion.h; sourceTree = "<group>"; };
+		1B213CA51CD8F06A00B8E673 /* SDiPhoneVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDiPhoneVersion.m; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B852BD31CC4D30F001BE270 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B852BD51CC4D30F001BE270 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B213CA11CD8EF5B00B8E673 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,9 +135,27 @@
 			name = "Data Model";
 			sourceTree = "<group>";
 		};
+		1B213CA21CD8F03000B8E673 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1B213CA31CD8F03B00B8E673 /* SDIPhone */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		1B213CA31CD8F03B00B8E673 /* SDIPhone */ = {
+			isa = PBXGroup;
+			children = (
+				1B213CA41CD8F06A00B8E673 /* SDiPhoneVersion.h */,
+				1B213CA51CD8F06A00B8E673 /* SDiPhoneVersion.m */,
+			);
+			name = SDIPhone;
+			sourceTree = "<group>";
+		};
 		8B852BC61CC4D30F001BE270 = {
 			isa = PBXGroup;
 			children = (
+				1B213CA01CD8EF5B00B8E673 /* MessageUI.framework */,
 				8B852BD11CC4D30F001BE270 /* Gospel */,
 				8B852BD01CC4D30F001BE270 /* Products */,
 			);
@@ -148,6 +172,7 @@
 		8B852BD11CC4D30F001BE270 /* Gospel */ = {
 			isa = PBXGroup;
 			children = (
+				1B213CA21CD8F03000B8E673 /* Utils */,
 				1B213C941CD8992900B8E673 /* Preferences */,
 				8B8D06791CC4D44D003EAC28 /* Library */,
 				8B8D067A1CC4D44D003EAC28 /* Resource */,
@@ -318,6 +343,7 @@
 			files = (
 				8BF1E3591CC5FFDB009DC8F2 /* ListViewController.m in Sources */,
 				8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */,
+				1B213CA61CD8F06A00B8E673 /* SDiPhoneVersion.m in Sources */,
 				AED53AD01CD8BEDC0043A1EB /* SettingsTableViewController.m in Sources */,
 				8B852BE01CC4D30F001BE270 /* Gospel.xcdatamodeld in Sources */,
 				8BFEBE0A1CC703F100DDB4BE /* ContentViewController.m in Sources */,

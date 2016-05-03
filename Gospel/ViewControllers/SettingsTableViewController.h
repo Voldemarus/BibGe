@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+
 
 @interface SettingsTableViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UISwitch *swTrackSwitch;

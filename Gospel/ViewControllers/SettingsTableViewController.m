@@ -8,6 +8,8 @@
 
 #import "SettingsTableViewController.h"
 #import "Preferences.h"
+#import "DebugPrint.h"
+#import "SDIPhoneVersion.h"
 
 @interface SettingsTableViewController () {
 	Preferences *prefs;
@@ -71,10 +73,70 @@
 		prefs.storeInCloud = newValue;
 	} else if (indexPath.row == 2) {
 		// contact us. Open Mailcomposer if mail account is set up correctly
-		
+		[self composeMail];
+	} else if (indexPath.row == 3) {
+		// reset tracking reading
+		DLog(@"Reset Tracking TODO!!!!!");
 	}
 }
 
+
+
+
+- (void) composeMail
+{
+	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+	picker.mailComposeDelegate = self;
+	
+	NSString *appName = PRODUCT_NAME;
+	NSString *subject = [NSString stringWithFormat:RStr(@"%@ feedback"),
+						 appName];
+	[picker setSubject:subject];
+	//[picker setToRecipients:@[@"pinwheelsoftware@gmail.com"]];
+	
+	
+	[picker setToRecipients: @[RStr(@"FeedbackEmailID") ]];
+	
+	UIDevice *myDevice = [UIDevice currentDevice];
+	
+	DeviceVersion devNCode = [SDiPhoneVersion deviceVersion];
+	NSString *devName = @"";
+	
+	switch (devNCode) {
+		case iPhone4	:	devName = @"iPhone 4"; break;
+		case iPhone4S	:	devName = @"iPhone 4S"; break;
+		case iPhone5	:	devName = @"iPhone 5/5C"; break;
+		case iPhone5S	:	devName = @"iPhone 5S"; break;
+		case iPhone6	:	devName = @"iPhone 6"; break;
+		case iPhone6Plus:	devName = @"iPhomne 6+"; break;
+		default:
+			devName = @"Non supported Device!";
+	}
+	
+	NSString *deviceModel = [NSString stringWithFormat:@"%@ OS : %@ %@",
+							 devName, myDevice.model,
+							 myDevice.systemVersion];
+	
+	NSString *versionString = [NSString stringWithFormat:@"V.%@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+
+	NSString *initialText= [NSString stringWithFormat:@"\n\n--- \nMy Device is: %@,\nApplication Version: %@", deviceModel ,versionString];
+	
+	[picker setMessageBody:initialText isHTML:NO];
+	
+	if (picker) {
+		[self presentViewController:picker animated:YES completion:^(void) {
+			
+		}];
+	} else {
+		UIAlertView *alert = [[UIAlertView alloc]
+							  initWithTitle:RStr(@"Cannot send E-Mail")
+							  message:RStr(@"Your Email account is not set up properly") delegate:nil
+							  cancelButtonTitle:RStr(@"Cancel")
+							  otherButtonTitles:nil];
+		[alert show];
+		return;
+	}
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

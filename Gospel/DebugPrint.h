@@ -29,5 +29,12 @@
 //#   define ULog(...)
 //#endif
 
+/**
+ RStr - Resource String
+ Provides localized string from default localization storage
+ */
+#define RStr(name) NSLocalizedString(name, name)
+
+
 #endif
 
