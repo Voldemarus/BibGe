@@ -12,6 +12,7 @@
 		1B213C9E1CD8C88800B8E673 /* ProgressCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213C9D1CD8C88800B8E673 /* ProgressCircleView.m */; };
 		1B213CA11CD8EF5B00B8E673 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B213CA01CD8EF5B00B8E673 /* MessageUI.framework */; };
 		1B213CA61CD8F06A00B8E673 /* SDiPhoneVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213CA51CD8F06A00B8E673 /* SDiPhoneVersion.m */; };
+		1B213CA81CD8F25E00B8E673 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B213CA71CD8F25E00B8E673 /* Localizable.strings */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
 		8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD91CC4D30F001BE270 /* ViewController.m */; };
@@ -55,6 +56,7 @@
 		1B213CA01CD8EF5B00B8E673 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1B213CA41CD8F06A00B8E673 /* SDiPhoneVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDiPhoneVersion.h; sourceTree = "<group>"; };
 		1B213CA51CD8F06A00B8E673 /* SDiPhoneVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDiPhoneVersion.m; sourceTree = "<group>"; };
+		1B213CA71CD8F25E00B8E673 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B852BD31CC4D30F001BE270 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B852BD51CC4D30F001BE270 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				8B852BD31CC4D30F001BE270 /* main.m */,
+				1B213CA71CD8F25E00B8E673 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				8BF1E3681CC609DC009DC8F2 /* txt_icloud.png in Resources */,
 				8B852BE51CC4D30F001BE270 /* LaunchScreen.storyboard in Resources */,
 				8BF1E36B1CC609DC009DC8F2 /* txt_tracking.png in Resources */,
+				1B213CA81CD8F25E00B8E673 /* Localizable.strings in Resources */,
 				8BF1E34F1CC4DE5E009DC8F2 /* icon_theme.png in Resources */,
 				8BFEBE021CC6E8B400DDB4BE /* icon_Back_red.png in Resources */,
 				8BF1E3561CC5FE02009DC8F2 /* img_text.png in Resources */,
