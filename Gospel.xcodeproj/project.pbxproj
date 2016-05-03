@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B213C971CD8994500B8E673 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213C961CD8994500B8E673 /* Preferences.m */; };
+		1B213C9A1CD8AF1C00B8E673 /* img_sidebar_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B213C991CD8AF1C00B8E673 /* img_sidebar_black.png */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
 		8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD91CC4D30F001BE270 /* ViewController.m */; };
@@ -45,6 +46,7 @@
 		1B213C951CD8994500B8E673 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
 		1B213C961CD8994500B8E673 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 		1B213C981CD8A81300B8E673 /* DebugPrint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DebugPrint.h; sourceTree = "<group>"; };
+		1B213C991CD8AF1C00B8E673 /* img_sidebar_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_sidebar_black.png; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B852BD31CC4D30F001BE270 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B852BD51CC4D30F001BE270 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		8B8D067A1CC4D44D003EAC28 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1B213C991CD8AF1C00B8E673 /* img_sidebar_black.png */,
 				8BFEBE0B1CC706A500DDB4BE /* icon_upload_blue.png */,
 				8BFEBE041CC6F80100DDB4BE /* icon_circle_blue.png */,
 				8BFEBE051CC6F80100DDB4BE /* img_sidebar_blue.png */,
@@ -276,6 +279,7 @@
 				8BFEBE061CC6F80100DDB4BE /* icon_circle_blue.png in Resources */,
 				8BF1E34D1CC4DE5E009DC8F2 /* icon_lead.png in Resources */,
 				8BF1E3651CC609DC009DC8F2 /* icon_arrow.png in Resources */,
+				1B213C9A1CD8AF1C00B8E673 /* img_sidebar_black.png in Resources */,
 				8BF1E3661CC609DC009DC8F2 /* icon_Back.png in Resources */,
 				8BF1E3671CC609DC009DC8F2 /* img_option.png in Resources */,
 				8B852BE21CC4D30F001BE270 /* Assets.xcassets in Resources */,

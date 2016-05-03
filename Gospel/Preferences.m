@@ -93,6 +93,9 @@ NSString * const VVVThemeName = @"VVThemeName";
 	switch (self.currentTheme) {
 		case ThemeBlue:	sideBarImage = @"img_sidebar_blue.png";
 			break;
+		case ThemeNightView:	sideBarImage = @"img_sidebar_black.png";
+			break;
+
 		default:
 			break;
 	}
