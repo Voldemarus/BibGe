@@ -34,7 +34,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = true;
     [self drawDefault];
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = false;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,7 +63,7 @@
 }
 
 - (IBAction)processClickSetting:(id)sender {
-    [self performSegueWithIdentifier:@"goSetting" sender:nil];
+    //[self performSegueWithIdentifier:@"goSetting" sender:nil];
 }
 
 #pragma mark - tableView Delegate
