@@ -35,7 +35,7 @@ NSString * const VVVThemeName = @"VVThemeName";
 
 @implementation Preferences
 
-+ (Preferences *) sharedPreferences
++ (Preferences *) sharedInstance
 {
 	static Preferences *_Preferences;
 	if (_Preferences == nil) {
