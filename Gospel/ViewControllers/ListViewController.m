@@ -79,7 +79,11 @@
 	
 	cell.imgCircle.image = prefs.themeCircle;
 	
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	cell.backgroundColor = prefs.themeCellBackgroundColor;
+	cell.txtTitle.textColor = prefs.themeTextColor;
+	cell.detailTextLabel.textColor = prefs.themeDetailColor;
+	
     return cell;
 }
 

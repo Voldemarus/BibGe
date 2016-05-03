@@ -37,6 +37,9 @@ extern NSString * const VVVthemeChanged;		// theme is changed
 @property (nonatomic, readonly) UIImage *themeUploadButton;
 @property (nonatomic, readonly) UIColor *themeTintColor;
 @property (nonatomic, readonly) UIColor *themeTextColor;
+@property (nonatomic, readonly) UIColor *themeDetailColor;
+@property (nonatomic, readonly) UIColor *themeCellBackgroundColor;
+
 
 - (void) selectNextTheme;
 

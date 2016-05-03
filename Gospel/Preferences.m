@@ -21,7 +21,10 @@
 
 #define RED_COLOR [UIColor colorWithRed:214.0/255.0 green:64.0/255.0 blue:79.0/255.0 alpha:1.0]
 #define BLACK_COLOR [UIColor blackColor]
+#define DEFAULT_CELL_COLOR [UIColor whiteColor]
 #define BLUE_COLOR [UIColor colorWithRed:19.0/255.0 green:141.0/255.0 blue:255.0/255.0 alpha:1.0]
+#define DARK_BLUE_COLOR [UIColor colorWithRed:19.0/255.0 green:141.0/255.0 blue:255.0/255.0 alpha:0.75]
+#define LOW_WHITE_COLOR [UIColor colorWithRed:119.0/255.0 green:119.0/255.0 blue:119.0/255.0 alpha:1.0]
 
 
 
@@ -132,23 +135,31 @@ NSString * const VVVThemeName = @"VVThemeName";
 	return [UIImage imageNamed:image];
 }
 
+- (UIColor *) themeCellBackgroundColor
+{
+	switch (self.currentTheme) {
+		case ThemeNightView: return BLACK_COLOR;
+		default: return DEFAULT_CELL_COLOR;
+	}
+}
+
 - (UIColor *) themeTextColor
 {
 	switch (self.currentTheme) {
 		case ThemeBlue: return BLUE_COLOR;
-			
+		case ThemeNightView: return LOW_WHITE_COLOR;
 		default: return RED_COLOR;
 	}
 }
 
 
-- (UIColor *) themeTintColor
+- (UIColor *) themeDetailColor
 {
 	switch (self.currentTheme) {
-		case ThemeBlue: return BLUE_COLOR;
+		case ThemeBlue: return DARK_BLUE_COLOR;
 		case ThemeNightView: return BLACK_COLOR;
 		default:
-			return RED_COLOR;
+			return [UIColor lightGrayColor];
 	}
 }
 
