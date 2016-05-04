@@ -53,16 +53,16 @@
 - (void)drawDefault
 {
 	m_imgSidebar.image = prefs.themeSideBar;
-    
-    
-    
+	
     [tvList reloadData];
 }
 
 - (IBAction)processClickTheme:(id)sender
 {
-	[prefs selectNextTheme];
-	[self drawDefault];
+	if (!self.tuneController) {
+		self.tuneController = [[ThemeTuneViewController alloc] init];
+	}
+	[self presentViewController:self.tuneController animated:YES completion:nil];
 }
 
 - (IBAction)processClickSetting:(id)sender {

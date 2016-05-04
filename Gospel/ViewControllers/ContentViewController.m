@@ -38,19 +38,19 @@
      setTitleTextAttributes:@{NSForegroundColorAttributeName : prefs.themeTintColor}];
     self.navigationController.navigationBar.translucent = NO;
     
-    self.view.backgroundColor = prefs.themeNavBarBackgroundColor;
-    
-    [titleUnderlineLabel setTextColor:prefs.themeTintColor];
-    
-    
-    uv1.backgroundColor = prefs.themeBackgroundColor;
-    contentTextView.backgroundColor = prefs.themeBackgroundColor;
-    
-    [contentTextView setTextColor:prefs.themeTextColor];
-    [titleLabel setTextColor:prefs.themeTextColor];
-    
+	contentTextView.layoutManager.delegate = self;
 
 }
+
+
+#pragma mark - Layout manager delegate
+
+- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager lineSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect
+{
+	return prefs.lineHeight;
+}
+
+#pragma mark -
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -61,8 +61,20 @@
 {
     [super viewWillAppear:YES];
 	
+	self.view.backgroundColor = prefs.themeNavBarBackgroundColor;
 	
-    
+	[titleUnderlineLabel setTextColor:prefs.themeTintColor];
+	
+	uv1.backgroundColor = prefs.themeBackgroundColor;
+	contentTextView.backgroundColor = prefs.themeBackgroundColor;
+	
+	[contentTextView setTextColor:prefs.themeTextColor];
+	[titleLabel setTextColor:prefs.themeTextColor];
+	
+	titleLabel.font = [UIFont systemFontOfSize:(prefs.fontSize+4)];
+	contentTextView.font = [UIFont systemFontOfSize:prefs.fontSize];
+	
+	
     [self clickTab:1];
 }
 

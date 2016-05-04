@@ -41,6 +41,9 @@ NSString * const VVVthemeChanged = @"VVVthemeChanged";
 NSString * const VVVThemeName		=	@"VVThemeName";
 NSString * const VVVtrackReading	=	@"VVVTrackReading";
 NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
+NSString * const VVVnightTheme		=	@"VVVnightTheme";
+NSString * const VVVfontSize		=	@"VVVfontSize";
+NSString * const VVVlineHeight		=	@"VVVlineHeight";
 
 @implementation Preferences
 
@@ -61,8 +64,11 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 	NSMutableDictionary  *defaultValues = [NSMutableDictionary dictionary];
 	// set up default parameters
 	[defaultValues setObject:@(ThemeDefault) forKey:VVVThemeName];
+	[defaultValues setObject:@(NO) forKey:VVVnightTheme];
 	[defaultValues setObject:@(NO) forKey:VVVtrackReading];
 	[defaultValues setObject:@(NO) forKey:VVVstoreInCloud];
+	[defaultValues setObject:@(16.0) forKey:VVVfontSize];
+	[defaultValues setObject:@(ThemeLineHeightNormal) forKey:VVVlineHeight];
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults: defaultValues];
 	
@@ -95,10 +101,15 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 	[prefs setInteger:currentTheme forKey:VVVThemeName];
 }
 
+- (ThemeStyle) actualTheme
+{
+	return 	(self.nightThemeSelected ? ThemeNightView : self.currentTheme);
+}
+
 - (UIImage *) themeSideBar
 {
 	NSString *sideBarImage = @"img_sidebar.png";
-	switch (self.currentTheme) {
+	switch ([self actualTheme]) {
 		case ThemeBlue:	sideBarImage = @"img_sidebar_blue.png";
 			break;
 		case ThemeNightView:	sideBarImage = @"img_sidebar_black.png";
@@ -110,22 +121,11 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 	return [UIImage imageNamed:sideBarImage];
 }
 
-- (UIImage *) themeCircle
-{
-	NSString *themeCircleImage = @"icon_circle_red.png";
-	switch (self.currentTheme) {
-		case ThemeBlue: themeCircleImage = @"icon_circle_blue.png";
-			break;
-		default: themeCircleImage = @"icon_circle_red.png";
-			break;
-	}
-	return [UIImage imageNamed:themeCircleImage];
-}
 
 - (UIImage *) themeBackButton
 {
 	NSString *image = @"icon_Back_red.png";
-	switch (self.currentTheme) {
+	switch ([self actualTheme]) {
 		case ThemeBlue: image = @"icon_Back.png";
 			break;
 		default: image = @"icon_Back_red.png";
@@ -137,7 +137,7 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 - (UIImage *) themeUploadButton
 {
 	NSString *image = @"icon_upload_red.png";
-	switch (self.currentTheme) {
+	switch ([self actualTheme]) {
 		case ThemeBlue: image = @"icon_upload_blue.png";
 			break;
 		default: image = @"icon_upload_red.png";
@@ -148,7 +148,7 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 
 - (UIColor *) themeCellBackgroundColor
 {
-	switch (self.currentTheme) {
+	switch ([self actualTheme]) {
 		case ThemeNightView: return BLACK_COLOR;
 		default: return DEFAULT_CELL_COLOR;
 	}
@@ -156,7 +156,7 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 
 - (UIColor *) themeBackgroundColor
 {
-    switch (self.currentTheme) {
+    switch ([self actualTheme]) {
         case ThemeNightView: return DARK_BACKGROUND_COLOR;
         default: return LIGHT_BACKGROUND_COLOR;
     }
@@ -164,7 +164,7 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 
 - (UIColor *) themeNavBarBackgroundColor
 {
-    switch (self.currentTheme) {
+    switch ([self actualTheme]) {
         case ThemeNightView: return DARK_NAVBAR_COLOR;
         default: return LIGHT_NAVBAR_COLOR;
     }
@@ -173,7 +173,7 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 
 - (UIColor *) themeTextColor
 {
-	switch (self.currentTheme) {
+	switch ([self actualTheme]) {
 		case ThemeBlue: return BLACK_COLOR;
 		case ThemeNightView: return LOW_WHITE_COLOR;
 		default: return BLACK_COLOR;
@@ -182,7 +182,7 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 
 - (UIColor *) themeTintColor
 {
-    switch (self.currentTheme) {
+    switch ([self actualTheme]) {
         case ThemeBlue: return BLUE_COLOR;
         case ThemeNightView: return BLACK_COLOR;
         default: return  RED_COLOR;
@@ -191,7 +191,7 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 
 - (UIColor *) themeDetailColor
 {
-	switch (self.currentTheme) {
+	switch ([self actualTheme]) {
 		case ThemeBlue: return DARK_BLUE_COLOR;
 		case ThemeNightView: return BLACK_COLOR;
 		default:
@@ -201,7 +201,7 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 
 - (UIColor *)themeProgressBorder
 {
-	switch(self.currentTheme) {
+	switch([self actualTheme]) {
 		case ThemeDefault:	return RED_COLOR;
 		case ThemeNightView: return [UIColor whiteColor];
 		case ThemeBlue: return BLUE_COLOR;
@@ -210,7 +210,7 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 
 - (UIColor *) themeProgressBackgroundColor
 {
-	switch (self.currentTheme) {
+	switch ([self actualTheme]) {
 		case ThemeNightView:	return BLACK_COLOR;
 		default:	return [UIColor whiteColor];
 	}
@@ -218,24 +218,51 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 
 - (UIColor *) themeProgressFiller
 {
-	switch(self.currentTheme) {
+	switch([self actualTheme]) {
 		case ThemeDefault:		return RED_COLOR;
 		case ThemeBlue:			return BLUE_COLOR;
 		case ThemeNightView:	return [UIColor whiteColor];
 	}
 }
 
-#pragma mark -
-
-- (void) selectNextTheme
+- (NSArray *) themeColorsArray
 {
-	if (self.currentTheme == ThemeNightView) {
-		self.currentTheme = ThemeDefault;
-	} else {
-		self.currentTheme++;
-	}
-	[[NSNotificationCenter defaultCenter] postNotificationName:VVVthemeChanged object:nil];
+	return @[
+			 RED_COLOR,
+			 BLUE_COLOR,
+			 ];
 }
+
+- (BOOL) nightThemeSelected
+{
+	return [prefs boolForKey:VVVnightTheme];
+}
+
+- (void) setNightThemeSelected:(BOOL)nightThemeSelected
+{
+	[prefs setBool:nightThemeSelected forKey:VVVnightTheme];
+}
+
+- (CGFloat) fontSize
+{
+	return [prefs doubleForKey:VVVfontSize];
+}
+
+- (void) setFontSize:(CGFloat)fontSize
+{
+	[prefs setDouble:fontSize forKey:VVVfontSize];
+}
+
+- (ThemeLineHeight) lineHeight
+{
+	return [prefs integerForKey:VVVlineHeight];
+}
+
+- (void) setLineHeight:(ThemeLineHeight)lineHeight
+{
+	[prefs setInteger:lineHeight forKey:VVVlineHeight];
+}
+
 
 #pragma mark -
 

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThemeTuneViewController">
+            <connections>
+                <outlet property="DayNightCell" destination="u1f-Sn-H5E" id="ILx-se-FEK"/>
+                <outlet property="backButton" destination="goC-hH-Fs0" id="bK0-Rp-Umd"/>
+                <outlet property="dayButton" destination="yf9-tr-fN4" id="fdj-s5-ak8"/>
+                <outlet property="exampleSeparator" destination="q1O-D7-4FN" id="QmM-lK-bhw"/>
+                <outlet property="exampleText" destination="TWk-eX-E1A" id="EVK-dh-hMF"/>
+                <outlet property="exampleTitle" destination="xd7-IH-kcR" id="oHd-1S-2OP"/>
+                <outlet property="fontSizwSelectionCell" destination="VnY-J8-opi" id="OHX-cd-A6y"/>
+                <outlet property="fontSlider" destination="qKe-U3-bpu" id="gSg-n2-GDg"/>
+                <outlet property="heightDenseButton" destination="NHQ-rZ-6Dw" id="TEr-3O-DNj"/>
+                <outlet property="heightLooseButton" destination="HSp-Nm-10e" id="Fl8-zu-9YR"/>
+                <outlet property="heightNormalButton" destination="ejb-Wi-1XM" id="xWb-bH-373"/>
+                <outlet property="lineHeightCell" destination="vTW-ew-NN3" id="Urm-iJ-1aT"/>
+                <outlet property="maxFontIcon" destination="6TC-1o-2EJ" id="ycZ-oh-qOI"/>
+                <outlet property="minFontIcon" destination="8rQ-do-7dY" id="h1E-ni-Jpn"/>
+                <outlet property="navigationBar" destination="Ih0-dg-Knt" id="f5f-vj-Od1"/>
+                <outlet property="nightButton" destination="lhJ-n1-rcl" id="Anv-f9-elH"/>
+                <outlet property="panelTable" destination="Co7-9J-oJ6" id="BEd-xH-V6x"/>
+                <outlet property="themeSelectionCell" destination="3LN-Qv-ecT" id="JBJ-Cf-CQ9"/>
+                <outlet property="themeSelector" destination="ctn-Jm-9aP" id="KL6-uK-OHF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWk-eX-E1A">
+                    <rect key="frame" x="57" y="179" width="500" height="222"/>
+                    <mutableString key="text">ქვეყანაზე არსებულ წიგნებს შორის ყველაზე ჭეშმარიტი და სასარგებლო წმინდა ბიბლიაა. სიტყვა ბიბლია ბერძნულია და „წიგნებს" ნიშნავს. რატომაა ბიბლია ერთი წიგნი, ხოლო ჰქვია „წიგნები"? იმიტომ, რომ ბიბლიაში სინამდვილეში არა ერთი ან ორი, არამედ რამდენიმე წიგნია თავმოყრილი, ისინი ერთ წიგნადაა შეკრებილი და ჰქვია წმ.
+
+ბიბლია ან წმინდა წიგნი. წმინდა იმიტომ ეწოდებათ, რომ ისინი დაწერილია სულიწმიდის შთაგონებით, წმიდა ადამიანების მიერ.
+
+ვინ და როდის დაწერა ბიბლია? ის დაიწერა სხვადასხვა ადამიანების მიერ სხვადასხვა დროს. ერთი ნაწილი წიგნებისა დაწერილია ქრისტეს შობამდე და მათ ეწოდებათ „ძველი აღთქმის" წიგნები.</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="წმინდა ბიბლიის შესახებ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xd7-IH-kcR">
+                    <rect key="frame" x="106" y="105" width="362" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_______________" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1O-D7-4FN">
+                    <rect key="frame" x="233" y="137" width="109" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="109" id="98J-nz-oA0"/>
+                        <constraint firstAttribute="height" constant="21" id="DS2-Z1-dMU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ih0-dg-Knt">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <items>
+                        <navigationItem id="zb0-jp-32m">
+                            <barButtonItem key="leftBarButtonItem" systemItem="done" id="goC-hH-Fs0">
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="-1" id="vpd-0I-srj"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="4" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Co7-9J-oJ6">
+                    <rect key="frame" x="20" y="409" width="560" height="191"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="191" id="56Y-Eh-ohI"/>
+                    </constraints>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Co7-9J-oJ6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="3qe-dM-gcl"/>
+                <constraint firstItem="q1O-D7-4FN" firstAttribute="top" secondItem="TWk-eX-E1A" secondAttribute="top" constant="-42" id="4dg-wT-f7I"/>
+                <constraint firstItem="TWk-eX-E1A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Ipd-XT-AvZ"/>
+                <constraint firstItem="q1O-D7-4FN" firstAttribute="centerX" secondItem="xd7-IH-kcR" secondAttribute="centerX" id="TQ4-U8-kvS"/>
+                <constraint firstAttribute="trailing" secondItem="TWk-eX-E1A" secondAttribute="trailing" constant="30" id="Tsk-Pd-B0I"/>
+                <constraint firstItem="xd7-IH-kcR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-13" id="VnE-Ga-78X"/>
+                <constraint firstItem="Co7-9J-oJ6" firstAttribute="top" secondItem="TWk-eX-E1A" secondAttribute="bottom" constant="8" symbolic="YES" id="bew-0w-lPP"/>
+                <constraint firstAttribute="trailing" secondItem="Co7-9J-oJ6" secondAttribute="trailing" constant="20" symbolic="YES" id="iCn-Me-qPe"/>
+                <constraint firstItem="xd7-IH-kcR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="105" id="ooq-Wq-lkF"/>
+                <constraint firstAttribute="bottom" secondItem="Co7-9J-oJ6" secondAttribute="bottom" id="pyk-bb-MHb"/>
+                <constraint firstItem="q1O-D7-4FN" firstAttribute="top" secondItem="xd7-IH-kcR" secondAttribute="top" constant="32" id="saE-gC-NJX"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+        </view>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="u1f-Sn-H5E">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u1f-Sn-H5E" id="AeU-rh-3GN">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yf9-tr-fN4">
+                        <rect key="frame" x="29" y="7" width="88" height="30"/>
+                        <state key="normal" title="Day"/>
+                        <connections>
+                            <action selector="dayButtonTapped:" destination="-1" eventType="touchUpInside" id="6O1-NQ-iag"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhJ-n1-rcl">
+                        <rect key="frame" x="195" y="7" width="88" height="30"/>
+                        <state key="normal" title="Night"/>
+                        <connections>
+                            <action selector="nightButtonTapped:" destination="-1" eventType="touchUpInside" id="Nuv-C9-PGW"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="297" y="846"/>
+        </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3LN-Qv-ecT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3LN-Qv-ecT" id="n14-53-NSv">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ctn-Jm-9aP" customClass="CircleButtonMatrix">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="297" y="955"/>
+        </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VnY-J8-opi">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VnY-J8-opi" id="dYN-g8-IVY">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8rQ-do-7dY">
+                        <rect key="frame" x="8" y="8" width="36" height="27"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6TC-1o-2EJ">
+                        <rect key="frame" x="268" y="8" width="36" height="27"/>
+                    </imageView>
+                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="14" minValue="10" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="qKe-U3-bpu">
+                        <rect key="frame" x="58" y="7" width="204" height="31"/>
+                        <connections>
+                            <action selector="fontSliderChanged:" destination="-1" eventType="valueChanged" id="zGb-gM-Gge"/>
+                        </connections>
+                    </slider>
+                </subviews>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="297" y="1048"/>
+        </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vTW-ew-NN3">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vTW-ew-NN3" id="j9j-at-nb0">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHQ-rZ-6Dw">
+                        <rect key="frame" x="10" y="6" width="81" height="30"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="heightDenseButtonTapped:" destination="-1" eventType="touchUpInside" id="RDR-PU-6Z1"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejb-Wi-1XM">
+                        <rect key="frame" x="108" y="7" width="104" height="30"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="heightNormalButtonTapped:" destination="-1" eventType="touchUpInside" id="CDe-uA-X0b"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSp-Nm-10e">
+                        <rect key="frame" x="224" y="7" width="88" height="30"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="heightLooseButtonTapped:" destination="-1" eventType="touchUpInside" id="Tf2-M3-8tk"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="680" y="1007"/>
+        </tableViewCell>
+    </objects>
+</document>

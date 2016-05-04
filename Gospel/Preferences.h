@@ -20,6 +20,13 @@ typedef NS_ENUM(NSInteger, ThemeStyle) {
 };
 
 
+typedef NS_ENUM(NSInteger, ThemeLineHeight) {
+	ThemeLineHeightSmall = 10,
+	ThemeLineHeightNormal = 15,
+	ThemeLineHeightBig = 20,
+};
+
+
 // Notifications
 
 extern NSString * const VVVthemeChanged;		// theme is changed
@@ -34,8 +41,9 @@ extern NSString * const VVVthemeChanged;		// theme is changed
 
 // Theme support
 @property (nonatomic, readwrite) ThemeStyle currentTheme;
+@property (nonatomic, readwrite) BOOL nightThemeSelected;
+
 @property (nonatomic, readonly) UIImage *themeSideBar;
-@property (nonatomic, readonly) UIImage *themeCircle;
 @property (nonatomic, readonly) UIImage *themeBackButton;
 @property (nonatomic, readonly) UIImage *themeUploadButton;
 @property (nonatomic, readonly) UIColor *themeTintColor;
@@ -44,21 +52,19 @@ extern NSString * const VVVthemeChanged;		// theme is changed
 @property (nonatomic, readonly) UIColor *themeCellBackgroundColor;
 @property (nonatomic, readonly) UIColor *themeBackgroundColor;
 @property (nonatomic, readonly) UIColor *themeNavBarBackgroundColor;
+@property (nonatomic, readonly) NSArray *themeColorsArray;	// colors for day themes indicaors
 
+@property (nonatomic, readwrite) CGFloat fontSize;
+@property (nonatomic, readwrite) ThemeLineHeight lineHeight;
 
 // definitions for progrescircle view
 @property (nonatomic, readonly) UIColor *themeProgressBorder;
 @property (nonatomic, readonly) UIColor *themeProgressFiller;
 @property (nonatomic, readonly) UIColor *themeProgressBackgroundColor;
 
-
 // user settings
 
 @property (nonatomic, readwrite) BOOL trackReading;
 @property (nonatomic, readwrite) BOOL storeInCloud;
-
-
-- (void) selectNextTheme;
-
 
 @end

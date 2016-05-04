@@ -13,6 +13,9 @@
 		1B213CA11CD8EF5B00B8E673 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B213CA01CD8EF5B00B8E673 /* MessageUI.framework */; };
 		1B213CA61CD8F06A00B8E673 /* SDiPhoneVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213CA51CD8F06A00B8E673 /* SDiPhoneVersion.m */; };
 		1B213CA81CD8F25E00B8E673 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B213CA71CD8F25E00B8E673 /* Localizable.strings */; };
+		1B213CAC1CD9D54500B8E673 /* CircleIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213CAB1CD9D54500B8E673 /* CircleIndicator.m */; };
+		1B213CB01CDA0DCB00B8E673 /* ThemeTuneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213CAE1CDA0DCB00B8E673 /* ThemeTuneViewController.m */; };
+		1B213CB11CDA0DCB00B8E673 /* ThemeTuneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B213CAF1CDA0DCB00B8E673 /* ThemeTuneViewController.xib */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
 		8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD91CC4D30F001BE270 /* ViewController.m */; };
@@ -57,6 +60,11 @@
 		1B213CA41CD8F06A00B8E673 /* SDiPhoneVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDiPhoneVersion.h; sourceTree = "<group>"; };
 		1B213CA51CD8F06A00B8E673 /* SDiPhoneVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDiPhoneVersion.m; sourceTree = "<group>"; };
 		1B213CA71CD8F25E00B8E673 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		1B213CAA1CD9D54500B8E673 /* CircleIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleIndicator.h; sourceTree = "<group>"; };
+		1B213CAB1CD9D54500B8E673 /* CircleIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleIndicator.m; sourceTree = "<group>"; };
+		1B213CAD1CDA0DCB00B8E673 /* ThemeTuneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeTuneViewController.h; sourceTree = "<group>"; };
+		1B213CAE1CDA0DCB00B8E673 /* ThemeTuneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeTuneViewController.m; sourceTree = "<group>"; };
+		1B213CAF1CDA0DCB00B8E673 /* ThemeTuneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeTuneViewController.xib; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B852BD31CC4D30F001BE270 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B852BD51CC4D30F001BE270 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -154,6 +162,18 @@
 			name = SDIPhone;
 			sourceTree = "<group>";
 		};
+		1B213CA91CD9C51200B8E673 /* ThemeTuning */ = {
+			isa = PBXGroup;
+			children = (
+				1B213CAA1CD9D54500B8E673 /* CircleIndicator.h */,
+				1B213CAB1CD9D54500B8E673 /* CircleIndicator.m */,
+				1B213CAD1CDA0DCB00B8E673 /* ThemeTuneViewController.h */,
+				1B213CAE1CDA0DCB00B8E673 /* ThemeTuneViewController.m */,
+				1B213CAF1CDA0DCB00B8E673 /* ThemeTuneViewController.xib */,
+			);
+			name = ThemeTuning;
+			sourceTree = "<group>";
+		};
 		8B852BC61CC4D30F001BE270 = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +260,7 @@
 		8B8D067B1CC4D44D003EAC28 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1B213CA91CD9C51200B8E673 /* ThemeTuning */,
 				1B213C9B1CD8C86000B8E673 /* ProgressCircle */,
 				8BF1E3571CC5FFDB009DC8F2 /* ListViewController.h */,
 				8BF1E3581CC5FFDB009DC8F2 /* ListViewController.m */,
@@ -332,6 +353,7 @@
 				1B213C9A1CD8AF1C00B8E673 /* img_sidebar_black.png in Resources */,
 				8BF1E3661CC609DC009DC8F2 /* icon_Back.png in Resources */,
 				8BF1E3671CC609DC009DC8F2 /* img_option.png in Resources */,
+				1B213CB11CDA0DCB00B8E673 /* ThemeTuneViewController.xib in Resources */,
 				8B852BE21CC4D30F001BE270 /* Assets.xcassets in Resources */,
 				8BF1E3551CC5FE02009DC8F2 /* img_detail.png in Resources */,
 				8B852BDD1CC4D30F001BE270 /* Main.storyboard in Resources */,
@@ -352,6 +374,8 @@
 				8B852BE01CC4D30F001BE270 /* Gospel.xcdatamodeld in Sources */,
 				8BFEBE0A1CC703F100DDB4BE /* ContentViewController.m in Sources */,
 				1B213C9E1CD8C88800B8E673 /* ProgressCircleView.m in Sources */,
+				1B213CB01CDA0DCB00B8E673 /* ThemeTuneViewController.m in Sources */,
+				1B213CAC1CD9D54500B8E673 /* CircleIndicator.m in Sources */,
 				8BF1E35C1CC60028009DC8F2 /* ListTableViewCell.m in Sources */,
 				8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */,
 				8B852BD41CC4D30F001BE270 /* main.m in Sources */,

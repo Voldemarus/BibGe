@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ThemeTuneViewController.h"
 
 @interface ListViewController : UIViewController
+
+@property (nonatomic, retain) ThemeTuneViewController *tuneController;
 
 @end
