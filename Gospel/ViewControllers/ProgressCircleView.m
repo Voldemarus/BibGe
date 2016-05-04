@@ -9,6 +9,8 @@
 #import "ProgressCircleView.h"
 #import "DebugPrint.h"
 
+#define BORDER_OFFSET	3
+
 @implementation ProgressCircleView
 
 @synthesize progressValue = _progressValue;;
@@ -28,6 +30,12 @@
 {
 	Preferences *prefs = [Preferences sharedInstance];
 	CGContextRef context = UIGraphicsGetCurrentContext();
+	// make drawing zone more compact to remove distortion
+	CGRect inRect;
+	inRect.origin.x = rect.origin.x + BORDER_OFFSET;
+	inRect.origin.y = rect.origin.y + BORDER_OFFSET;
+	inRect.size.width = rect.size.width - BORDER_OFFSET*2;
+	inRect.size.height = rect.size.height - BORDER_OFFSET*2;
 	// set border color
 	UIColor *foreColor = prefs.themeProgressBorder;
 	CGFloat red, green, blue, alpha;
@@ -38,7 +46,7 @@
 	CGContextSetRGBFillColor(context, red, green, blue, alpha);
 	// draw circle border
 	CGContextSetLineWidth(context, 1.0);
-	CGContextStrokeEllipseInRect(context, rect);
+	CGContextStrokeEllipseInRect(context, inRect);
 
 	// and fill it if progress is defined
 	if (_progressValue > 0.05) {
@@ -46,7 +54,7 @@
 		CGFloat angle = - M_PI_2 + (M_PI * 2 * _progressValue);
 		CGContextMoveToPoint(context, center, center);
 		CGContextAddArc(context, center, center,
-						center,
+						center-BORDER_OFFSET,
 						-M_PI_2, angle , 0);
 		CGContextClosePath(context);
 	}
