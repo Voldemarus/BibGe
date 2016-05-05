@@ -21,15 +21,31 @@
 
 #define RED_COLOR [UIColor colorWithRed:214.0/255.0 green:64.0/255.0 blue:79.0/255.0 alpha:1.0]
 #define BLACK_COLOR [UIColor blackColor]
-#define DEFAULT_CELL_COLOR [UIColor whiteColor]
 #define BLUE_COLOR [UIColor colorWithRed:19.0/255.0 green:141.0/255.0 blue:255.0/255.0 alpha:1.0]
+#define YELLOW_COLOR [UIColor colorWithRed:255.0/255.0 green:172.0/255.0 blue:74.0/255.0 alpha:1.0]
+#define GRAY_COLOR [UIColor colorWithRed:177.0/255.0 green:177.0/255.0 blue:177.0/255.0 alpha:1.0]
+
+#define DEFAULT_CELL_COLOR [UIColor whiteColor]
 #define DARK_BLUE_COLOR [UIColor colorWithRed:19.0/255.0 green:141.0/255.0 blue:255.0/255.0 alpha:0.75]
+#define DARK_YELLOW_COLOR [UIColor colorWithRed:153.0/255.0 green:102.0/255.0 blue:51.0/255.0 alpha:0.75]
+#define DARK_GRAY_COLOR [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:0.75]
 #define LOW_WHITE_COLOR [UIColor colorWithRed:119.0/255.0 green:119.0/255.0 blue:119.0/255.0 alpha:1.0]
+
 #define DARK_BACKGROUND_COLOR [UIColor colorWithRed:35.0/255.0 green:36.0/255.0 blue:38.0/255.0 alpha:1.0]
 #define LIGHT_BACKGROUND_COLOR [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0]
+
 #define DARK_NAVBAR_COLOR [UIColor colorWithRed:31.0/255.0 green:32.0/255.0 blue:34.0/255.0 alpha:1.0]
 #define LIGHT_NAVBAR_COLOR [UIColor colorWithRed:242.0/255.0 green:242.0/255.0 blue:242.0/255.0 alpha:1.0]
 
+
+/*
+    To add new designcolor:
+
+    1. add color and detail color as defined constants
+    2. add color to (NSArray *)themeColorsArray method
+    3. add colorTheme name to preferences.h enum list
+    4. add color to switches in this file
+*/
 
 
 // Notifications
@@ -175,6 +191,7 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 {
 	switch ([self actualTheme]) {
 		case ThemeBlue: return BLACK_COLOR;
+        case ThemeYellow: return BLACK_COLOR;
 		case ThemeNightView: return LOW_WHITE_COLOR;
 		default: return BLACK_COLOR;
 	}
@@ -183,17 +200,21 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 - (UIColor *) themeTintColor
 {
     switch ([self actualTheme]) {
-        case ThemeBlue: return BLUE_COLOR;
-        case ThemeNightView: return BLACK_COLOR;
-        default: return  RED_COLOR;
+        case ThemeBlue:         return BLUE_COLOR;
+        case ThemeYellow:       return YELLOW_COLOR;
+        case ThemeGray:         return GRAY_COLOR;
+        case ThemeNightView:    return BLACK_COLOR;
+        default:                return RED_COLOR;
     }
 }
 
 - (UIColor *) themeDetailColor
 {
 	switch ([self actualTheme]) {
-		case ThemeBlue: return DARK_BLUE_COLOR;
-		case ThemeNightView: return BLACK_COLOR;
+		case ThemeBlue:         return DARK_BLUE_COLOR;
+        case ThemeYellow:       return DARK_YELLOW_COLOR;
+		case ThemeNightView:    return BLACK_COLOR;
+        case ThemeGray:         return DARK_GRAY_COLOR;
 		default:
 			return [UIColor lightGrayColor];
 	}
@@ -202,9 +223,11 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 - (UIColor *)themeProgressBorder
 {
 	switch([self actualTheme]) {
-		case ThemeDefault:	return RED_COLOR;
-		case ThemeNightView: return [UIColor whiteColor];
-		case ThemeBlue: return BLUE_COLOR;
+		case ThemeDefault:      return RED_COLOR;
+		case ThemeNightView:    return [UIColor whiteColor];
+		case ThemeBlue:         return BLUE_COLOR;
+        case ThemeGray:         return GRAY_COLOR;
+        case ThemeYellow:       return YELLOW_COLOR;
 	}
 }
 
@@ -212,7 +235,7 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 {
 	switch ([self actualTheme]) {
 		case ThemeNightView:	return BLACK_COLOR;
-		default:	return [UIColor whiteColor];
+		default:                return [UIColor whiteColor];
 	}
 }
 
@@ -221,6 +244,8 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 	switch([self actualTheme]) {
 		case ThemeDefault:		return RED_COLOR;
 		case ThemeBlue:			return BLUE_COLOR;
+        case ThemeYellow:       return YELLOW_COLOR;
+        case ThemeGray:         return GRAY_COLOR;
 		case ThemeNightView:	return [UIColor whiteColor];
 	}
 }
@@ -228,8 +253,11 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 - (NSArray *) themeColorsArray
 {
 	return @[
+             BLACK_COLOR,
+             GRAY_COLOR,
+             YELLOW_COLOR,
+             BLUE_COLOR,
 			 RED_COLOR,
-			 BLUE_COLOR,
 			 ];
 }
 

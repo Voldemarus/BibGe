@@ -30,6 +30,16 @@
     prefs = [Preferences sharedInstance];
 
     
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:14.0f]};
+    // NSString class method: boundingRectWithSize:options:attributes:context is
+    // available only on ios7.0 sdk.
+    CGRect rect = [self.titleLabel.text boundingRectWithSize:CGSizeMake(self.view.frame.size.width, MAXFLOAT)
+                                                       options:NSStringDrawingUsesLineFragmentOrigin
+                                                    attributes:attributes
+                                                       context:nil];
+    self.titleLabel.frame = rect;
+    [self.view updateConstraints];
+    
     [[UINavigationBar appearance]  setTintColor:prefs.themeTintColor];
 
     self.navigationController.navigationBar.barTintColor = prefs.themeNavBarBackgroundColor;
