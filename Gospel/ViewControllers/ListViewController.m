@@ -62,7 +62,9 @@
 	if (!self.tuneController) {
 		self.tuneController = [[ThemeTuneViewController alloc] init];
 	}
-	[self presentViewController:self.tuneController animated:YES completion:nil];
+    
+    [self.navigationController pushViewController:self.tuneController animated:YES];
+	//[self presentViewController:self.tuneController animated:YES completion:nil];
 }
 
 - (IBAction)processClickSetting:(id)sender {

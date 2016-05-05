@@ -16,7 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 - (IBAction)backButtonTapped:(id)sender;
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 @property (weak, nonatomic) IBOutlet UILabel *exampleSeparator;
 @property (weak, nonatomic) IBOutlet UILabel *exampleTitle;
