@@ -81,8 +81,8 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 	// set up default parameters
 	[defaultValues setObject:@(ThemeDefault) forKey:VVVThemeName];
 	[defaultValues setObject:@(NO) forKey:VVVnightTheme];
-	[defaultValues setObject:@(NO) forKey:VVVtrackReading];
-	[defaultValues setObject:@(NO) forKey:VVVstoreInCloud];
+	[defaultValues setObject:@(YES) forKey:VVVtrackReading];
+	[defaultValues setObject:@(YES) forKey:VVVstoreInCloud];
 	[defaultValues setObject:@(16.0) forKey:VVVfontSize];
 	[defaultValues setObject:@(ThemeLineHeightNormal) forKey:VVVlineHeight];
 	
