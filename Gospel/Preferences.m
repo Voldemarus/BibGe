@@ -81,8 +81,8 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 	// set up default parameters
 	[defaultValues setObject:@(ThemeDefault) forKey:VVVThemeName];
 	[defaultValues setObject:@(NO) forKey:VVVnightTheme];
-	[defaultValues setObject:@(NO) forKey:VVVtrackReading];
-	[defaultValues setObject:@(NO) forKey:VVVstoreInCloud];
+	[defaultValues setObject:@(YES) forKey:VVVtrackReading];
+	[defaultValues setObject:@(YES) forKey:VVVstoreInCloud];
 	[defaultValues setObject:@(16.0) forKey:VVVfontSize];
 	[defaultValues setObject:@(ThemeLineHeightNormal) forKey:VVVlineHeight];
 	
@@ -130,7 +130,8 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 			break;
 		case ThemeNightView:	sideBarImage = @"img_sidebar_black.png";
 			break;
-
+		case ThemeYellow:		sideBarImage = @"img_sidebar_orange.jpg"; break;
+		case ThemeGray:			sideBarImage = @"img_sidebar_grey.jpg"; break;
 		default: sideBarImage = @"img_sidebar.png";
 			break;
 	}
@@ -253,11 +254,10 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 - (NSArray *) themeColorsArray
 {
 	return @[
-             BLACK_COLOR,
+             RED_COLOR,
              GRAY_COLOR,
              YELLOW_COLOR,
-             BLUE_COLOR,
-			 RED_COLOR,
+			 BLUE_COLOR,			// NihtView theme is not included here! 
 			 ];
 }
 

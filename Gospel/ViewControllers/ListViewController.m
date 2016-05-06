@@ -98,7 +98,9 @@
     cell.progressCircle.progressValue = (indexPath.row % 10) / 10.0;
     cell.progressCircle.color = prefs.themeProgressFiller;
     
-	cell.txtDetail.text = [NSString stringWithFormat:@"%.2f", cell.progressCircle.progressValue];
+	cell.txtDetail.text = [NSString stringWithFormat:@"%.2f\t11 იანვარი", cell.progressCircle.progressValue];
+    [cell.txtTitle setText:@"წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ!"];
+
     return cell;
 }
 

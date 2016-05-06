@@ -14,11 +14,11 @@
 
 // Theme list enumerator
 typedef NS_ENUM(NSInteger, ThemeStyle) {
-	ThemeNightView,
-    ThemeGray,
+	ThemeDefault,
+	ThemeGray,
     ThemeYellow,
     ThemeBlue,
-    ThemeDefault,
+	ThemeNightView,		// always last theme! not included into pa;ette!
 };
 
 

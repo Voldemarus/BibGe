@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContentViewController : UIViewController <NSLayoutManagerDelegate>
+@interface ContentViewController : UIViewController <NSLayoutManagerDelegate, UIDocumentInteractionControllerDelegate>
 
 
+- (IBAction)openShareActivirtform:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView *uv1;
 
@@ -22,5 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *tab1;
 @property (weak, nonatomic) IBOutlet UIButton *tab2;
 @property (weak, nonatomic) IBOutlet UIButton *tab3;
+
+// Share controller
+@property(nonatomic,retain) UIDocumentInteractionController *documentationInteractionController;
+
 
 @end

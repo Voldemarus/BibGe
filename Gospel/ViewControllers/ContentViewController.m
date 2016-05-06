@@ -8,6 +8,7 @@
 
 #import "ContentViewController.h"
 #import "Preferences.h"
+#import "AppDelegate.h"
 
 @interface ContentViewController ()
 {
@@ -126,14 +127,61 @@
     }
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - 
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)openShareActivirtform:(id)sender
+{
+	CGRect rect = CGRectMake(0 ,0 , 0, 0);
+	if (!_documentationInteractionController) {
+		_documentationInteractionController = [[UIDocumentInteractionController alloc] init];
+	}
+	// Create temporary text file to share
+	AppDelegate *d = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	NSURL *documentDirectory = d.applicationDocumentsDirectory;
+	NSURL *sharedFile = [documentDirectory URLByAppendingPathComponent:@"fileToExport.txt"];
+
+	NSError *error;
+	BOOL ok = [self.contentTextView.text writeToURL:sharedFile atomically:YES
+						encoding:NSUnicodeStringEncoding error:&error];
+	if (!ok) {
+		// an error occurred
+		NSLog(@"Error writing file at %@\n%@",
+			  sharedFile, [error localizedFailureReason]);
+		// implementation continues ...
+		return;
+	}
+	self.documentationInteractionController.delegate = self;
+	self.documentationInteractionController.UTI = nil;
+	self.documentationInteractionController = [self setupControllerWithURL:sharedFile usingDelegate:self];
+	[self.documentationInteractionController presentOpenInMenuFromRect:rect  inView:self.view animated: YES ];
+
 }
-*/
+
+
+
+- (UIDocumentInteractionController *) setupControllerWithURL: (NSURL*) fileURL
+											   usingDelegate: (id ) interactionDelegate
+{
+	self.documentationInteractionController = [UIDocumentInteractionController interactionControllerWithURL: fileURL];
+	self.documentationInteractionController.delegate = interactionDelegate;
+	return self.documentationInteractionController;
+}
+
+
+- (void)documentInteractionController:(UIDocumentInteractionController *)controller
+		willBeginSendingToApplication:(NSString *)application
+{
+	//[self informUser:RStr(@"Video is exporting...")];
+	//[self showSaveProgress];
+}
+
+
+#pragma mark -
+
+- (void)documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)controller
+{
+
+}
+
 
 @end
