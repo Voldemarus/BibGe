@@ -19,23 +19,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="GECross.png" translatesAutoresizingMaskIntoConstraints="NO" id="1XL-79-3SE">
-                                <rect key="frame" x="168" y="51" width="240" height="289"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="launchtext.png" translatesAutoresizingMaskIntoConstraints="NO" id="xYh-gX-j16">
                                 <rect key="frame" x="63" y="433" width="474" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xYh-gX-j16" secondAttribute="height" multiplier="237:64" id="gkb-O2-aa8"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iTunesArtwork.png" translatesAutoresizingMaskIntoConstraints="NO" id="1XL-79-3SE">
+                                <rect key="frame" x="177" y="58" width="234" height="234"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1XL-79-3SE" secondAttribute="height" multiplier="1:1" id="Nxg-33-cjb"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.90751541244400136" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="xYh-gX-j16" secondAttribute="trailing" constant="43" id="0UA-GV-O3I"/>
                             <constraint firstItem="1XL-79-3SE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="IRW-o9-hVh"/>
+                            <constraint firstItem="1XL-79-3SE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="30" id="ch3-Iy-LGg"/>
                             <constraint firstItem="xYh-gX-j16" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hcz-gl-9sk"/>
                             <constraint firstItem="xYh-gX-j16" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="43" id="ovx-a3-6SD"/>
                             <constraint firstItem="1XL-79-3SE" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="31" id="qRZ-Vd-xQ6"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="1XL-79-3SE" secondAttribute="trailing" constant="30" id="ujq-s4-QE3"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -45,7 +50,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GECross.png" width="310" height="307"/>
+        <image name="iTunesArtwork.png" width="512" height="512"/>
         <image name="launchtext.png" width="816" height="141"/>
     </resources>
 </document>
