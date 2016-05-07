@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContentViewController : UIViewController <NSLayoutManagerDelegate, UIDocumentInteractionControllerDelegate>
+@interface ContentViewController : UIViewController <NSLayoutManagerDelegate >
 
 
 - (IBAction)openShareActivirtform:(id)sender;
