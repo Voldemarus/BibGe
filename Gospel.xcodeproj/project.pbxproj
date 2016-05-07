@@ -26,6 +26,9 @@
 		1B466C461CDC782200564BC0 /* img_sidebar_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B466C3D1CDC782200564BC0 /* img_sidebar_blue.png */; };
 		1B466C471CDC782200564BC0 /* img_sidebar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B466C3E1CDC782200564BC0 /* img_sidebar.png */; };
 		1B466C581CDD0C9E00564BC0 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B466C571CDD0C9E00564BC0 /* iTunesArtwork.png */; };
+		1B466C5B1CDE28F000564BC0 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5A1CDE28F000564BC0 /* DAO.m */; };
+		1B466C601CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */; };
+		1B466C611CDE2A9700564BC0 /* Paragraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5F1CDE2A9700564BC0 /* Paragraph.m */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
 		8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD91CC4D30F001BE270 /* ViewController.m */; };
@@ -88,6 +91,12 @@
 		1B466C3D1CDC782200564BC0 /* img_sidebar_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_sidebar_blue.png; sourceTree = "<group>"; };
 		1B466C3E1CDC782200564BC0 /* img_sidebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_sidebar.png; sourceTree = "<group>"; };
 		1B466C571CDD0C9E00564BC0 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		1B466C591CDE28F000564BC0 /* DAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
+		1B466C5A1CDE28F000564BC0 /* DAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAO.m; sourceTree = "<group>"; };
+		1B466C5C1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Paragraph+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Paragraph+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1B466C5E1CDE2A9700564BC0 /* Paragraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paragraph.h; sourceTree = "<group>"; };
+		1B466C5F1CDE2A9700564BC0 /* Paragraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paragraph.m; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B852BD31CC4D30F001BE270 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B852BD51CC4D30F001BE270 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -167,6 +176,12 @@
 			isa = PBXGroup;
 			children = (
 				8B852BDE1CC4D30F001BE270 /* Gospel.xcdatamodeld */,
+				1B466C5C1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.h */,
+				1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */,
+				1B466C5E1CDE2A9700564BC0 /* Paragraph.h */,
+				1B466C5F1CDE2A9700564BC0 /* Paragraph.m */,
+				1B466C591CDE28F000564BC0 /* DAO.h */,
+				1B466C5A1CDE28F000564BC0 /* DAO.m */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -441,10 +456,13 @@
 				AED53AD01CD8BEDC0043A1EB /* SettingsTableViewController.m in Sources */,
 				8B852BE01CC4D30F001BE270 /* Gospel.xcdatamodeld in Sources */,
 				8BFEBE0A1CC703F100DDB4BE /* ContentViewController.m in Sources */,
+				1B466C601CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m in Sources */,
+				1B466C5B1CDE28F000564BC0 /* DAO.m in Sources */,
 				1B213C9E1CD8C88800B8E673 /* ProgressCircleView.m in Sources */,
 				1B213CB01CDA0DCB00B8E673 /* ThemeTuneViewController.m in Sources */,
 				1B213CAC1CD9D54500B8E673 /* CircleIndicator.m in Sources */,
 				8BF1E35C1CC60028009DC8F2 /* ListTableViewCell.m in Sources */,
+				1B466C611CDE2A9700564BC0 /* Paragraph.m in Sources */,
 				8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */,
 				8B852BD41CC4D30F001BE270 /* main.m in Sources */,
 				1B213C971CD8994500B8E673 /* Preferences.m in Sources */,
