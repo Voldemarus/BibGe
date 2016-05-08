@@ -7,22 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Dao.h"
+#import "Paragraph.h"
 
-@interface ContentViewController : UIViewController <NSLayoutManagerDelegate >
+
+@interface ContentViewController : UIViewController <NSLayoutManagerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 
 - (IBAction)openShareActivirtform:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIView *uv1;
-
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UITextView *contentTextView;
-@property (weak, nonatomic) IBOutlet UIImageView *titleUnderlineImageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleUnderlineLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *tab1;
 @property (weak, nonatomic) IBOutlet UIButton *tab2;
 @property (weak, nonatomic) IBOutlet UIButton *tab3;
+
+@property (strong, nonatomic) Paragraph *par;
 
 // Share controller
 @property(nonatomic,retain) UIDocumentInteractionController *documentationInteractionController;

@@ -9,37 +9,35 @@
 #import "ContentViewController.h"
 #import "Preferences.h"
 #import "AppDelegate.h"
+#import "Dao.h"
 
 @interface ContentViewController ()
 {
 	Preferences *prefs;
+    NSFetchedResultsController *fetchController;
+
 }
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end
 
 @implementation ContentViewController
 
-@synthesize uv1, tab1, tab2, tab3;
-@synthesize contentTextView, titleLabel, titleUnderlineImageView, titleUnderlineLabel;
+@synthesize tab1, tab2, tab3;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    prefs = [Preferences sharedInstance];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 
     
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:14.0f]};
-    // NSString class method: boundingRectWithSize:options:attributes:context is
-    // available only on ios7.0 sdk.
-    CGRect rect = [self.titleLabel.text boundingRectWithSize:CGSizeMake(self.view.frame.size.width, MAXFLOAT)
-                                                       options:NSStringDrawingUsesLineFragmentOrigin
-                                                    attributes:attributes
-                                                       context:nil];
-    self.titleLabel.frame = rect;
-    [self.view updateConstraints];
+    prefs = [Preferences sharedInstance];
+    fetchController =[[DAO sharedInstance] fetchedController];
+
     
     [[UINavigationBar appearance]  setTintColor:prefs.themeTintColor];
 
@@ -49,8 +47,87 @@
      setTitleTextAttributes:@{NSForegroundColorAttributeName : prefs.themeTintColor}];
     self.navigationController.navigationBar.translucent = NO;
     
-	contentTextView.layoutManager.delegate = self;
 
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    if (indexPath.row == 0)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell" forIndexPath:indexPath];
+        UILabel *titleLabel = (UILabel*)[cell viewWithTag:101];
+        
+        [titleLabel setFont:[UIFont systemFontOfSize:prefs.fontSize + 4.0f]];
+        [titleLabel setText:self.par.title];
+    }
+    if (indexPath.row == 1)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"UnderlineCell" forIndexPath:indexPath];
+        UILabel *underlineLabel = (UILabel*)[cell viewWithTag:201];
+        
+        [underlineLabel setTextColor:prefs.themeTintColor];
+
+    }
+    if (indexPath.row == 2)
+    {
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCell" forIndexPath:indexPath];
+        UILabel *contentLabel = (UILabel*)[cell viewWithTag:301];
+        
+        //article text
+        NSString *text = self.par.text;
+        
+        [contentLabel setFont:[UIFont systemFontOfSize:prefs.fontSize]];
+        [contentLabel setText:text];
+    }
+
+
+    return cell;
+}
+
+-(CGFloat)tableView: (UITableView*)tableView heightForRowAtIndexPath: (NSIndexPath*) indexPath
+{
+    if (indexPath.row == 0)
+    {
+        NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:prefs.fontSize + 4.0f]};
+        CGRect rect = [self.par.title boundingRectWithSize:CGSizeMake(self.view.frame.size.width, MAXFLOAT)
+                                                         options:NSStringDrawingUsesLineFragmentOrigin
+                                                      attributes:attributes
+                                                         context:nil];
+        return rect.size.height + 50;
+    }
+    if (indexPath.row == 1)
+    {
+        return 44;
+    }
+    if (indexPath.row == 2)
+    {
+        // article text
+        NSString *text = self.par.text;
+        
+        NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:prefs.fontSize]};
+        // NSString class method: boundingRectWithSize:options:attributes:context is
+        // available only on ios7.0 sdk.
+        CGRect rect = [text boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width, MAXFLOAT)
+                                                      options:NSStringDrawingUsesLineFragmentOrigin
+                                                   attributes:attributes
+                                                      context:nil];
+        //contentLabel.frame = rect;
+        //cell.frame = rect;
+        
+        return rect.size.height;
+    }
+    return 44;
 }
 
 
@@ -74,17 +151,17 @@
 	
 	self.view.backgroundColor = prefs.themeNavBarBackgroundColor;
 	
-	[titleUnderlineLabel setTextColor:prefs.themeTintColor];
-	
-	uv1.backgroundColor = prefs.themeBackgroundColor;
-	contentTextView.backgroundColor = prefs.themeBackgroundColor;
-	
-	[contentTextView setTextColor:prefs.themeTextColor];
-	[titleLabel setTextColor:prefs.themeTextColor];
-	
-	titleLabel.font = [UIFont systemFontOfSize:(prefs.fontSize+4)];
-	contentTextView.font = [UIFont systemFontOfSize:prefs.fontSize];
-	
+//	[titleUnderlineLabel setTextColor:prefs.themeTintColor];
+//	
+//	uv1.backgroundColor = prefs.themeBackgroundColor;
+//	contentTextView.backgroundColor = prefs.themeBackgroundColor;
+//	
+//	[contentTextView setTextColor:prefs.themeTextColor];
+//	[titleLabel setTextColor:prefs.themeTextColor];
+//	
+//	titleLabel.font = [UIFont systemFontOfSize:(prefs.fontSize+4)];
+//	contentTextView.font = [UIFont systemFontOfSize:prefs.fontSize];
+//	
 	
     [self clickTab:1];
 }
@@ -108,7 +185,7 @@
 
 - (void)clickTab:(int)index
 {
-    uv1.hidden = YES;
+    //uv1.hidden = YES;
 
     
     [tab1 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
@@ -116,7 +193,7 @@
     [tab3 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
     
     if (index == 1) {
-        uv1.hidden = NO;
+        //uv1.hidden = NO;
         [tab1 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }
     else if (index ==2) {
@@ -131,25 +208,25 @@
 
 - (IBAction)openShareActivirtform:(id)sender
 {
-	NSString *textToShare = self.titleLabel.text;
-	// TMP - while database is not created
-	NSURL *myWebsite = [NSURL URLWithString:@"http://armada.cardarmy.ru"];
- 
-	NSArray *objectsToShare = @[textToShare, myWebsite];
- 
-	UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
- 
-	NSArray *excludeActivities = @[UIActivityTypeAirDrop,
-								   UIActivityTypePrint,
-								   UIActivityTypeAssignToContact,
-								   UIActivityTypeSaveToCameraRoll,
-								   UIActivityTypeAddToReadingList,
-								   UIActivityTypePostToFlickr,
-								   UIActivityTypePostToVimeo];
- 
-	activityVC.excludedActivityTypes = excludeActivities;
- 
-	 [self presentViewController:activityVC animated:YES completion:nil];
+//	NSString *textToShare = self.titleLabel.text;
+//	// TMP - while database is not created
+//	NSURL *myWebsite = [NSURL URLWithString:@"http://armada.cardarmy.ru"];
+// 
+//	NSArray *objectsToShare = @[textToShare, myWebsite];
+// 
+//	UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+// 
+//	NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+//								   UIActivityTypePrint,
+//								   UIActivityTypeAssignToContact,
+//								   UIActivityTypeSaveToCameraRoll,
+//								   UIActivityTypeAddToReadingList,
+//								   UIActivityTypePostToFlickr,
+//								   UIActivityTypePostToVimeo];
+// 
+//	activityVC.excludedActivityTypes = excludeActivities;
+// 
+//	 [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 

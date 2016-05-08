@@ -10,6 +10,7 @@
 #import "ListTableViewCell.h"
 #import "Preferences.h"
 #import "Dao.h"
+#import "ContentViewController.h"
 
 @interface ListViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -106,8 +107,6 @@
 	cell.progressCircle.progressValue = par.viewed.floatValue; // (indexPath.row % 10) / 10.0;
     cell.progressCircle.color = prefs.themeProgressFiller;
 	
-	// cell.txtDetail.text = [NSString stringWithFormat:@"%.2f\t11 იანვარი", cell.progressCircle.progressValue];
-//    [cell.txtTitle setText:@"წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ!"];
 	static NSDateFormatter *df = nil;
 	if (!df) {
 		df = [[NSDateFormatter alloc] init];
@@ -123,19 +122,29 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"goShow" sender:nil];
+    [self performSegueWithIdentifier:@"showDetail" sender:nil];
 }
 
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showDetail"])
+    {
+        ContentViewController *cvc = [segue destinationViewController];
+        //NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSLog(@"indexpath: %@", indexPath);
+        Paragraph *par = [[fetchController fetchedObjects] objectAtIndex:indexPath.row];
+
+        [cvc setPar:par];
+    }
+    
 }
-*/
+
 
 @end

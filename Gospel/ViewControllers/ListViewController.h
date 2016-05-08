@@ -12,5 +12,6 @@
 @interface ListViewController : UIViewController
 
 @property (nonatomic, retain) ThemeTuneViewController *tuneController;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
