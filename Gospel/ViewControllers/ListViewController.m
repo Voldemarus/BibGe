@@ -142,6 +142,7 @@
         Paragraph *par = [[fetchController fetchedObjects] objectAtIndex:indexPath.row];
 
         [cvc setPar:par];
+        [cvc setIndexPath:indexPath];
     }
     
 }

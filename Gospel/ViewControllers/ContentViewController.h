@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *tab3;
 
 @property (strong, nonatomic) Paragraph *par;
+@property (copy, nonatomic) NSIndexPath *indexPath;
 
 // Share controller
 @property(nonatomic,retain) UIDocumentInteractionController *documentationInteractionController;

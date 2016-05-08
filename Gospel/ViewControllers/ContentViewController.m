@@ -47,6 +47,7 @@
      setTitleTextAttributes:@{NSForegroundColorAttributeName : prefs.themeTintColor}];
     self.navigationController.navigationBar.translucent = NO;
     
+    self.navigationController.title = self.par.title;
 
 }
 
@@ -151,19 +152,7 @@
 	
 	self.view.backgroundColor = prefs.themeNavBarBackgroundColor;
 	
-//	[titleUnderlineLabel setTextColor:prefs.themeTintColor];
-//	
-//	uv1.backgroundColor = prefs.themeBackgroundColor;
-//	contentTextView.backgroundColor = prefs.themeBackgroundColor;
-//	
-//	[contentTextView setTextColor:prefs.themeTextColor];
-//	[titleLabel setTextColor:prefs.themeTextColor];
-//	
-//	titleLabel.font = [UIFont systemFontOfSize:(prefs.fontSize+4)];
-//	contentTextView.font = [UIFont systemFontOfSize:prefs.fontSize];
-//	
-	
-    [self clickTab:1];
+    [self clickTab:2];
 }
 
 
@@ -185,22 +174,28 @@
 
 - (void)clickTab:(int)index
 {
-    //uv1.hidden = YES;
-
-    
     [tab1 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
     [tab2 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
     [tab3 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
     
     if (index == 1) {
-        //uv1.hidden = NO;
+        // TODO: add check for out of range
+
         [tab1 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        self.par = [[fetchController fetchedObjects] objectAtIndex:self.indexPath.row + 1];
+        [self.tableView reloadData];
     }
     else if (index ==2) {
         [tab2 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        self.par = [[fetchController fetchedObjects] objectAtIndex:self.indexPath.row];
+        [self.tableView reloadData];
     }
     else {
+        // TODO: add check for out of range
+        
         [tab3 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        self.par = [[fetchController fetchedObjects] objectAtIndex:self.indexPath.row - 1];
+        [self.tableView reloadData];
     }
 }
 
@@ -208,25 +203,25 @@
 
 - (IBAction)openShareActivirtform:(id)sender
 {
-//	NSString *textToShare = self.titleLabel.text;
-//	// TMP - while database is not created
-//	NSURL *myWebsite = [NSURL URLWithString:@"http://armada.cardarmy.ru"];
-// 
-//	NSArray *objectsToShare = @[textToShare, myWebsite];
-// 
-//	UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
-// 
-//	NSArray *excludeActivities = @[UIActivityTypeAirDrop,
-//								   UIActivityTypePrint,
-//								   UIActivityTypeAssignToContact,
-//								   UIActivityTypeSaveToCameraRoll,
-//								   UIActivityTypeAddToReadingList,
-//								   UIActivityTypePostToFlickr,
-//								   UIActivityTypePostToVimeo];
-// 
-//	activityVC.excludedActivityTypes = excludeActivities;
-// 
-//	 [self presentViewController:activityVC animated:YES completion:nil];
+	NSString *textToShare = self.par.title;
+	// TMP - while database is not created
+	NSURL *myWebsite = [NSURL URLWithString:self.par.link];
+ 
+	NSArray *objectsToShare = @[textToShare, myWebsite];
+ 
+	UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+ 
+	NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+								   UIActivityTypePrint,
+								   UIActivityTypeAssignToContact,
+								   UIActivityTypeSaveToCameraRoll,
+								   UIActivityTypeAddToReadingList,
+								   UIActivityTypePostToFlickr,
+								   UIActivityTypePostToVimeo];
+ 
+	activityVC.excludedActivityTypes = excludeActivities;
+ 
+	 [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 
