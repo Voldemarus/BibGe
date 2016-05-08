@@ -9,11 +9,13 @@
 #import "ListViewController.h"
 #import "ListTableViewCell.h"
 #import "Preferences.h"
+#import "Dao.h"
 
 @interface ListViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
 	Preferences *prefs;
     BOOL bTheme;
+	NSFetchedResultsController *fetchController;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *m_imgSidebar;
@@ -28,6 +30,7 @@
     [super viewDidLoad];
 	
 	prefs = [Preferences sharedInstance];
+	fetchController =[[DAO sharedInstance] fetchedController];
  
 }
 
@@ -80,7 +83,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 30;
+    return fetchController.fetchedObjects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,12 +98,26 @@
 	cell.txtTitle.textColor = prefs.themeTextColor;
 	cell.detailTextLabel.textColor = prefs.themeDetailColor;
 	
-    cell.progressCircle.progressValue = (indexPath.row % 10) / 10.0;
+	Paragraph *par = [[fetchController fetchedObjects] objectAtIndex:indexPath.row];
+	// Numeration from the oldest record
+	NSInteger counter = [fetchController fetchedObjects].count - indexPath.row;
+	
+	// show percent of viewed text
+	cell.progressCircle.progressValue = par.viewed.floatValue; // (indexPath.row % 10) / 10.0;
     cell.progressCircle.color = prefs.themeProgressFiller;
-    
-	cell.txtDetail.text = [NSString stringWithFormat:@"%.2f\t11 იანვარი", cell.progressCircle.progressValue];
-    [cell.txtTitle setText:@"წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ!"];
-
+	
+	// cell.txtDetail.text = [NSString stringWithFormat:@"%.2f\t11 იანვარი", cell.progressCircle.progressValue];
+//    [cell.txtTitle setText:@"წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ!"];
+	static NSDateFormatter *df = nil;
+	if (!df) {
+		df = [[NSDateFormatter alloc] init];
+		[df setDateFormat:@"dd MMM YYYY"];
+	}
+	NSString *curFormattedDate = [df stringFromDate:par.dateCreated];
+	
+	cell.txtDetail.text = [NSString stringWithFormat:@"%@   %ld", curFormattedDate, (long)counter];
+	cell.txtTitle.text = par.title;
+	
     return cell;
 }
 

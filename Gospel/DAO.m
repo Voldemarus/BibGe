@@ -7,6 +7,7 @@
 //
 
 #import "DAO.h"
+#import "DebugPrint.h"
 
 @interface DAO ()
 
@@ -121,9 +122,11 @@
 	comps.day = 1;
 	comps.month = 3;
 	if (count == 0) {
+		NSCalendar *cal = [NSCalendar currentCalendar];
 		for (NSInteger i = 0; i < 30; i++) {
-			NSDate *newDate = [comps date];
-			NSString *title = [NSString stringWithFormat: @"Article #%ld",(long)i];
+			NSDate *newDate = [cal dateFromComponents:comps];
+			comps.day++;
+			NSString *title = [NSString stringWithFormat: @"Article #%ld - წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ!",(long)i];
 			NSMutableString *newStr = [[NSMutableString alloc] initWithCapacity:30];
 			for (NSInteger j = 0; j < 40; j++) {
 				NSString *t = [NSString stringWithFormat:@"Record #%ld line %ld\n",(long)i,(long)j];
@@ -133,7 +136,6 @@
 			
 			Paragraph *newRec = [Paragraph newObjectForParagraphTitle:title date:newDate linl:link andText:newStr inMoc:self.managedObjectContext];
 #pragma unused (newRec)
-			
 		}
 	}
 	[self.managedObjectContext save:nil];
@@ -142,7 +144,21 @@
 
 - (NSFetchedResultsController *) fetchedController
 {
-	return nil;
+	NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"Paragraph"];
+	req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"dateCreated" ascending:NO]];
+	NSFetchedResultsController *rc =
+							[[NSFetchedResultsController alloc] initWithFetchRequest:req
+										managedObjectContext:self.managedObjectContext
+										 sectionNameKeyPath:nil cacheName:nil];
+	if (rc) {
+		NSError *error = nil;
+		[rc performFetch:&error];
+		if (error) {
+			DLog(@"Error during fetch - %@ --> %@", req, [error localizedDescription]);
+			return nil;
+		}
+	}
+	return rc;
 }
 
 
