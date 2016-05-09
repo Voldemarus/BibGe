@@ -20,6 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *title;
 @property (nullable, nonatomic, retain) NSNumber *viewed;
 @property (nullable, nonatomic, retain) NSString *link;
+@property (nullable, nonatomic, retain) NSString *translation1;
+@property (nullable, nonatomic, retain) NSString *translation2;
+@property (nullable, nonatomic, retain) NSString *translation3;
+
+
 
 @end
 

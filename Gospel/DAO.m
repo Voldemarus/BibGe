@@ -128,13 +128,31 @@
 			comps.day++;
 			NSString *title = [NSString stringWithFormat: @"Article #%ld - წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ!",(long)i];
 			NSMutableString *newStr = [[NSMutableString alloc] initWithCapacity:30];
+			NSMutableString *tr1 = [[NSMutableString alloc] initWithCapacity:20];
+			NSMutableString *tr2 = [[NSMutableString alloc] initWithCapacity:20];
+			NSMutableString *tr3 = [[NSMutableString alloc] initWithCapacity:20];
+			
 			for (NSInteger j = 0; j < 40; j++) {
 				NSString *t = [NSString stringWithFormat:@"Record #%ld line %ld\n",(long)i,(long)j];
 				[newStr appendString:t];
+				t = [NSString stringWithFormat:@"Translation %ld/1 line %ld\n",
+					 (long) i, (long) j];
+				[tr1 appendString:t];
+				t = [NSString stringWithFormat:@"Translation %ld/2 line %ld\n",
+					 (long) i, (long) j];
+				[tr2 appendString:t];
+				t = [NSString stringWithFormat:@"Translation %ld/3 line %ld\n",
+					 (long) i, (long) j];
+				[tr3 appendString:t];
+
+				
 			}
 			NSString *link = (i %2 ? @"http://armada.cardarmy.ru" : @"http://geomatix.sweb.cz");
 			
 			Paragraph *newRec = [Paragraph newObjectForParagraphTitle:title date:newDate linl:link andText:newStr inMoc:self.managedObjectContext];
+			newRec.translation1 = tr1;
+			newRec.translation2 = tr2;
+			newRec.translation3 = tr3;
 #pragma unused (newRec)
 		}
 	}

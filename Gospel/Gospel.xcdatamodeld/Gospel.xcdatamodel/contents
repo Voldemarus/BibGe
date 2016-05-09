@@ -5,9 +5,12 @@
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="translation1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="translation2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="translation3" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="viewed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Paragraph" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Paragraph" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>

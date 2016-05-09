@@ -18,5 +18,5 @@
 @dynamic title;
 @dynamic viewed;
 @dynamic link;
-
+@dynamic translation1, translation2, translation3;
 @end

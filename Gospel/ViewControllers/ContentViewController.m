@@ -10,6 +10,7 @@
 #import "Preferences.h"
 #import "AppDelegate.h"
 #import "Dao.h"
+#import "DebugPrint.h"
 
 @interface ContentViewController ()
 {
@@ -34,7 +35,10 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 
-    
+	[tab1 setTitle:RStr(@"Old Testament") forState:UIControlStateNormal];
+	[tab2 setTitle:RStr(@"New Testament") forState:UIControlStateNormal];
+	[tab3 setTitle:RStr(@"Psalm") forState:UIControlStateNormal];
+	
     prefs = [Preferences sharedInstance];
     fetchController =[[DAO sharedInstance] fetchedController];
 
