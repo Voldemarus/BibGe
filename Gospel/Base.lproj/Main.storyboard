@@ -273,6 +273,7 @@
                                 </state>
                                 <connections>
                                     <action selector="processClickTab1:" destination="7ya-oR-ced" eventType="touchUpInside" id="VtY-Za-o73"/>
+                                    <segue destination="6lq-42-PFg" kind="push" identifier="showComment1" id="Zwd-59-F2Q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pca-zi-vGZ">
@@ -284,6 +285,7 @@
                                 </state>
                                 <connections>
                                     <action selector="processClickTab3:" destination="7ya-oR-ced" eventType="touchUpInside" id="HcE-Ec-fCb"/>
+                                    <segue destination="6lq-42-PFg" kind="push" identifier="showComment2" id="1Yh-CC-AZh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkk-AG-SKB">
@@ -298,6 +300,7 @@
                                 </state>
                                 <connections>
                                     <action selector="processClickTab2:" destination="7ya-oR-ced" eventType="touchUpInside" id="iNX-7d-CTS"/>
+                                    <segue destination="6lq-42-PFg" kind="push" identifier="showComment3" id="Fo4-9w-XhK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -335,7 +338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32L-AS-uv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-289.5" y="253.5"/>
+            <point key="canvasLocation" x="-274.5" y="210.5"/>
         </scene>
         <!--Show Comments View Controller-->
         <scene sceneID="TDJ-oL-1LZ">
@@ -346,7 +349,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0Xs-jY-Fpf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pFx-AS-AiJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TKN-lW-fV7">
@@ -541,5 +544,8 @@
         <image name="icon_theme.png" width="45" height="63"/>
         <image name="img_sidebar.png" width="93" height="1334"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fo4-9w-XhK"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.85882352939999995" green="0.25098039220000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>

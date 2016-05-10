@@ -199,7 +199,6 @@
 {
 	prefs.selectedParagraph = self.par;
 	prefs.commentKind = index;
-	[self performSegueWithIdentifier:@"showCommentsController" sender:nil];
 }
 
 #pragma mark - 
