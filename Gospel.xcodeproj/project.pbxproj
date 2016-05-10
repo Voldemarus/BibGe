@@ -29,6 +29,7 @@
 		1B466C5B1CDE28F000564BC0 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5A1CDE28F000564BC0 /* DAO.m */; };
 		1B466C601CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */; };
 		1B466C611CDE2A9700564BC0 /* Paragraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5F1CDE2A9700564BC0 /* Paragraph.m */; };
+		1BDD4BB41CE1D14E00DC0694 /* ShowCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
 		8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD91CC4D30F001BE270 /* ViewController.m */; };
@@ -97,6 +98,8 @@
 		1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Paragraph+CoreDataProperties.m"; sourceTree = "<group>"; };
 		1B466C5E1CDE2A9700564BC0 /* Paragraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paragraph.h; sourceTree = "<group>"; };
 		1B466C5F1CDE2A9700564BC0 /* Paragraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paragraph.m; sourceTree = "<group>"; };
+		1BDD4BB21CE1D14E00DC0694 /* ShowCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowCommentsViewController.h; sourceTree = "<group>"; };
+		1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCommentsViewController.m; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B852BD31CC4D30F001BE270 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B852BD51CC4D30F001BE270 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 				8BFEBE091CC703F100DDB4BE /* ContentViewController.m */,
 				AED53ACE1CD8BEDC0043A1EB /* SettingsTableViewController.h */,
 				AED53ACF1CD8BEDC0043A1EB /* SettingsTableViewController.m */,
+				1BDD4BB21CE1D14E00DC0694 /* ShowCommentsViewController.h */,
+				1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				1B466C5B1CDE28F000564BC0 /* DAO.m in Sources */,
 				1B213C9E1CD8C88800B8E673 /* ProgressCircleView.m in Sources */,
 				1B213CB01CDA0DCB00B8E673 /* ThemeTuneViewController.m in Sources */,
+				1BDD4BB41CE1D14E00DC0694 /* ShowCommentsViewController.m in Sources */,
 				1B213CAC1CD9D54500B8E673 /* CircleIndicator.m in Sources */,
 				8BF1E35C1CC60028009DC8F2 /* ListTableViewCell.m in Sources */,
 				1B466C611CDE2A9700564BC0 /* Paragraph.m in Sources */,

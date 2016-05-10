@@ -156,7 +156,9 @@
 	
 	self.view.backgroundColor = prefs.themeNavBarBackgroundColor;
 	
-    [self clickTab:2];
+	[tab1 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
+	[tab2 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
+	[tab3 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
 }
 
 
@@ -165,42 +167,22 @@
 }
 
 - (IBAction)processClickTab1:(id)sender {
-    [self clickTab:1];
+    [self clickTab:CommentKindOldTestament];
 }
 
 - (IBAction)processClickTab2:(id)sender {
-    [self clickTab:2];
+    [self clickTab:CommentKindNewTestament];
 }
 
 - (IBAction)processClickTab3:(id)sender {
-    [self clickTab:3];
+    [self clickTab:CommentKindPsalm];
 }
 
-- (void)clickTab:(int)index
+- (void)clickTab:(KindOfComment)index
 {
-    [tab1 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
-    [tab2 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
-    [tab3 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
-    
-    if (index == 1) {
-        // TODO: add check for out of range
-
-        [tab1 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        self.par = [[fetchController fetchedObjects] objectAtIndex:self.indexPath.row + 1];
-        [self.tableView reloadData];
-    }
-    else if (index ==2) {
-        [tab2 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        self.par = [[fetchController fetchedObjects] objectAtIndex:self.indexPath.row];
-        [self.tableView reloadData];
-    }
-    else {
-        // TODO: add check for out of range
-        
-        [tab3 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        self.par = [[fetchController fetchedObjects] objectAtIndex:self.indexPath.row - 1];
-        [self.tableView reloadData];
-    }
+	prefs.selectedParagraph = self.par;
+	prefs.commentKind = index;
+	[self performSegueWithIdentifier:@"showCommentsController" sender:nil];
 }
 
 #pragma mark - 

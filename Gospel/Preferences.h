@@ -29,11 +29,19 @@ typedef NS_ENUM(NSInteger, ThemeLineHeight) {
 };
 
 
+typedef  NS_ENUM(NSInteger, KindOfComment) {
+	CommentKindOldTestament = 0,
+	CommentKindNewTestament,
+	CommentKindPsalm,
+};
+
 // Notifications
 
 extern NSString * const VVVthemeChanged;		// theme is changed
 
 
+
+@class Paragraph;
 
 @interface Preferences : NSObject
 
@@ -58,6 +66,13 @@ extern NSString * const VVVthemeChanged;		// theme is changed
 
 @property (nonatomic, readwrite) CGFloat fontSize;
 @property (nonatomic, readwrite) ThemeLineHeight lineHeight;
+
+// Comment settings
+
+@property (nonatomic, retain) Paragraph *selectedParagraph;
+@property (nonatomic, readwrite) KindOfComment commentKind;
+
+
 
 // definitions for progrescircle view
 @property (nonatomic, readonly) UIColor *themeProgressBorder;

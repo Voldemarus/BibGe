@@ -63,6 +63,9 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 
 @implementation Preferences
 
+@synthesize selectedParagraph, commentKind;
+
+
 + (Preferences *) sharedInstance
 {
 	static Preferences *_Preferences;

@@ -337,6 +337,37 @@
             </objects>
             <point key="canvasLocation" x="-289.5" y="253.5"/>
         </scene>
+        <!--Show Comments View Controller-->
+        <scene sceneID="TDJ-oL-1LZ">
+            <objects>
+                <viewController id="6lq-42-PFg" customClass="ShowCommentsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YXc-D5-Kpe"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Xs-jY-Fpf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pFx-AS-AiJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TKN-lW-fV7">
+                                <rect key="frame" x="20" y="34" width="335" height="549"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8ar-OI-rPJ"/>
+                    <connections>
+                        <outlet property="commentTextView" destination="TKN-lW-fV7" id="LjA-c6-8cS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XT5-8I-pLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169.5" y="298.5"/>
+        </scene>
         <!--Table View Controller-->
         <scene sceneID="Jye-cc-2ho">
             <objects>
