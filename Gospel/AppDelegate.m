@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Preferences.h"
+#import "DAO.h"
 
 @interface AppDelegate ()
 
@@ -48,5 +49,9 @@
 	[self saveContext];
 }
 
+- (void) saveContext
+{
+	[[DAO sharedInstance].managedObjectContext save:nil];
+}
 
 @end

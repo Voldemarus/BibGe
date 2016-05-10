@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
 
 #import "Paragraph.h"
 
@@ -16,6 +17,8 @@
 + (instancetype) sharedInstance;
 
 - (NSFetchedResultsController *) fetchedController;
+- (void) resetTrackingIndexes;
+
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

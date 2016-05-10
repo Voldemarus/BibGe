@@ -179,7 +179,19 @@
 	return rc;
 }
 
-
+- (void) resetTrackingIndexes
+{
+	NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"Paragraph"];
+	NSError *error = nil;
+	NSArray *result = [self.managedObjectContext executeFetchRequest:req error:&error];
+	if (!result && error) {
+		return;
+	}
+	for (Paragraph *p in result) {
+		p.viewed = @(0);
+	}
+	[self.managedObjectContext save:nil];
+}
 
 
 @end

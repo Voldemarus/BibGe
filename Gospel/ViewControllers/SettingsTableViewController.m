@@ -10,6 +10,7 @@
 #import "Preferences.h"
 #import "DebugPrint.h"
 #import "SDIPhoneVersion.h"
+#import "DAO.h"
 
 @interface SettingsTableViewController () {
 	Preferences *prefs;
@@ -76,7 +77,7 @@
 		[self composeMail];
 	} else if (indexPath.row == 3) {
 		// reset tracking reading
-		DLog(@"Reset Tracking TODO!!!!!");
+		[[DAO sharedInstance] resetTrackingIndexes];
 	}
 }
 
