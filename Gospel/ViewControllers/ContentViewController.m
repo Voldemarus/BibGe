@@ -141,6 +141,23 @@
 	return prefs.lineHeight;
 }
 
+#pragma mark - UIScrollViewDelegate - 
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView
+{
+	CGFloat maxOffset  = scrollView.contentSize.height - scrollView.frame.size.height;
+	CGFloat currentOffset = scrollView.contentOffset.y;
+	// If  the whole paragraph fits on one page without scroll mark it as read
+	CGFloat delta  = (maxOffset > 0 ? currentOffset / maxOffset : 1.0);
+	
+	CGFloat oldOffset = self.par.viewed.doubleValue;
+	if (delta > oldOffset) {
+		// It is obvious that user doesn't forget reading while track it back
+		self.par.viewed = @(delta);
+	}
+}
+
+
 #pragma mark -
 
 - (void)didReceiveMemoryWarning {

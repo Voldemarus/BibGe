@@ -11,7 +11,7 @@
 #import "Paragraph.h"
 
 
-@interface ContentViewController : UIViewController <NSLayoutManagerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface ContentViewController : UIViewController <NSLayoutManagerDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 
 - (IBAction)openShareActivirtform:(id)sender;
