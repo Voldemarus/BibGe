@@ -85,21 +85,17 @@
 
 - (void) setupLayout
 {
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:self.exampleText.font.fontName
-                                                                      size:(self.fontSlider.value+4.0)]};
+//    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:self.exampleText.font.fontName
+//                                                                      size:(self.fontSlider.value+4.0)]};
 
-    CGRect rect = [self.exampleTitle.text boundingRectWithSize:CGSizeMake(self.view.frame.size.width, MAXFLOAT)
-                                              options:NSStringDrawingUsesLineFragmentOrigin
-                                           attributes:attributes
-                                              context:nil];
-    self.exampleTitle.frame = rect;
+//    CGRect rect = [self.exampleTitle.text boundingRectWithSize:CGSizeMake(self.view.frame.size.width, MAXFLOAT)
+//                                              options:NSStringDrawingUsesLineFragmentOrigin
+//                                           attributes:attributes
+//                                              context:nil];
+//    self.exampleTitle.frame = rect;
     [self.view updateConstraints];
     
-
-    
-    
-    
-    
+	
 	[[UINavigationBar appearance]  setTintColor:prefs.themeTintColor];
 	
 	self.navigationController.navigationBar.barTintColor = prefs.themeNavBarBackgroundColor;
@@ -109,6 +105,7 @@
 	self.navigationController.navigationBar.translucent = NO;
     	
 	self.exampleTitle.textColor = prefs.themeTextColor;
+	self.exampleTitle.textAlignment = NSTextAlignmentCenter;
 	self.exampleText.textColor = prefs.themeTextColor;
 	self.exampleSeparator.textColor = prefs.themeTintColor;
 	

@@ -67,24 +67,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] init];
-    if (indexPath.row == 0)
-    {
+    if (indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell" forIndexPath:indexPath];
         UILabel *titleLabel = (UILabel*)[cell viewWithTag:101];
         
         [titleLabel setFont:[UIFont systemFontOfSize:prefs.fontSize + 4.0f]];
         [titleLabel setText:self.par.title];
+		[titleLabel setTextAlignment:NSTextAlignmentCenter];
     }
-    if (indexPath.row == 1)
-    {
+    if (indexPath.row == 1)  {
         cell = [tableView dequeueReusableCellWithIdentifier:@"UnderlineCell" forIndexPath:indexPath];
         UILabel *underlineLabel = (UILabel*)[cell viewWithTag:201];
         
         [underlineLabel setTextColor:prefs.themeTintColor];
 
     }
-    if (indexPath.row == 2)
-    {
+    if (indexPath.row == 2) {
         
         cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCell" forIndexPath:indexPath];
         UILabel *contentLabel = (UILabel*)[cell viewWithTag:301];
