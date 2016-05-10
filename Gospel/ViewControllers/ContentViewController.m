@@ -84,14 +84,20 @@
     }
     if (indexPath.row == 2) {
         
+        NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString:self.par.text];
+        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+        [style setLineSpacing:prefs.lineHeight];
+        [attrString addAttribute:NSParagraphStyleAttributeName
+                           value:style
+                           range:NSMakeRange(0, attrString.length)];
+        
         cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCell" forIndexPath:indexPath];
         UILabel *contentLabel = (UILabel*)[cell viewWithTag:301];
         
         //article text
-        NSString *text = self.par.text;
-        
+        contentLabel.attributedText = attrString;
+
         [contentLabel setFont:[UIFont systemFontOfSize:prefs.fontSize]];
-        [contentLabel setText:text];
     }
 
 

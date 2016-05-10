@@ -13,13 +13,19 @@
 @interface ThemeTuneViewController : UIViewController <UITableViewDelegate,
 						UITableViewDataSource, CircleButtonMatrixDelegate,
 						NSLayoutManagerDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *exampleTableView;
+@property (strong, nonatomic) IBOutlet UITableViewCell *contentCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *underlineCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *titleCell;
 
+@property (weak, nonatomic) IBOutlet UIView *tshadowColorView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 - (IBAction)backButtonTapped:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *exampleSeparator;
 @property (weak, nonatomic) IBOutlet UILabel *exampleTitle;
-@property (weak, nonatomic) IBOutlet UITextView *exampleText;
+
+@property (weak, nonatomic) IBOutlet UILabel *exampleText;
 @property (weak, nonatomic) IBOutlet UITableView *panelTable;
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *DayNightCell;

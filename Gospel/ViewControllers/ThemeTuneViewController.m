@@ -30,12 +30,17 @@
 	_panelTable.delegate = self;
 	_panelTable.dataSource = self;
 	self.themeSelector.delegate = self;
+    self.exampleTableView.delegate = self;
+    self.exampleTableView.dataSource = self;
 	
-	self.exampleText.layoutManager.delegate = self;
+	//self.exampleText.layoutManager.delegate = self;
 	[self.themeSelector setupLayout];
 	[self setupLayout];
 	
 	self.fontSlider.value = prefs.fontSize;
+
+    self.tshadowColorView.backgroundColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:0.35];
+
 	
 }
 
@@ -46,19 +51,70 @@
 
 #pragma mark - TableView delegate Methods
 
+-(CGFloat)tableView: (UITableView*)tableView heightForRowAtIndexPath: (NSIndexPath*) indexPath
+{
+    if (tableView == self.exampleTableView)
+    {
+        if (indexPath.row == 0)
+        {
+            NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:prefs.fontSize + 4.0f]};
+            CGRect rect = [self.exampleTitle.text boundingRectWithSize:CGSizeMake(self.exampleTableView.frame.size.width, MAXFLOAT)
+                                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                                            attributes:attributes
+                                                               context:nil];
+            return rect.size.height + 50;
+        }
+        if (indexPath.row == 1)
+        {
+            return 44;
+        }
+        if (indexPath.row == 2)
+        {
+            NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:prefs.fontSize]};
+            // NSString class method: boundingRectWithSize:options:attributes:context is
+            // available only on ios7.0 sdk.
+            CGRect rect = [self.exampleText.text boundingRectWithSize:CGSizeMake(self.exampleTableView.frame.size.width, MAXFLOAT)
+                                                              options:NSStringDrawingUsesLineFragmentOrigin
+                                                           attributes:attributes
+                                                              context:nil];
+            //contentLabel.frame = rect;
+            //cell.frame = rect;
+            
+            return rect.size.height;
+        }
+
+    }
+    return 44;
+}
+
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 4;
+    if (tableView == self.exampleTableView)
+        return 3;
+    else
+        return 4;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	switch (indexPath.row) {
-		case 0:	return self.DayNightCell;
-		case 1: return self.themeSelectionCell;
-		case 2: return self.fontSizwSelectionCell;
-		default: return self.lineHeightCell;
-	}
+    if (tableView == self.exampleTableView)
+    {
+        switch (indexPath.row) {
+            case 0:	return self.titleCell;
+            case 1: return self.underlineCell;
+            case 2: return self.contentCell;
+            default: return self.contentCell;
+        }
+    }
+    else
+    {
+        switch (indexPath.row) {
+            case 0:	return self.DayNightCell;
+            case 1: return self.themeSelectionCell;
+            case 2: return self.fontSizwSelectionCell;
+            default: return self.lineHeightCell;
+        }
+    }
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -85,14 +141,6 @@
 
 - (void) setupLayout
 {
-//    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:self.exampleText.font.fontName
-//                                                                      size:(self.fontSlider.value+4.0)]};
-
-//    CGRect rect = [self.exampleTitle.text boundingRectWithSize:CGSizeMake(self.view.frame.size.width, MAXFLOAT)
-//                                              options:NSStringDrawingUsesLineFragmentOrigin
-//                                           attributes:attributes
-//                                              context:nil];
-//    self.exampleTitle.frame = rect;
     [self.view updateConstraints];
     
 	
@@ -113,8 +161,42 @@
 	
 	self.panelTable.backgroundColor = (prefs.nightThemeSelected ? [UIColor darkGrayColor] :
 									   [UIColor whiteColor]);
+    self.exampleTableView.backgroundColor = (prefs.nightThemeSelected ? prefs.themeBackgroundColor :
+                                             [UIColor whiteColor]);
+    
+    
+    self.contentCell.backgroundColor = (prefs.nightThemeSelected ? prefs.themeBackgroundColor :
+                                        [UIColor whiteColor]);
+    self.underlineCell.backgroundColor = (prefs.nightThemeSelected ? prefs.themeBackgroundColor :
+                                          [UIColor whiteColor]);
+    self.titleCell.backgroundColor = (prefs.nightThemeSelected ? prefs.themeBackgroundColor :
+                                      [UIColor whiteColor]);
+
+    
+    
+    self.DayNightCell.backgroundColor = (prefs.nightThemeSelected ? [UIColor darkGrayColor] :
+                                         [UIColor whiteColor]);
+    self.lineHeightCell.backgroundColor = (prefs.nightThemeSelected ? [UIColor darkGrayColor] :
+                                           [UIColor whiteColor]);
+    self.themeSelectionCell.backgroundColor = (prefs.nightThemeSelected ? [UIColor darkGrayColor] :
+                                               [UIColor whiteColor]);
+    self.fontSizwSelectionCell.backgroundColor = (prefs.nightThemeSelected ? [UIColor darkGrayColor] :
+                                                    [UIColor whiteColor]);
+
+
+    
+    
+    NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString:@"ქვეყანაზე არსებულ წიგნებს შორის ყველაზე ჭეშმარიტი და სასარგებლო წმინდა ბიბლიაა. სიტყვა ბიბლია ბერძნულია და „წიგნებს\" ნიშნავს. რატომაა ბიბლია ერთი წიგნი, ხოლო ჰქვია „წიგნები\"? იმიტომ, რომ ბიბლიაში სინამდვილეში არა ერთი ან ორი, არამედ რამდენიმე წიგნია თავმოყრილი, ისინი ერთ წიგნადაა შეკრებილი და ჰქვია წმ.\n\n\nბიბლია ან წმინდა წიგნი. წმინდა იმიტომ ეწოდებათ, რომ ისინი დაწერილია სულიწმიდის შთაგონებით, წმიდა ადამიანების მიერ.\n\n\nვინ და როდის დაწერა ბიბლია? ის დაიწერა სხვადასხვა ადამიანების მიერ სხვადასხვა დროს. ერთი ნაწილი წიგნებისა დაწერილია ქრისტეს შობამდე და მათ ეწოდებათ „ძველი აღთქმის\" წიგნები."];
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    [style setLineSpacing:prefs.lineHeight];
+    [attrString addAttribute:NSParagraphStyleAttributeName
+                       value:style
+                       range:NSMakeRange(0, attrString.length)];
+    self.exampleText.attributedText = attrString;
+    
 	
 	[self.panelTable reloadData];
+    [self.exampleTableView reloadData];
 }
 
 
@@ -138,6 +220,7 @@
 	prefs.fontSize = newValue;
 	self.exampleText.font = [UIFont systemFontOfSize:newValue];
 	self.exampleTitle.font = [UIFont systemFontOfSize:(newValue+4.0)];
+    [self.exampleTableView reloadData];
 }
 
 - (IBAction)heightDenseButtonTapped:(id)sender
