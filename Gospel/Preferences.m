@@ -50,7 +50,9 @@
 
 // Notifications
 
-NSString * const VVVthemeChanged = @"VVVthemeChanged";
+NSString * const VVVthemeChanged			= @"VVVthemeChanged";
+NSString * const VVVpersistentStoreChanged	= @"VVVpersistentStoreChanged";
+NSString * const VVVcloudSyncInProgress		= @"VVVcloudSyncInProgress";
 
 // Local keys
 

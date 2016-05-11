@@ -8,8 +8,11 @@
 
 #import "DAO.h"
 #import "DebugPrint.h"
+#import "Preferences.h"
 
-@interface DAO ()
+@interface DAO () {
+	Preferences *prefs;
+}
 
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -24,9 +27,51 @@
 	static DAO *_dao = nil;
 	if (!_dao) {
 		_dao = [[DAO alloc] init];
-		[_dao createDemoSet];
 	}
 	return _dao;
+}
+
+
+- (id) init
+{
+	if (self = [super init]) {
+		prefs = [Preferences sharedInstance];
+		[self createDemoSet];
+		
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc addObserver:self selector:@selector(persistentStoreChanged:) name:NSPersistentStoreCoordinatorStoresDidChangeNotification object:nil];
+		
+		[nc addObserverForName:NSPersistentStoreCoordinatorStoresWillChangeNotification
+		 object:self.managedObjectContext.persistentStoreCoordinator
+		 queue:[NSOperationQueue mainQueue]
+		 usingBlock:^(NSNotification *note) {
+			 [[NSNotificationCenter defaultCenter] postNotificationName:VVVcloudSyncInProgress object:nil];
+			 // disable user interface with setEnabled: or an overlay
+			 [self.managedObjectContext performBlock:^{
+				 if ([self.managedObjectContext hasChanges]) {
+					 NSError *saveError;
+					 if (![self.managedObjectContext save:&saveError]) {
+						 NSLog(@"Save error: %@", saveError);
+					 }
+				 } else {
+					 // drop any managed object references
+					 [self.managedObjectContext reset];
+				 }
+			 }];
+		 }];
+		
+		[nc addObserverForName:NSPersistentStoreDidImportUbiquitousContentChangesNotification
+		 object:self.managedObjectContext.persistentStoreCoordinator
+		 queue:[NSOperationQueue mainQueue]
+		 usingBlock:^(NSNotification *note) {
+			 [self.managedObjectContext performBlock:^{
+				 [self.managedObjectContext mergeChangesFromContextDidSaveNotification:note];
+				 [[NSNotificationCenter defaultCenter] postNotificationName:VVVpersistentStoreChanged object:nil];
+			 }];
+		 }];
+		
+	}
+	return self;
 }
 
 
@@ -63,7 +108,17 @@
 	NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Gospel.sqlite"];
 	NSError *error = nil;
 	NSString *failureReason = @"There was an error creating or loading the application's saved data.";
-	if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+	
+	NSDictionary *options = (prefs.storeInCloud ?
+							 @{NSPersistentStoreUbiquitousContentNameKey: @"MyAppCloudStore",
+							   NSMigratePersistentStoresAutomaticallyOption: @YES,
+							   NSInferMappingModelAutomaticallyOption: @YES} :
+							 @{ NSMigratePersistentStoresAutomaticallyOption: @YES,
+							   NSInferMappingModelAutomaticallyOption: @YES}
+							 );
+	DLog(@"options fot store = %@", options);
+	NSPersistentStore *actualStore= [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
+	if (!actualStore) {
 		// Report any error we got.
 		NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 		dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
@@ -75,9 +130,24 @@
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 		abort();
 	}
-	
+	NSURL *actualURL = [actualStore URL];
+	DLog(@"actualURL = %@", actualURL);
 	return _persistentStoreCoordinator;
 }
+
+- (void) updatePersistentCoordinator
+{
+	NSError *error = nil;
+	[self.managedObjectContext save:&error];
+	if (error) {
+		DLog(@"Cannot save context - %@",[error localizedDescription]);
+	} else {
+		_persistentStoreCoordinator = nil;	// remove old persistent store reference to force new initialization
+		_managedObjectContext = nil;
+		[[NSNotificationCenter defaultCenter] postNotificationName:VVVpersistentStoreChanged object:nil];
+	}
+}
+
 
 
 - (NSManagedObjectContext *)managedObjectContext {
@@ -193,5 +263,15 @@
 	[self.managedObjectContext save:nil];
 }
 
+
+#pragma mark - Selectors -
+
+- (void) persistentStoreChanged:(NSNotification *)note
+{
+	if (self.managedObjectContext) {
+		[self.managedObjectContext reset];
+	}
+	[[NSNotificationCenter defaultCenter] postNotificationName:VVVpersistentStoreChanged object:nil];
+}
 
 @end

@@ -29,6 +29,10 @@
 		1B466C5B1CDE28F000564BC0 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5A1CDE28F000564BC0 /* DAO.m */; };
 		1B466C601CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */; };
 		1B466C611CDE2A9700564BC0 /* Paragraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5F1CDE2A9700564BC0 /* Paragraph.m */; };
+		1BAE23C21CE32E82006D068C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE23C11CE32E82006D068C /* README.md */; };
+		1BAE23C61CE3457B006D068C /* WaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE23C41CE3457B006D068C /* WaitingViewController.m */; };
+		1BAE23C71CE3457B006D068C /* WaitingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C51CE3457B006D068C /* WaitingViewController.xib */; };
+		1BAE23CA1CE34637006D068C /* Cloud-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C91CE34637006D068C /* Cloud-icon.png */; };
 		1BDD4BB41CE1D14E00DC0694 /* ShowCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
@@ -98,6 +102,12 @@
 		1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Paragraph+CoreDataProperties.m"; sourceTree = "<group>"; };
 		1B466C5E1CDE2A9700564BC0 /* Paragraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paragraph.h; sourceTree = "<group>"; };
 		1B466C5F1CDE2A9700564BC0 /* Paragraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paragraph.m; sourceTree = "<group>"; };
+		1BAE23C01CE328AD006D068C /* Gospel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Gospel.entitlements; sourceTree = "<group>"; };
+		1BAE23C11CE32E82006D068C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1BAE23C31CE3457B006D068C /* WaitingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingViewController.h; sourceTree = "<group>"; };
+		1BAE23C41CE3457B006D068C /* WaitingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingViewController.m; sourceTree = "<group>"; };
+		1BAE23C51CE3457B006D068C /* WaitingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingViewController.xib; sourceTree = "<group>"; };
+		1BAE23C91CE34637006D068C /* Cloud-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cloud-icon.png"; sourceTree = "<group>"; };
 		1BDD4BB21CE1D14E00DC0694 /* ShowCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowCommentsViewController.h; sourceTree = "<group>"; };
 		1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCommentsViewController.m; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,12 +254,32 @@
 			name = LaunchScreen;
 			sourceTree = "<group>";
 		};
-		8B852BC61CC4D30F001BE270 = {
+		1BAE23BF1CE3286A006D068C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1B213CA01CD8EF5B00B8E673 /* MessageUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1BAE23C81CE34581006D068C /* WaitingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE23C31CE3457B006D068C /* WaitingViewController.h */,
+				1BAE23C41CE3457B006D068C /* WaitingViewController.m */,
+				1BAE23C51CE3457B006D068C /* WaitingViewController.xib */,
+				1BAE23C91CE34637006D068C /* Cloud-icon.png */,
+			);
+			name = WaitingViewController;
+			sourceTree = "<group>";
+		};
+		8B852BC61CC4D30F001BE270 = {
+			isa = PBXGroup;
+			children = (
+				1BAE23C11CE32E82006D068C /* README.md */,
 				8B852BD11CC4D30F001BE270 /* Gospel */,
 				8B852BD01CC4D30F001BE270 /* Products */,
+				1BAE23BF1CE3286A006D068C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,6 +294,7 @@
 		8B852BD11CC4D30F001BE270 /* Gospel */ = {
 			isa = PBXGroup;
 			children = (
+				1BAE23C01CE328AD006D068C /* Gospel.entitlements */,
 				1B213CA21CD8F03000B8E673 /* Utils */,
 				1B213C941CD8992900B8E673 /* Preferences */,
 				8B8D06791CC4D44D003EAC28 /* Library */,
@@ -335,6 +366,7 @@
 				1B466C511CDC969E00564BC0 /* LaunchScreen */,
 				1B213CA91CD9C51200B8E673 /* ThemeTuning */,
 				1B213C9B1CD8C86000B8E673 /* ProgressCircle */,
+				1BAE23C81CE34581006D068C /* WaitingViewController */,
 				8BF1E3571CC5FFDB009DC8F2 /* ListViewController.h */,
 				8BF1E3581CC5FFDB009DC8F2 /* ListViewController.m */,
 				8BF1E35A1CC60028009DC8F2 /* ListTableViewCell.h */,
@@ -380,6 +412,12 @@
 				TargetAttributes = {
 					8B852BCE1CC4D30F001BE270 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = UKBNTL7HA9;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -415,6 +453,7 @@
 				8BF1E3541CC5FE02009DC8F2 /* icon_circle_red.png in Resources */,
 				8BF1E34E1CC4DE5E009DC8F2 /* icon_setting.png in Resources */,
 				8BFEBE031CC6E8B400DDB4BE /* icon_upload_red.png in Resources */,
+				1BAE23CA1CE34637006D068C /* Cloud-icon.png in Resources */,
 				8BF1E3681CC609DC009DC8F2 /* txt_icloud.png in Resources */,
 				8B852BE51CC4D30F001BE270 /* LaunchScreen.storyboard in Resources */,
 				8BF1E36B1CC609DC009DC8F2 /* txt_tracking.png in Resources */,
@@ -426,6 +465,7 @@
 				8BFEBE021CC6E8B400DDB4BE /* icon_Back_red.png in Resources */,
 				8BF1E3561CC5FE02009DC8F2 /* img_text.png in Resources */,
 				1B466C411CDC782200564BC0 /* orange.jpg in Resources */,
+				1BAE23C71CE3457B006D068C /* WaitingViewController.xib in Resources */,
 				AED53AD91CDBA47A0043A1EB /* font-size-small.png in Resources */,
 				8BF1E36A1CC609DC009DC8F2 /* txt_settings.png in Resources */,
 				8BFEBE0C1CC706A500DDB4BE /* icon_upload_blue.png in Resources */,
@@ -455,12 +495,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BAE23C61CE3457B006D068C /* WaitingViewController.m in Sources */,
 				8BF1E3591CC5FFDB009DC8F2 /* ListViewController.m in Sources */,
 				8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */,
 				1B213CA61CD8F06A00B8E673 /* SDiPhoneVersion.m in Sources */,
 				AED53AD01CD8BEDC0043A1EB /* SettingsTableViewController.m in Sources */,
 				8B852BE01CC4D30F001BE270 /* Gospel.xcdatamodeld in Sources */,
 				8BFEBE0A1CC703F100DDB4BE /* ContentViewController.m in Sources */,
+				1BAE23C21CE32E82006D068C /* README.md in Sources */,
 				1B466C601CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m in Sources */,
 				1B466C5B1CDE28F000564BC0 /* DAO.m in Sources */,
 				1B213C9E1CD8C88800B8E673 /* ProgressCircleView.m in Sources */,
@@ -584,6 +626,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Gospel/Gospel.entitlements;
 				INFOPLIST_FILE = Gospel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -596,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Gospel/Gospel.entitlements;
 				INFOPLIST_FILE = Gospel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

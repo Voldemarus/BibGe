@@ -37,8 +37,9 @@ typedef  NS_ENUM(NSInteger, KindOfComment) {
 
 // Notifications
 
-extern NSString * const VVVthemeChanged;		// theme is changed
-
+extern NSString * const VVVthemeChanged;				// theme is changed
+extern NSString * const VVVpersistentStoreChanged;		// iCloud connected/disconnected
+extern NSString * const VVVcloudSyncInProgress;
 
 
 @class Paragraph;

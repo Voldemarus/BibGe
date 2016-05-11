@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "ThemeTuneViewController.h"
+#import "WaitingViewController.h"
 
 @interface ListViewController : UIViewController
 
 @property (nonatomic, retain) ThemeTuneViewController *tuneController;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) WaitingViewController *waitingController;
 
 @end

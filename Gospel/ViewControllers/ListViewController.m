@@ -11,6 +11,7 @@
 #import "Preferences.h"
 #import "Dao.h"
 #import "ContentViewController.h"
+#import "DebugPrint.h"
 
 @interface ListViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -32,6 +33,11 @@
 	
 	prefs = [Preferences sharedInstance];
 	fetchController =[[DAO sharedInstance] fetchedController];
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	[nc addObserver:self selector:@selector(updateTable:) name:VVVpersistentStoreChanged object:nil];
+	[nc addObserver:self selector:@selector(freezeInterface:) name:VVVcloudSyncInProgress  object:nil];
+	
+	self.waitingController = [[WaitingViewController alloc] init];
  
 }
 
@@ -60,6 +66,31 @@
 	
     [tvList reloadData];
 }
+
+
+#pragma mark - Selectors
+
+- (void) updateTable:(NSNotification *) note
+{
+	NSError *error =nil;
+	[fetchController performFetch:&error];
+	if (error) {
+		DLog(@"error  = %@", [error localizedDescription]);
+	} else {
+		[tvList reloadData];
+	}
+	[self.waitingController hideFromScreen];
+	[self.waitingController.view removeFromSuperview];
+}
+
+- (void) freezeInterface:(NSNotification *) note
+{
+	[self.view addSubview:self.waitingController.view];
+	[self.waitingController showOnScreen];
+}
+
+
+#pragma mark - Actions
 
 - (IBAction)processClickTheme:(id)sender
 {
@@ -133,8 +164,7 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"])
-    {
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
         ContentViewController *cvc = [segue destinationViewController];
         //NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];

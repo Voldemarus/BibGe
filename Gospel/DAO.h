@@ -19,6 +19,7 @@
 - (NSFetchedResultsController *) fetchedController;
 - (void) resetTrackingIndexes;
 
+- (void) updatePersistentCoordinator;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

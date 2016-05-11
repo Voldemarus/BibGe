@@ -151,5 +151,6 @@
 
 - (IBAction)cloudSwitchChanged:(id)sender {
 	prefs.storeInCloud = self.iCloudSyncSwitch.on;
+	[[DAO sharedInstance] updatePersistentCoordinator];
 }
 @end
