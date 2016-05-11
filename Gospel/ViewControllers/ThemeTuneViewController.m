@@ -7,6 +7,7 @@
 //
 
 #import "ThemeTuneViewController.h"
+#import "DebugPrint.h"
 
 @interface ThemeTuneViewController () {
 	Preferences *prefs;
@@ -32,6 +33,9 @@
 	self.themeSelector.delegate = self;
     self.exampleTableView.delegate = self;
     self.exampleTableView.dataSource = self;
+	
+	[self.dayButton setTitle:RStr(@"Day") forState:UIControlStateNormal];
+	[self.nightButton setTitle:RStr(@"Night") forState:UIControlStateNormal];
 	
 	//self.exampleText.layoutManager.delegate = self;
 	[self.themeSelector setupLayout];

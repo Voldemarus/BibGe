@@ -83,7 +83,6 @@
 
 
 
-
 - (void) composeMail
 {
 	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
