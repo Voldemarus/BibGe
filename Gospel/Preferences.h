@@ -73,6 +73,11 @@ extern NSString * const VVVcloudSyncInProgress;
 @property (nonatomic, retain) Paragraph *selectedParagraph;
 @property (nonatomic, readwrite) KindOfComment commentKind;
 
+// Tune settings
+
+@property (nonatomic, readonly) UIColor *dayModeTintColor;
+@property (nonatomic, readonly) UIColor *nightModeTintColor;
+@property (nonatomic, readonly) UIImage *buttonSeparator;
 
 
 // definitions for progrescircle view

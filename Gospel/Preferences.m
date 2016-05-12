@@ -266,6 +266,39 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 			 ];
 }
 
+- (UIColor *) colorWithIntRed:(int)aRed green:(int)aGreen andBlue:(int)aBlue
+{
+	CGFloat red  = aRed/255.0;
+	CGFloat green = aGreen / 255.0;
+	CGFloat blue = aBlue / 255.0;
+	return [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+}
+
+
+- (UIColor *)dayModeTintColor
+{
+	if (self.nightThemeSelected) {
+		return [self colorWithIntRed:0xcc green:0xcc andBlue:0xcc];
+	} else {
+		return [self colorWithIntRed:0x7c green:0x7c andBlue:0x7c];
+	}
+}
+
+- (UIColor *) nightModeTintColor
+{
+	if (self.nightThemeSelected) {
+		return [self colorWithIntRed:230 green:73 andBlue:91];
+	} else {
+		return [self colorWithIntRed:220 green:63 andBlue:81];
+	}
+	
+}
+
+- (UIImage *) buttonSeparator
+{
+	return [UIImage imageNamed:(self.nightThemeSelected ? @"day_nigh_hrt.png" : @"day_nigh_hrt_day.png")];
+}
+
 - (BOOL) nightThemeSelected
 {
 	return [prefs boolForKey:VVVnightTheme];

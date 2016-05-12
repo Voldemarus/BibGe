@@ -150,6 +150,10 @@
 	
 	[[UINavigationBar appearance]  setTintColor:prefs.themeTintColor];
 	
+	self.dayButton.tintColor = prefs.dayModeTintColor;
+	self.nightButton.tintColor = prefs.nightModeTintColor;
+	self.buttonSeparator.image = prefs.buttonSeparator;
+	
 	self.navigationController.navigationBar.barTintColor = prefs.themeNavBarBackgroundColor;
 	self.navigationController.navigationBar.tintColor = prefs.themeTintColor;
 	[self.navigationController.navigationBar

@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThemeTuneViewController">
             <connections>
                 <outlet property="DayNightCell" destination="u1f-Sn-H5E" id="ILx-se-FEK"/>
+                <outlet property="buttonSeparator" destination="2zI-c3-XmE" id="kwf-bR-VMh"/>
                 <outlet property="contentCell" destination="BvW-Jo-uL6" id="XWx-jW-Xnb"/>
                 <outlet property="dayButton" destination="yf9-tr-fN4" id="fdj-s5-ak8"/>
                 <outlet property="exampleSeparator" destination="q1O-D7-4FN" id="QmM-lK-bhw"/>
@@ -80,51 +81,43 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yf9-tr-fN4">
-                        <rect key="frame" x="8" y="7" width="102" height="30"/>
-                        <state key="normal" title="Day"/>
+                        <rect key="frame" x="5" y="6" width="138" height="32"/>
+                        <state key="normal" title="Day" image="dayButtonIcon"/>
                         <connections>
                             <action selector="dayButtonTapped:" destination="-1" eventType="touchUpInside" id="6O1-NQ-iag"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhJ-n1-rcl">
-                        <rect key="frame" x="211" y="7" width="101" height="30"/>
-                        <state key="normal" title="Night"/>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhJ-n1-rcl">
+                        <rect key="frame" x="180" y="6" width="132" height="32"/>
+                        <state key="normal" title="Night" image="nightButtonIcon"/>
                         <connections>
                             <action selector="nightButtonTapped:" destination="-1" eventType="touchUpInside" id="Nuv-C9-PGW"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dk-QL-BOO">
-                        <rect key="frame" x="109" y="11" width="101" height="21"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="day_nigh_hrt.png" translatesAutoresizingMaskIntoConstraints="NO" id="2zI-c3-XmE">
+                        <rect key="frame" x="155" y="0.0" width="2" height="43"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="Du0-hf-IDW"/>
-                            <constraint firstAttribute="height" constant="21" id="c8k-rr-a3a"/>
+                            <constraint firstAttribute="width" constant="2" id="hS6-Ry-1eS"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Du0-hf-IDW"/>
-                            </mask>
-                        </variation>
-                    </label>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5Dk-QL-BOO" firstAttribute="centerX" secondItem="AeU-rh-3GN" secondAttribute="centerX" id="7jn-Er-aAq"/>
+                    <constraint firstItem="2zI-c3-XmE" firstAttribute="top" secondItem="AeU-rh-3GN" secondAttribute="topMargin" constant="-8" id="BXy-Xg-u0A"/>
                     <constraint firstItem="lhJ-n1-rcl" firstAttribute="leading" secondItem="yf9-tr-fN4" secondAttribute="trailing" id="EgB-rE-iDl"/>
-                    <constraint firstItem="5Dk-QL-BOO" firstAttribute="width" secondItem="yf9-tr-fN4" secondAttribute="width" id="HlS-GR-ibG"/>
                     <constraint firstItem="yf9-tr-fN4" firstAttribute="centerY" secondItem="AeU-rh-3GN" secondAttribute="centerY" id="J0Q-YV-ISY"/>
                     <constraint firstItem="lhJ-n1-rcl" firstAttribute="centerY" secondItem="AeU-rh-3GN" secondAttribute="centerY" id="K63-O1-UZR"/>
+                    <constraint firstItem="2zI-c3-XmE" firstAttribute="trailing" secondItem="yf9-tr-fN4" secondAttribute="trailing" constant="19" id="R9H-de-Oxf"/>
                     <constraint firstItem="lhJ-n1-rcl" firstAttribute="width" secondItem="yf9-tr-fN4" secondAttribute="width" id="V8D-aF-wwp"/>
-                    <constraint firstItem="5Dk-QL-BOO" firstAttribute="leading" secondItem="yf9-tr-fN4" secondAttribute="trailing" id="cIC-YG-oz9"/>
-                    <constraint firstItem="lhJ-n1-rcl" firstAttribute="leading" secondItem="5Dk-QL-BOO" secondAttribute="trailing" id="cqa-hc-9wy"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="2zI-c3-XmE" secondAttribute="bottom" constant="-8" id="cdO-Mo-9fx"/>
                     <constraint firstItem="lhJ-n1-rcl" firstAttribute="leading" secondItem="yf9-tr-fN4" secondAttribute="trailing" constant="78" id="eha-EM-pjQ"/>
+                    <constraint firstItem="2zI-c3-XmE" firstAttribute="centerX" secondItem="AeU-rh-3GN" secondAttribute="centerX" id="gvm-W4-VdZ"/>
                     <constraint firstItem="yf9-tr-fN4" firstAttribute="leading" secondItem="AeU-rh-3GN" secondAttribute="leadingMargin" id="ptU-VX-RXH"/>
-                    <constraint firstItem="5Dk-QL-BOO" firstAttribute="centerY" secondItem="AeU-rh-3GN" secondAttribute="centerY" id="zjh-0z-syz"/>
+                    <constraint firstItem="lhJ-n1-rcl" firstAttribute="leading" secondItem="2zI-c3-XmE" secondAttribute="leading" constant="25" id="w9V-zl-wpU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="lhJ-n1-rcl" secondAttribute="trailing" id="zwi-Lt-hOD"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="ptU-VX-RXH"/>
                         <exclude reference="EgB-rE-iDl"/>
                         <exclude reference="eha-EM-pjQ"/>
                     </mask>
@@ -345,10 +338,13 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="dayButtonIcon" width="32" height="32"/>
+        <image name="day_nigh_hrt.png" width="1" height="102"/>
         <image name="font-size-big.png" width="93" height="93"/>
         <image name="font-size-small.png" width="93" height="93"/>
         <image name="lines1.png" width="93" height="93"/>
         <image name="lines2.png" width="93" height="93"/>
         <image name="lines3.png" width="93" height="93"/>
+        <image name="nightButtonIcon" width="32" height="32"/>
     </resources>
 </document>

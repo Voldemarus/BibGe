@@ -33,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *fontSizwSelectionCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *lineHeightCell;
 
+@property (weak, nonatomic) IBOutlet UIImageView *buttonSeparator;
 @property (weak, nonatomic) IBOutlet UIButton *dayButton;
 - (IBAction)dayButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *nightButton;
