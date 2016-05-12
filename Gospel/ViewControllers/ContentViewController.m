@@ -70,7 +70,8 @@
     if (indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell" forIndexPath:indexPath];
         UILabel *titleLabel = (UILabel*)[cell viewWithTag:101];
-        
+		
+		titleLabel.textColor = prefs.themeTextColor;
         [titleLabel setFont:[UIFont systemFontOfSize:prefs.fontSize + 4.0f]];
         [titleLabel setText:self.par.title];
 		[titleLabel setTextAlignment:NSTextAlignmentCenter];
@@ -96,10 +97,10 @@
         
         //article text
         contentLabel.attributedText = attrString;
-
+		contentLabel.textColor = prefs.themeTextColor;
         [contentLabel setFont:[UIFont systemFontOfSize:prefs.fontSize]];
     }
-
+	cell.contentView.backgroundColor = prefs.themeBackgroundColor;
 
     return cell;
 }
@@ -179,9 +180,9 @@
 	
 	self.view.backgroundColor = prefs.themeNavBarBackgroundColor;
 	
-	[tab1 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
-	[tab2 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
-	[tab3 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
+	tab1.tintColor = prefs.themeTintColor;
+	tab2.tintColor = prefs.themeTintColor;
+	tab3.tintColor = prefs.themeTintColor;
 }
 
 

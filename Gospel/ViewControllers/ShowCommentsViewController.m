@@ -27,6 +27,9 @@
 {
 	[super viewWillAppear:animated];
 	// setup theme colors
+	self.commentTextView.textColor = prefs.themeTextColor;
+	self.commentTextView.font = [UIFont systemFontOfSize:prefs.fontSize];
+	self.view.backgroundColor = prefs.themeBackgroundColor;
 	
 	// setup title andd data
 	switch (prefs.commentKind) {
