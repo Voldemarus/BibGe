@@ -59,7 +59,7 @@
 	self.navigationController.navigationBar.translucent = NO;
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
 	[df setDateFormat:@"dd MMMM"];
-	self.navigationController.title = [df stringFromDate:self.par.dateCreated];
+	self.navigationItem.title = [df stringFromDate:self.par.dateCreated];
 	
     [self.navigationItem.rightBarButtonItem setTintColor:prefs.themeTintColor];
     

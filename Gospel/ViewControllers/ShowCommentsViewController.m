@@ -20,17 +20,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	prefs = [Preferences sharedInstance];
-        
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"dd MMMM"];
+    
+    NSMutableString *title = [[NSMutableString alloc] initWithString:[df stringFromDate:prefs.selectedParagraph.dateCreated]];
+    [title appendString:@" | "];
+    
     switch (prefs.commentKind) {
         case CommentKindOldTestament:
-            self.navigationItem.title = RStr(@"Old Testament");
+            [title appendString:RStr(@"Old Testament")];
             break;
         case CommentKindNewTestament:
-            self.navigationItem.title = RStr(@"New Testament");
+            [title appendString:RStr(@"New Testament")];
             break;
         case CommentKindPsalm:
-            self.navigationItem.title = RStr(@"Psalm");
+            [title appendString:RStr(@"Psalm")];
     }
+    
+    self.navigationItem.title = title;
 }
 
 
