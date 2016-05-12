@@ -131,13 +131,10 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 {
 	NSString *sideBarImage = @"img_sidebar.png";
 	switch ([self actualTheme]) {
-		case ThemeBlue:	sideBarImage = @"img_sidebar_blue.png";
-			break;
-		case ThemeNightView:	sideBarImage = @"img_sidebar_black.png";
-			break;
+		case ThemeBlue:         sideBarImage = @"img_sidebar_blue.png"; break;
 		case ThemeYellow:		sideBarImage = @"img_sidebar_orange.jpg"; break;
 		case ThemeGray:			sideBarImage = @"img_sidebar_grey.jpg"; break;
-		default: sideBarImage = @"img_sidebar.png";
+		default:                sideBarImage = @"img_sidebar.png";
 			break;
 	}
 	return [UIImage imageNamed:sideBarImage];
@@ -171,8 +168,8 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 - (UIColor *) themeCellBackgroundColor
 {
 	switch ([self actualTheme]) {
-		case ThemeNightView: return BLACK_COLOR;
-		default: return DEFAULT_CELL_COLOR;
+		case ThemeNightView: return DARK_BACKGROUND_COLOR;
+		default: return LIGHT_BACKGROUND_COLOR;
 	}
 }
 
@@ -196,8 +193,6 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 - (UIColor *) themeTextColor
 {
 	switch ([self actualTheme]) {
-		case ThemeBlue: return BLACK_COLOR;
-        case ThemeYellow: return BLACK_COLOR;
 		case ThemeNightView: return LOW_WHITE_COLOR;
 		default: return BLACK_COLOR;
 	}
@@ -230,7 +225,7 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 {
 	switch([self actualTheme]) {
 		case ThemeDefault:      return RED_COLOR;
-		case ThemeNightView:    return [UIColor whiteColor];
+		case ThemeNightView:    return self.themeTintColor;
 		case ThemeBlue:         return BLUE_COLOR;
         case ThemeGray:         return GRAY_COLOR;
         case ThemeYellow:       return YELLOW_COLOR;
@@ -240,8 +235,8 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 - (UIColor *) themeProgressBackgroundColor
 {
 	switch ([self actualTheme]) {
-		case ThemeNightView:	return BLACK_COLOR;
-		default:                return [UIColor whiteColor];
+		case ThemeNightView:	return DARK_BACKGROUND_COLOR;
+		default:                return LIGHT_BACKGROUND_COLOR;
 	}
 }
 
@@ -252,7 +247,7 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 		case ThemeBlue:			return BLUE_COLOR;
         case ThemeYellow:       return YELLOW_COLOR;
         case ThemeGray:         return GRAY_COLOR;
-		case ThemeNightView:	return [UIColor whiteColor];
+		case ThemeNightView:	return self.themeTintColor;
 	}
 }
 

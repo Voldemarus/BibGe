@@ -66,7 +66,16 @@
 - (void)drawDefault
 {
 	m_imgSidebar.image = prefs.themeSideBar;
-	
+	if(prefs.nightThemeSelected)
+    {
+        m_imgSidebar.alpha = 0.6;
+    }
+    else
+    {
+        m_imgSidebar.alpha = 1.0;
+
+    }
+    
     [tvList reloadData];
 }
 
