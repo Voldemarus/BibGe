@@ -55,6 +55,7 @@
 	
 	self.navigationController.navigationBar.barTintColor = prefs.themeNavBarBackgroundColor;
 	self.navigationController.navigationBar.tintColor = navColor;
+	self.navigationController.navigationBar.barStyle = (prefs.nightThemeSelected ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault);
 	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : navColor}];
 	self.navigationController.navigationBar.translucent = NO;
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
