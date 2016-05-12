@@ -78,7 +78,7 @@ extern NSString * const VVVcloudSyncInProgress;
 @property (nonatomic, readonly) UIColor *dayModeTintColor;
 @property (nonatomic, readonly) UIColor *nightModeTintColor;
 @property (nonatomic, readonly) UIImage *buttonSeparator;
-
+@property (nonatomic, readonly) UIColor *fontSliderTintColor;
 
 // definitions for progrescircle view
 @property (nonatomic, readonly) UIColor *themeProgressBorder;

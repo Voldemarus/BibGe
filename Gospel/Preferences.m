@@ -291,7 +291,16 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 	} else {
 		return [self colorWithIntRed:220 green:63 andBlue:81];
 	}
-	
+}
+
+- (UIColor *) fontSliderTintColor
+{
+	if (self.nightThemeSelected) {
+		return [self colorWithIntRed:230 green:73 andBlue:91];
+	} else {
+		return [UIColor blueColor];
+	}
+
 }
 
 - (UIImage *) buttonSeparator

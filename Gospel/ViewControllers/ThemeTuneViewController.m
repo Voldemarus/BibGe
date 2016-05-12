@@ -165,6 +165,8 @@
 	self.exampleText.textColor = prefs.themeTextColor;
 	self.exampleSeparator.textColor = prefs.themeTintColor;
 	
+	self.fontSlider.tintColor = prefs.fontSliderTintColor;
+	
 	self.view.backgroundColor = prefs.themeBackgroundColor;
 	
 	self.panelTable.backgroundColor = (prefs.nightThemeSelected ? [UIColor darkGrayColor] :
