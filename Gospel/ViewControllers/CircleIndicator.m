@@ -69,7 +69,7 @@
 {
 	DLog(@"setup layout for button matrix");
 	prefs = [Preferences sharedInstance];
-
+	[self setBackgroundColor:[UIColor clearColor]];
 	NSInteger count = prefs.themeColorsArray.count;
 	if (count > 0) {
 		// arrays are used to prevent accident release (just anchor to be sure)
