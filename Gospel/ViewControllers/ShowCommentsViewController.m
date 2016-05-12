@@ -20,6 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	prefs = [Preferences sharedInstance];
+        
+    switch (prefs.commentKind) {
+        case CommentKindOldTestament:
+            self.navigationItem.title = RStr(@"Old Testament");
+            break;
+        case CommentKindNewTestament:
+            self.navigationItem.title = RStr(@"New Testament");
+            break;
+        case CommentKindPsalm:
+            self.navigationItem.title = RStr(@"Psalm");
+    }
 }
 
 
@@ -30,6 +41,7 @@
 	self.commentTextView.textColor = prefs.themeTextColor;
 	self.commentTextView.font = [UIFont systemFontOfSize:prefs.fontSize];
 	self.view.backgroundColor = prefs.themeBackgroundColor;
+    [self.commentTextView setBackgroundColor:prefs.themeBackgroundColor];
 	
 	// setup title andd data
 	switch (prefs.commentKind) {

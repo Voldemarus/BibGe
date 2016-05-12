@@ -73,7 +73,6 @@
     [tab2 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
     [tab3 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
 
-	
 }
 
 

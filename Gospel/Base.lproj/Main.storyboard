@@ -341,7 +341,7 @@
             </objects>
             <point key="canvasLocation" x="-274.5" y="210.5"/>
         </scene>
-        <!--Show Comments View Controller-->
+        <!--Comment-->
         <scene sceneID="TDJ-oL-1LZ">
             <objects>
                 <viewController id="6lq-42-PFg" customClass="ShowCommentsViewController" sceneMemberID="viewController">
@@ -363,7 +363,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8ar-OI-rPJ"/>
+                    <navigationItem key="navigationItem" title="Comment" id="8ar-OI-rPJ"/>
                     <connections>
                         <outlet property="commentTextView" destination="TKN-lW-fV7" id="LjA-c6-8cS"/>
                     </connections>
@@ -546,7 +546,7 @@
         <image name="img_sidebar.png" width="93" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fo4-9w-XhK"/>
+        <segue reference="1Yh-CC-AZh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.85882352939999995" green="0.25098039220000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>
