@@ -51,26 +51,27 @@
 	[super viewWillAppear:animated];
 	[[UINavigationBar appearance]  setTintColor:prefs.themeTintColor];
 	
-	UIColor *navColor = (prefs.nightThemeSelected ? prefs.nightModeTintColor : prefs.dayModeTintColor);
+	UIColor *navColor = (prefs.nightThemeSelected ? prefs.nightModeTintColor : prefs.themeTintColor);
 	
 	self.navigationController.navigationBar.barTintColor = prefs.themeNavBarBackgroundColor;
 	self.navigationController.navigationBar.tintColor = navColor;
-	[self.navigationController.navigationBar
-	 setTitleTextAttributes:@{NSForegroundColorAttributeName : navColor}];
+	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : navColor}];
 	self.navigationController.navigationBar.translucent = NO;
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
 	[df setDateFormat:@"dd MMMM"];
 	self.navigationController.title = [df stringFromDate:self.par.dateCreated];
 	
+    [self.navigationItem.rightBarButtonItem setTintColor:prefs.themeTintColor];
+    
 	self.shareButton.tintColor = prefs.themeTintColor;
 	self.backButton.image = prefs.themeBackButton;
 	self.navigationController.title = self.par.title;
 
 	self.view.backgroundColor = prefs.themeNavBarBackgroundColor;
 	
-	tab1.tintColor = prefs.themeTintColor;
-	tab2.tintColor = prefs.themeTintColor;
-	tab3.tintColor = prefs.themeTintColor;
+    [tab1 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
+    [tab2 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
+    [tab3 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
 
 	
 }

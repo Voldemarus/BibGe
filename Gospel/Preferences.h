@@ -76,7 +76,9 @@ extern NSString * const VVVcloudSyncInProgress;
 // Tune settings
 
 @property (nonatomic, readonly) UIColor *dayModeTintColor;
+@property (nonatomic, readonly) UIColor *dayButtonTintColor;
 @property (nonatomic, readonly) UIColor *nightModeTintColor;
+@property (nonatomic, readonly) UIColor *nightButtonTintColor;
 @property (nonatomic, readonly) UIImage *buttonSeparator;
 @property (nonatomic, readonly) UIColor *fontSliderTintColor;
 

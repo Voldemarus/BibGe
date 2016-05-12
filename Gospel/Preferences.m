@@ -209,7 +209,7 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
         case ThemeBlue:         return BLUE_COLOR;
         case ThemeYellow:       return YELLOW_COLOR;
         case ThemeGray:         return GRAY_COLOR;
-        case ThemeNightView:    return BLACK_COLOR;
+        //case ThemeNightView:    return BLACK_COLOR;
         default:                return RED_COLOR;
     }
 }
@@ -293,12 +293,31 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 	}
 }
 
+- (UIColor *) dayButtonTintColor
+{
+    if (self.nightThemeSelected) {
+        return [self colorWithIntRed:0xcc green:0xcc andBlue:0xcc];
+    } else {
+        return self.themeTintColor;
+    }
+}
+
+- (UIColor *) nightButtonTintColor
+{
+    if (self.nightThemeSelected) {
+        return self.themeTintColor;
+    } else {
+        return [self colorWithIntRed:0x7c green:0x7c andBlue:0x7c];
+    }
+}
+
+
 - (UIColor *) fontSliderTintColor
 {
 	if (self.nightThemeSelected) {
-		return [self colorWithIntRed:230 green:73 andBlue:91];
+		return self.themeTintColor;
 	} else {
-		return [UIColor blueColor];
+		return self.themeTintColor;
 	}
 
 }

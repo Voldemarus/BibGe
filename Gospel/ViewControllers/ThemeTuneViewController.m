@@ -37,7 +37,6 @@
 	[self.dayButton setTitle:RStr(@"Day") forState:UIControlStateNormal];
 	[self.nightButton setTitle:RStr(@"Night") forState:UIControlStateNormal];
 	
-	//self.exampleText.layoutManager.delegate = self;
 	[self.themeSelector setupLayout];
 	[self setupLayout];
 	
@@ -126,10 +125,29 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Remove seperator inset
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    // Prevent the cell from inheriting the Table View's margin settings
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    
+    // Explictly set your cell's layout margins
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
 #pragma mark - Theme Selector delegate -
 
 - (void) circleButtonMatrixThemeSelected:(ThemeStyle) selectedTheme;
 {
+    prefs.currentTheme = selectedTheme;
 	[self setupLayout];
 }
 
@@ -150,10 +168,17 @@
 	
 	[[UINavigationBar appearance]  setTintColor:prefs.themeTintColor];
 	
-	self.dayButton.tintColor = prefs.dayModeTintColor;
-	self.nightButton.tintColor = prefs.nightModeTintColor;
+	self.dayButton.tintColor = prefs.dayButtonTintColor;
+	self.nightButton.tintColor = prefs.nightButtonTintColor;
 	self.buttonSeparator.image = prefs.buttonSeparator;
-	
+    self.linesSeparator1.image = prefs.buttonSeparator;
+    self.linesSeparator2.image = prefs.buttonSeparator;
+    self.linesDenseImg.tintColor = prefs.dayModeTintColor;
+    self.linesLooseImg.tintColor = prefs.dayModeTintColor;
+    self.linesNormalImg.tintColor = prefs.dayModeTintColor;
+    
+    [self.panelTable setSeparatorColor:(prefs.nightThemeSelected ? [UIColor blackColor] : prefs.dayModeTintColor)];
+
 	self.navigationController.navigationBar.barTintColor = prefs.themeNavBarBackgroundColor;
 	self.navigationController.navigationBar.tintColor = prefs.themeTintColor;
 	[self.navigationController.navigationBar

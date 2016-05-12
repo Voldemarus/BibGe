@@ -51,5 +51,10 @@
 - (IBAction)heightNormalButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *heightLooseButton;
 - (IBAction)heightLooseButtonTapped:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *linesSeparator1;
+@property (weak, nonatomic) IBOutlet UIImageView *linesSeparator2;
+@property (weak, nonatomic) IBOutlet UIImageView *linesDenseImg;
+@property (weak, nonatomic) IBOutlet UIImageView *linesNormalImg;
+@property (weak, nonatomic) IBOutlet UIImageView *linesLooseImg;
 
 @end
