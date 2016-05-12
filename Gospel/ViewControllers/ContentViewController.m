@@ -43,17 +43,39 @@
     fetchController =[[DAO sharedInstance] fetchedController];
 
     
-    [[UINavigationBar appearance]  setTintColor:prefs.themeTintColor];
-
-    self.navigationController.navigationBar.barTintColor = prefs.themeNavBarBackgroundColor;
-    self.navigationController.navigationBar.tintColor = prefs.themeTintColor;
-    [self.navigationController.navigationBar
-     setTitleTextAttributes:@{NSForegroundColorAttributeName : prefs.themeTintColor}];
-    self.navigationController.navigationBar.translucent = NO;
-    
-    self.navigationController.title = self.par.title;
 
 }
+
+- (void) viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	[[UINavigationBar appearance]  setTintColor:prefs.themeTintColor];
+	
+	UIColor *navColor = (prefs.nightThemeSelected ? prefs.nightModeTintColor : prefs.dayModeTintColor);
+	
+	self.navigationController.navigationBar.barTintColor = prefs.themeNavBarBackgroundColor;
+	self.navigationController.navigationBar.tintColor = navColor;
+	[self.navigationController.navigationBar
+	 setTitleTextAttributes:@{NSForegroundColorAttributeName : navColor}];
+	self.navigationController.navigationBar.translucent = NO;
+	NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	[df setDateFormat:@"dd MMMM"];
+	self.navigationController.title = [df stringFromDate:self.par.dateCreated];
+	
+	self.shareButton.tintColor = prefs.themeTintColor;
+	self.backButton.image = prefs.themeBackButton;
+	self.navigationController.title = self.par.title;
+
+	self.view.backgroundColor = prefs.themeNavBarBackgroundColor;
+	
+	tab1.tintColor = prefs.themeTintColor;
+	tab2.tintColor = prefs.themeTintColor;
+	tab3.tintColor = prefs.themeTintColor;
+
+	
+}
+
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -174,17 +196,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-	
-	self.view.backgroundColor = prefs.themeNavBarBackgroundColor;
-	
-	tab1.tintColor = prefs.themeTintColor;
-	tab2.tintColor = prefs.themeTintColor;
-	tab3.tintColor = prefs.themeTintColor;
-}
-
 
 - (IBAction)processBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -234,6 +245,8 @@
 }
 
 
-
-
+- (IBAction)backButtonTapped:(id)sender
+{
+	[self.navigationController popViewControllerAnimated:YES];
+}
 @end

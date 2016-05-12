@@ -286,6 +286,15 @@
 			name = Separators;
 			sourceTree = "<group>";
 		};
+		1BAE23D01CE4B501006D068C /* IconBack */ = {
+			isa = PBXGroup;
+			children = (
+				8BFEBE001CC6E8B400DDB4BE /* icon_Back_red.png */,
+				8BF1E35F1CC609DC009DC8F2 /* icon_Back.png */,
+			);
+			name = IconBack;
+			sourceTree = "<group>";
+		};
 		8B852BC61CC4D30F001BE270 = {
 			isa = PBXGroup;
 			children = (
@@ -354,10 +363,9 @@
 				AED53AD51CDBA47A0043A1EB /* lines2.png */,
 				8BFEBE0B1CC706A500DDB4BE /* icon_upload_blue.png */,
 				8BFEBE041CC6F80100DDB4BE /* icon_circle_blue.png */,
-				8BFEBE001CC6E8B400DDB4BE /* icon_Back_red.png */,
+				1BAE23D01CE4B501006D068C /* IconBack */,
 				8BFEBE011CC6E8B400DDB4BE /* icon_upload_red.png */,
 				8BF1E35E1CC609DC009DC8F2 /* icon_arrow.png */,
-				8BF1E35F1CC609DC009DC8F2 /* icon_Back.png */,
 				8BF1E3601CC609DC009DC8F2 /* img_option.png */,
 				8BF1E3611CC609DC009DC8F2 /* txt_icloud.png */,
 				8BF1E3621CC609DC009DC8F2 /* txt_reset.png */,

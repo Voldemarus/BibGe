@@ -23,8 +23,16 @@
 @property (strong, nonatomic) Paragraph *par;
 @property (copy, nonatomic) NSIndexPath *indexPath;
 
+// navigation bar elements
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
+- (IBAction)backButtonTapped:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
+
 // Share controller
 @property(nonatomic,retain) UIDocumentInteractionController *documentationInteractionController;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 
 
 @end
