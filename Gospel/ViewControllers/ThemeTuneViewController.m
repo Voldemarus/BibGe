@@ -184,7 +184,9 @@
 	[self.navigationController.navigationBar
 	 setTitleTextAttributes:@{NSForegroundColorAttributeName : prefs.themeTintColor}];
 	self.navigationController.navigationBar.translucent = NO;
-    	
+	self.navigationController.navigationBar.barStyle = (prefs.nightThemeSelected ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault);
+
+	
 	self.exampleTitle.textColor = prefs.themeTextColor;
 	self.exampleTitle.textAlignment = NSTextAlignmentCenter;
 	self.exampleText.textColor = prefs.themeTextColor;
