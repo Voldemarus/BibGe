@@ -173,9 +173,19 @@
 	self.buttonSeparator.image = prefs.buttonSeparator;
     self.linesSeparator1.image = prefs.buttonSeparator;
     self.linesSeparator2.image = prefs.buttonSeparator;
+    
+    self.maxFontIcon.image = [self.maxFontIcon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.minFontIcon.image = [self.minFontIcon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.linesDenseImg.image = [self.linesDenseImg.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.linesLooseImg.image = [self.linesLooseImg.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.linesNormalImg.image = [self.linesNormalImg.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+
+    self.maxFontIcon.tintColor = prefs.dayModeTintColor;
+    self.minFontIcon.tintColor = prefs.dayModeTintColor;
     self.linesDenseImg.tintColor = prefs.dayModeTintColor;
     self.linesLooseImg.tintColor = prefs.dayModeTintColor;
     self.linesNormalImg.tintColor = prefs.dayModeTintColor;
+
     
     [self.panelTable setSeparatorColor:(prefs.nightThemeSelected ? [UIColor blackColor] : prefs.dayModeTintColor)];
 

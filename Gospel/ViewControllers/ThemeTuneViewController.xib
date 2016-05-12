@@ -172,6 +172,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="font-size-big.png" translatesAutoresizingMaskIntoConstraints="NO" id="6TC-1o-2EJ">
                         <rect key="frame" x="272" y="2" width="40" height="40"/>
+                        <color key="tintColor" red="0.85882352939999995" green="0.25098039220000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="HYc-U3-fXf"/>
                             <constraint firstAttribute="height" constant="40" id="L65-Q9-7X7"/>
@@ -195,7 +196,7 @@
                     <constraint firstItem="qKe-U3-bpu" firstAttribute="centerY" secondItem="dYN-g8-IVY" secondAttribute="centerY" id="yrB-Jw-qdS"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="297" y="1048"/>
+            <point key="canvasLocation" x="326" y="1142"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vTW-ew-NN3">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
