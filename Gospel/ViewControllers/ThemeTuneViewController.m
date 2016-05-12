@@ -209,6 +209,11 @@
     [self.exampleTableView reloadData];
 }
 
+- (UIStatusBarStyle) preferredStatusBarStyle
+{
+	return UIStatusBarStyleLightContent;
+}
+
 
 #pragma mark - Buttons -
 

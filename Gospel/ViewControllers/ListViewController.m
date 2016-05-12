@@ -45,7 +45,10 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = true;
-    [self drawDefault];
+	self.view.backgroundColor = (prefs.nightThemeSelected ? [UIColor grayColor] : [UIColor whiteColor]);
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+	self.tableView.backgroundColor = prefs.themeCellBackgroundColor;
+	[self drawDefault];
 }
 
 
