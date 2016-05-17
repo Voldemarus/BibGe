@@ -16,6 +16,17 @@
 		1B213CAC1CD9D54500B8E673 /* CircleIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213CAB1CD9D54500B8E673 /* CircleIndicator.m */; };
 		1B213CB01CDA0DCB00B8E673 /* ThemeTuneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213CAE1CDA0DCB00B8E673 /* ThemeTuneViewController.m */; };
 		1B213CB11CDA0DCB00B8E673 /* ThemeTuneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B213CAF1CDA0DCB00B8E673 /* ThemeTuneViewController.xib */; };
+		1B345F6B1CEB4C3F007AC1D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B345F6A1CEB4C3F007AC1D9 /* AppDelegate.m */; };
+		1B345F6E1CEB4C3F007AC1D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B345F6D1CEB4C3F007AC1D9 /* main.m */; };
+		1B345F711CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B345F6F1CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodeld */; };
+		1B345F731CEB4C3F007AC1D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B345F721CEB4C3F007AC1D9 /* Assets.xcassets */; };
+		1B345F761CEB4C40007AC1D9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B345F741CEB4C40007AC1D9 /* MainMenu.xib */; };
+		1B345F7B1CEB4CD4007AC1D9 /* Gospel.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C01CE328AD006D068C /* Gospel.entitlements */; };
+		1B345F7C1CEB4CD5007AC1D9 /* Gospel.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C01CE328AD006D068C /* Gospel.entitlements */; };
+		1B345F7D1CEB4CFB007AC1D9 /* Gospel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BDE1CC4D30F001BE270 /* Gospel.xcdatamodeld */; };
+		1B345F7E1CEB4D00007AC1D9 /* Paragraph+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */; };
+		1B345F7F1CEB4D05007AC1D9 /* Paragraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5F1CDE2A9700564BC0 /* Paragraph.m */; };
+		1B345F801CEB4D0B007AC1D9 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5A1CDE28F000564BC0 /* DAO.m */; };
 		1B466C3F1CDC782200564BC0 /* blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B466C361CDC782200564BC0 /* blue.jpg */; };
 		1B466C401CDC782200564BC0 /* img_sidebar_orange.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B466C371CDC782200564BC0 /* img_sidebar_orange.jpg */; };
 		1B466C411CDC782200564BC0 /* orange.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B466C381CDC782200564BC0 /* orange.jpg */; };
@@ -88,6 +99,14 @@
 		1B213CAD1CDA0DCB00B8E673 /* ThemeTuneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeTuneViewController.h; sourceTree = "<group>"; };
 		1B213CAE1CDA0DCB00B8E673 /* ThemeTuneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeTuneViewController.m; sourceTree = "<group>"; };
 		1B213CAF1CDA0DCB00B8E673 /* ThemeTuneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeTuneViewController.xib; sourceTree = "<group>"; };
+		1B345F671CEB4C3F007AC1D9 /* GoSpelEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoSpelEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B345F691CEB4C3F007AC1D9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1B345F6A1CEB4C3F007AC1D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1B345F6D1CEB4C3F007AC1D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1B345F701CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoSpelEditor.xcdatamodel; sourceTree = "<group>"; };
+		1B345F721CEB4C3F007AC1D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1B345F751CEB4C40007AC1D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1B345F771CEB4C40007AC1D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B466C361CDC782200564BC0 /* blue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blue.jpg; sourceTree = "<group>"; };
 		1B466C371CDC782200564BC0 /* img_sidebar_orange.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img_sidebar_orange.jpg; sourceTree = "<group>"; };
 		1B466C381CDC782200564BC0 /* orange.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = orange.jpg; sourceTree = "<group>"; };
@@ -159,6 +178,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1B345F641CEB4C3F007AC1D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8B852BCC1CC4D30F001BE270 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +258,28 @@
 			name = ThemeTuning;
 			sourceTree = "<group>";
 		};
+		1B345F681CEB4C3F007AC1D9 /* GoSpelEditor */ = {
+			isa = PBXGroup;
+			children = (
+				1B345F691CEB4C3F007AC1D9 /* AppDelegate.h */,
+				1B345F6A1CEB4C3F007AC1D9 /* AppDelegate.m */,
+				1B345F721CEB4C3F007AC1D9 /* Assets.xcassets */,
+				1B345F741CEB4C40007AC1D9 /* MainMenu.xib */,
+				1B345F771CEB4C40007AC1D9 /* Info.plist */,
+				1B345F6F1CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodeld */,
+				1B345F6C1CEB4C3F007AC1D9 /* Supporting Files */,
+			);
+			path = GoSpelEditor;
+			sourceTree = "<group>";
+		};
+		1B345F6C1CEB4C3F007AC1D9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1B345F6D1CEB4C3F007AC1D9 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		1B466C351CDC77A700564BC0 /* sidebars */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +348,7 @@
 			children = (
 				1BAE23C11CE32E82006D068C /* README.md */,
 				8B852BD11CC4D30F001BE270 /* Gospel */,
+				1B345F681CEB4C3F007AC1D9 /* GoSpelEditor */,
 				8B852BD01CC4D30F001BE270 /* Products */,
 				1BAE23BF1CE3286A006D068C /* Frameworks */,
 			);
@@ -309,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				8B852BCF1CC4D30F001BE270 /* Gospel.app */,
+				1B345F671CEB4C3F007AC1D9 /* GoSpelEditor.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -406,6 +456,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1B345F661CEB4C3F007AC1D9 /* GoSpelEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B345F7A1CEB4C40007AC1D9 /* Build configuration list for PBXNativeTarget "GoSpelEditor" */;
+			buildPhases = (
+				1B345F631CEB4C3F007AC1D9 /* Sources */,
+				1B345F641CEB4C3F007AC1D9 /* Frameworks */,
+				1B345F651CEB4C3F007AC1D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoSpelEditor;
+			productName = GoSpelEditor;
+			productReference = 1B345F671CEB4C3F007AC1D9 /* GoSpelEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8B852BCE1CC4D30F001BE270 /* Gospel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B852BE91CC4D30F001BE270 /* Build configuration list for PBXNativeTarget "Gospel" */;
@@ -432,6 +499,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Aron;
 				TargetAttributes = {
+					1B345F661CEB4C3F007AC1D9 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					8B852BCE1CC4D30F001BE270 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = UKBNTL7HA9;
@@ -457,11 +527,22 @@
 			projectRoot = "";
 			targets = (
 				8B852BCE1CC4D30F001BE270 /* Gospel */,
+				1B345F661CEB4C3F007AC1D9 /* GoSpelEditor */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1B345F651CEB4C3F007AC1D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B345F731CEB4C3F007AC1D9 /* Assets.xcassets in Resources */,
+				1B345F761CEB4C40007AC1D9 /* MainMenu.xib in Resources */,
+				1B345F7C1CEB4CD5007AC1D9 /* Gospel.entitlements in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8B852BCD1CC4D30F001BE270 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -501,6 +582,7 @@
 				1B466C441CDC782200564BC0 /* grey.jpg in Resources */,
 				1B213C9A1CD8AF1C00B8E673 /* img_sidebar_black.png in Resources */,
 				8BF1E3661CC609DC009DC8F2 /* icon_Back.png in Resources */,
+				1B345F7B1CEB4CD4007AC1D9 /* Gospel.entitlements in Resources */,
 				1B466C401CDC782200564BC0 /* img_sidebar_orange.jpg in Resources */,
 				8BF1E3671CC609DC009DC8F2 /* img_option.png in Resources */,
 				1B213CB11CDA0DCB00B8E673 /* ThemeTuneViewController.xib in Resources */,
@@ -515,6 +597,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1B345F631CEB4C3F007AC1D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B345F6E1CEB4C3F007AC1D9 /* main.m in Sources */,
+				1B345F7E1CEB4D00007AC1D9 /* Paragraph+CoreDataProperties.m in Sources */,
+				1B345F7D1CEB4CFB007AC1D9 /* Gospel.xcdatamodeld in Sources */,
+				1B345F711CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodeld in Sources */,
+				1B345F7F1CEB4D05007AC1D9 /* Paragraph.m in Sources */,
+				1B345F6B1CEB4C3F007AC1D9 /* AppDelegate.m in Sources */,
+				1B345F801CEB4D0B007AC1D9 /* DAO.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8B852BCB1CC4D30F001BE270 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -544,6 +640,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		1B345F741CEB4C40007AC1D9 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B345F751CEB4C40007AC1D9 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		8B852BDB1CC4D30F001BE270 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -564,6 +668,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1B345F781CEB4C40007AC1D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GoSpelEditor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = geomatix.cz.GoSpelEditor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1B345F791CEB4C40007AC1D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GoSpelEditor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = geomatix.cz.GoSpelEditor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		8B852BE71CC4D30F001BE270 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -675,6 +811,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1B345F7A1CEB4C40007AC1D9 /* Build configuration list for PBXNativeTarget "GoSpelEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B345F781CEB4C40007AC1D9 /* Debug */,
+				1B345F791CEB4C40007AC1D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		8B852BCA1CC4D30F001BE270 /* Build configuration list for PBXProject "Gospel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -696,6 +840,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		1B345F6F1CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1B345F701CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodel */,
+			);
+			currentVersion = 1B345F701CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodel */;
+			path = GoSpelEditor.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		8B852BDE1CC4D30F001BE270 /* Gospel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
