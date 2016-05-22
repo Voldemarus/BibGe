@@ -8,10 +8,14 @@
 
 #import "DAO.h"
 #import "DebugPrint.h"
+#ifndef GOBIBLEEDITOR
 #import "Preferences.h"
+#endif
 
 @interface DAO () {
+#ifndef GOBIBLEEDITOR
 	Preferences *prefs;
+#endif
 }
 
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -35,9 +39,9 @@
 - (id) init
 {
 	if (self = [super init]) {
-		prefs = [Preferences sharedInstance];
 		[self createDemoSet];
-		
+#ifndef GOBIBLEEDITOR
+		prefs = [Preferences sharedInstance];
 		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 		[nc addObserver:self selector:@selector(persistentStoreChanged:) name:NSPersistentStoreCoordinatorStoresDidChangeNotification object:nil];
 		
@@ -69,7 +73,7 @@
 				 [[NSNotificationCenter defaultCenter] postNotificationName:VVVpersistentStoreChanged object:nil];
 			 }];
 		 }];
-		
+#endif
 	}
 	return self;
 }
@@ -108,6 +112,9 @@
 	NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Gospel.sqlite"];
 	NSError *error = nil;
 	NSString *failureReason = @"There was an error creating or loading the application's saved data.";
+#ifdef GOBIBLEEDITOR
+	if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+#else
 	
 	NSDictionary *options = (prefs.storeInCloud ?
 							 @{NSPersistentStoreUbiquitousContentNameKey: @"MyAppCloudStore",
@@ -119,6 +126,7 @@
 	DLog(@"options fot store = %@", options);
 	NSPersistentStore *actualStore= [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
 	if (!actualStore) {
+#endif
 		// Report any error we got.
 		NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 		dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
@@ -130,11 +138,14 @@
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 		abort();
 	}
+#ifndef GOBIBLEEDITOR
 	NSURL *actualURL = [actualStore URL];
 	DLog(@"actualURL = %@", actualURL);
+#endif
 	return _persistentStoreCoordinator;
 }
 
+#ifndef GOBIBLEEDITOR
 - (void) updatePersistentCoordinator
 {
 	NSError *error = nil;
@@ -147,7 +158,7 @@
 		[[NSNotificationCenter defaultCenter] postNotificationName:VVVpersistentStoreChanged object:nil];
 	}
 }
-
+#endif
 
 
 - (NSManagedObjectContext *)managedObjectContext {
@@ -229,7 +240,7 @@
 	[self.managedObjectContext save:nil];
 }
 
-
+#ifndef GOBIBLEEDITOR
 - (NSFetchedResultsController *) fetchedController
 {
 	NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"Paragraph"];
@@ -248,6 +259,7 @@
 	}
 	return rc;
 }
+
 
 - (void) resetTrackingIndexes
 {
@@ -273,5 +285,5 @@
 	}
 	[[NSNotificationCenter defaultCenter] postNotificationName:VVVpersistentStoreChanged object:nil];
 }
-
+#endif
 @end
