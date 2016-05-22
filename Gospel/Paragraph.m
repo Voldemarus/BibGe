@@ -16,6 +16,7 @@
 {
 	[super awakeFromInsert];
 	self.dateCreated = [NSDate date];
+	self.title = @"New Record";
 }
 #endif
 

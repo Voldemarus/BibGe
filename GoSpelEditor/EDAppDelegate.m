@@ -55,8 +55,6 @@
     }
 }
 
-
-
 - (IBAction)refreshDatePressed:(id)sender
 {
 	Paragraph *currentParagraph = [[self.sataController selectedObjects] objectAtIndex:0];
