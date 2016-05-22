@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		1B8A09E31CF1D97F0030BAEF /* UpdateVersion */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1B8A09E41CF1D97F0030BAEF /* Build configuration list for PBXAggregateTarget "UpdateVersion" */;
+			buildPhases = (
+				1B8A09E71CF1D9920030BAEF /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = UpdateVersion;
+			productName = UpdateVersion;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1B213C971CD8994500B8E673 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213C961CD8994500B8E673 /* Preferences.m */; };
 		1B213C9A1CD8AF1C00B8E673 /* img_sidebar_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B213C991CD8AF1C00B8E673 /* img_sidebar_black.png */; };
@@ -40,7 +54,7 @@
 		1B466C5B1CDE28F000564BC0 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5A1CDE28F000564BC0 /* DAO.m */; };
 		1B466C601CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */; };
 		1B466C611CDE2A9700564BC0 /* Paragraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5F1CDE2A9700564BC0 /* Paragraph.m */; };
-		1BAE23C21CE32E82006D068C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE23C11CE32E82006D068C /* README.md */; };
+		1B8A09E21CF1D9290030BAEF /* VersionUpdate.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A09E01CF1D9290030BAEF /* VersionUpdate.sh */; };
 		1BAE23C61CE3457B006D068C /* WaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE23C41CE3457B006D068C /* WaitingViewController.m */; };
 		1BAE23C71CE3457B006D068C /* WaitingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C51CE3457B006D068C /* WaitingViewController.xib */; };
 		1BAE23CA1CE34637006D068C /* Cloud-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C91CE34637006D068C /* Cloud-icon.png */; };
@@ -83,6 +97,16 @@
 		AED53ADA1CDBA47A0043A1EB /* lines2.png in Resources */ = {isa = PBXBuildFile; fileRef = AED53AD51CDBA47A0043A1EB /* lines2.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1B8A09E81CF1D9FD0030BAEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B852BC71CC4D30F001BE270 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B8A09E31CF1D97F0030BAEF;
+			remoteInfo = UpdateVersion;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1B213C951CD8994500B8E673 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
 		1B213C961CD8994500B8E673 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
@@ -123,6 +147,8 @@
 		1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Paragraph+CoreDataProperties.m"; sourceTree = "<group>"; };
 		1B466C5E1CDE2A9700564BC0 /* Paragraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paragraph.h; sourceTree = "<group>"; };
 		1B466C5F1CDE2A9700564BC0 /* Paragraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paragraph.m; sourceTree = "<group>"; };
+		1B8A09E01CF1D9290030BAEF /* VersionUpdate.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = VersionUpdate.sh; sourceTree = "<group>"; };
+		1B8A09EB1CF1E17D0030BAEF /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
 		1BAE23C01CE328AD006D068C /* Gospel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Gospel.entitlements; sourceTree = "<group>"; };
 		1BAE23C11CE32E82006D068C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1BAE23C31CE3457B006D068C /* WaitingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingViewController.h; sourceTree = "<group>"; };
@@ -232,6 +258,7 @@
 		1B213CA21CD8F03000B8E673 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1B8A09DF1CF1D9070030BAEF /* Update Version */,
 				1B213CA31CD8F03B00B8E673 /* SDIPhone */,
 			);
 			name = Utils;
@@ -304,6 +331,15 @@
 				8B852BE31CC4D30F001BE270 /* LaunchScreen.storyboard */,
 			);
 			name = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		1B8A09DF1CF1D9070030BAEF /* Update Version */ = {
+			isa = PBXGroup;
+			children = (
+				1B8A09E01CF1D9290030BAEF /* VersionUpdate.sh */,
+				1B8A09EB1CF1E17D0030BAEF /* Version.h */,
+			);
+			name = "Update Version";
 			sourceTree = "<group>";
 		};
 		1BAE23BF1CE3286A006D068C /* Frameworks */ = {
@@ -484,6 +520,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1B8A09E91CF1D9FD0030BAEF /* PBXTargetDependency */,
 			);
 			name = Gospel;
 			productName = Gospel;
@@ -500,6 +537,9 @@
 				ORGANIZATIONNAME = Aron;
 				TargetAttributes = {
 					1B345F661CEB4C3F007AC1D9 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					1B8A09E31CF1D97F0030BAEF = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
 					8B852BCE1CC4D30F001BE270 = {
@@ -528,6 +568,7 @@
 			targets = (
 				8B852BCE1CC4D30F001BE270 /* Gospel */,
 				1B345F661CEB4C3F007AC1D9 /* GoSpelEditor */,
+				1B8A09E31CF1D97F0030BAEF /* UpdateVersion */,
 			);
 		};
 /* End PBXProject section */
@@ -570,6 +611,7 @@
 				1B466C411CDC782200564BC0 /* orange.jpg in Resources */,
 				1BAE23CD1CE3B3D2006D068C /* day_nigh_hrt.png in Resources */,
 				1BAE23C71CE3457B006D068C /* WaitingViewController.xib in Resources */,
+				1B8A09E21CF1D9290030BAEF /* VersionUpdate.sh in Resources */,
 				AED53AD91CDBA47A0043A1EB /* font-size-small.png in Resources */,
 				8BF1E36A1CC609DC009DC8F2 /* txt_settings.png in Resources */,
 				8BFEBE0C1CC706A500DDB4BE /* icon_upload_blue.png in Resources */,
@@ -595,6 +637,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B8A09E71CF1D9920030BAEF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "GIT_BRANCH=\"master\" PREFIX=\"XC_\" /bin/sh \"${PROJECT_DIR}/GoSpel/VersionUpdate.sh\" \"${PROJECT_DIR}/Version.h\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1B345F631CEB4C3F007AC1D9 /* Sources */ = {
@@ -622,7 +680,6 @@
 				AED53AD01CD8BEDC0043A1EB /* SettingsTableViewController.m in Sources */,
 				8B852BE01CC4D30F001BE270 /* Gospel.xcdatamodeld in Sources */,
 				8BFEBE0A1CC703F100DDB4BE /* ContentViewController.m in Sources */,
-				1BAE23C21CE32E82006D068C /* README.md in Sources */,
 				1B466C601CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m in Sources */,
 				1B466C5B1CDE28F000564BC0 /* DAO.m in Sources */,
 				1B213C9E1CD8C88800B8E673 /* ProgressCircleView.m in Sources */,
@@ -638,6 +695,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1B8A09E91CF1D9FD0030BAEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1B8A09E31CF1D97F0030BAEF /* UpdateVersion */;
+			targetProxy = 1B8A09E81CF1D9FD0030BAEF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1B345F741CEB4C40007AC1D9 /* MainMenu.xib */ = {
@@ -699,6 +764,20 @@
 				PRODUCT_BUNDLE_IDENTIFIER = geomatix.cz.GoSpelEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1B8A09E51CF1D97F0030BAEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1B8A09E61CF1D97F0030BAEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -790,6 +869,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gospel/Gospel.entitlements;
 				INFOPLIST_FILE = Gospel/Info.plist;
+				INFOPLIST_PREFIX_HEADER = Version.h;
+				INFOPLIST_PREPROCESS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alex.Gospel;
@@ -803,6 +884,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gospel/Gospel.entitlements;
 				INFOPLIST_FILE = Gospel/Info.plist;
+				INFOPLIST_PREFIX_HEADER = Version.h;
+				INFOPLIST_PREPROCESS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alex.Gospel;
@@ -821,6 +904,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		1B8A09E41CF1D97F0030BAEF /* Build configuration list for PBXAggregateTarget "UpdateVersion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B8A09E51CF1D97F0030BAEF /* Debug */,
+				1B8A09E61CF1D97F0030BAEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		8B852BCA1CC4D30F001BE270 /* Build configuration list for PBXProject "Gospel" */ = {
 			isa = XCConfigurationList;

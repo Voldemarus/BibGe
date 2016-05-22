@@ -4,3 +4,5 @@
 
 2) Testing iCloud is possible on device only. Simulator doesn't support this mode.
 
+3) To build editor set up target GoSpel Editor
+

@@ -1,0 +1,3 @@
+#define XC_BUILD_NUMBER 70
+#define XC_BUILD_HASH @"ab651aa"
+#define XC_PUBLIC_VERSION_NUMBER X1.0
