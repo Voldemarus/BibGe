@@ -151,14 +151,7 @@
 	cell.progressCircle.progressValue = par.viewed.floatValue; // (indexPath.row % 10) / 10.0;
     cell.progressCircle.color = prefs.themeProgressFiller;
 	
-	static NSDateFormatter *df = nil;
-	if (!df) {
-		df = [[NSDateFormatter alloc] init];
-		[df setDateFormat:@"dd MMM YYYY"];
-	}
-	NSString *curFormattedDate = [df stringFromDate:par.dateCreated];
-	
-	cell.txtDetail.text = [NSString stringWithFormat:@"%@   %ld", curFormattedDate, (long)counter];
+	cell.txtDetail.text = [NSString stringWithFormat:@"%@   %ld", par.dateCreatedAsString, (long)counter];
 	cell.txtTitle.text = par.title;
 	
     return cell;

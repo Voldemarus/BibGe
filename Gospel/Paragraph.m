@@ -11,6 +11,13 @@
 
 @implementation Paragraph
 
+#ifdef GOBIBLEEDITOR
+- (void)awakeFromInsert
+{
+	[super awakeFromInsert];
+	self.dateCreated = [NSDate date];
+}
+#endif
 
 + (Paragraph *)newObjectForParagraphTitle:(NSString *)aTitle date:(NSDate *)aDate linl:(NSString *)aLink andText:(NSString *)aText inMoc:(NSManagedObjectContext *)moc
 {
@@ -36,6 +43,16 @@
 		newParagraph.viewed = @(0);
 	}
 	return newParagraph;
+}
+
+- (NSString *) dateCreatedAsString
+{
+	static NSDateFormatter *df = nil;
+	if (!df) {
+		df = [[NSDateFormatter alloc] init];
+		[df setDateFormat:@"dd MMM YYYY"];
+	}
+	return [df stringFromDate:self.dateCreated];
 }
 
 

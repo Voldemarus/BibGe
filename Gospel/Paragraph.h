@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (Paragraph *)newObjectForParagraphTitle:(NSString *)aTitle date:(NSDate *)aDate linl:(NSString *)aLink andText:(NSString *)aText inMoc:(NSManagedObjectContext *)moc;
 
+
+- (NSString *) dateCreatedAsString;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -30,9 +30,8 @@
 		1B213CAC1CD9D54500B8E673 /* CircleIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213CAB1CD9D54500B8E673 /* CircleIndicator.m */; };
 		1B213CB01CDA0DCB00B8E673 /* ThemeTuneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213CAE1CDA0DCB00B8E673 /* ThemeTuneViewController.m */; };
 		1B213CB11CDA0DCB00B8E673 /* ThemeTuneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B213CAF1CDA0DCB00B8E673 /* ThemeTuneViewController.xib */; };
-		1B345F6B1CEB4C3F007AC1D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B345F6A1CEB4C3F007AC1D9 /* AppDelegate.m */; };
+		1B345F6B1CEB4C3F007AC1D9 /* EDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B345F6A1CEB4C3F007AC1D9 /* EDAppDelegate.m */; };
 		1B345F6E1CEB4C3F007AC1D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B345F6D1CEB4C3F007AC1D9 /* main.m */; };
-		1B345F711CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B345F6F1CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodeld */; };
 		1B345F731CEB4C3F007AC1D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B345F721CEB4C3F007AC1D9 /* Assets.xcassets */; };
 		1B345F761CEB4C40007AC1D9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B345F741CEB4C40007AC1D9 /* MainMenu.xib */; };
 		1B345F7B1CEB4CD4007AC1D9 /* Gospel.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C01CE328AD006D068C /* Gospel.entitlements */; };
@@ -124,10 +123,9 @@
 		1B213CAE1CDA0DCB00B8E673 /* ThemeTuneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeTuneViewController.m; sourceTree = "<group>"; };
 		1B213CAF1CDA0DCB00B8E673 /* ThemeTuneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeTuneViewController.xib; sourceTree = "<group>"; };
 		1B345F671CEB4C3F007AC1D9 /* GoSpelEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoSpelEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B345F691CEB4C3F007AC1D9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1B345F6A1CEB4C3F007AC1D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1B345F691CEB4C3F007AC1D9 /* EDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDAppDelegate.h; sourceTree = "<group>"; };
+		1B345F6A1CEB4C3F007AC1D9 /* EDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDAppDelegate.m; sourceTree = "<group>"; };
 		1B345F6D1CEB4C3F007AC1D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1B345F701CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoSpelEditor.xcdatamodel; sourceTree = "<group>"; };
 		1B345F721CEB4C3F007AC1D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B345F751CEB4C40007AC1D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1B345F771CEB4C40007AC1D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -288,12 +286,11 @@
 		1B345F681CEB4C3F007AC1D9 /* GoSpelEditor */ = {
 			isa = PBXGroup;
 			children = (
-				1B345F691CEB4C3F007AC1D9 /* AppDelegate.h */,
-				1B345F6A1CEB4C3F007AC1D9 /* AppDelegate.m */,
+				1B345F691CEB4C3F007AC1D9 /* EDAppDelegate.h */,
+				1B345F6A1CEB4C3F007AC1D9 /* EDAppDelegate.m */,
 				1B345F721CEB4C3F007AC1D9 /* Assets.xcassets */,
 				1B345F741CEB4C40007AC1D9 /* MainMenu.xib */,
 				1B345F771CEB4C40007AC1D9 /* Info.plist */,
-				1B345F6F1CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodeld */,
 				1B345F6C1CEB4C3F007AC1D9 /* Supporting Files */,
 			);
 			path = GoSpelEditor;
@@ -662,9 +659,8 @@
 				1B345F6E1CEB4C3F007AC1D9 /* main.m in Sources */,
 				1B345F7E1CEB4D00007AC1D9 /* Paragraph+CoreDataProperties.m in Sources */,
 				1B345F7D1CEB4CFB007AC1D9 /* Gospel.xcdatamodeld in Sources */,
-				1B345F711CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodeld in Sources */,
 				1B345F7F1CEB4D05007AC1D9 /* Paragraph.m in Sources */,
-				1B345F6B1CEB4C3F007AC1D9 /* AppDelegate.m in Sources */,
+				1B345F6B1CEB4C3F007AC1D9 /* EDAppDelegate.m in Sources */,
 				1B345F801CEB4D0B007AC1D9 /* DAO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -934,16 +930,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		1B345F6F1CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				1B345F701CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodel */,
-			);
-			currentVersion = 1B345F701CEB4C3F007AC1D9 /* GoSpelEditor.xcdatamodel */;
-			path = GoSpelEditor.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		8B852BDE1CC4D30F001BE270 /* Gospel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
