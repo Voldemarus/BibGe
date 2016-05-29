@@ -32,7 +32,7 @@
 	BOOL res = [self.internalColor getRed:&colorRed green:&colorGreen
 									 blue:&colorBlue alpha:&alpha];
 #pragma unused (res)
-	CGContextSetRGBStrokeColor(context, 1.0, 1.0, 1.0, 1.0);
+	CGContextSetRGBStrokeColor(context, colorRed, colorGreen, colorBlue, 1.0);
 	CGContextSetRGBFillColor(context, colorRed, colorGreen, colorBlue, 1.0);
 	CGContextSetLineWidth(context, lineWidth);
 	CGContextFillEllipseInRect (context, borderRect);
