@@ -62,6 +62,10 @@
 		1BB76E3F1CFD78B000CA0958 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB76E3D1CFD78B000CA0958 /* InfoViewController.m */; };
 		1BB76E401CFD78B000CA0958 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E3E1CFD78B000CA0958 /* InfoViewController.xib */; };
 		1BB76E421CFD79F100CA0958 /* InfoText.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E411CFD79F100CA0958 /* InfoText.rtf */; };
+		1BB76E471CFDDF0D00CA0958 /* acadnusx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E461CFDDF0D00CA0958 /* acadnusx.ttf */; };
+		1BB76E491CFDDF2100CA0958 /* litnusx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E481CFDDF2100CA0958 /* litnusx.ttf */; };
+		1BB76E4A1CFDDF2100CA0958 /* litnusx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E481CFDDF2100CA0958 /* litnusx.ttf */; };
+		1BB76E4B1CFDDF3400CA0958 /* acadnusx.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E461CFDDF0D00CA0958 /* acadnusx.ttf */; };
 		1BDD4BB41CE1D14E00DC0694 /* ShowCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
@@ -162,6 +166,8 @@
 		1BB76E3D1CFD78B000CA0958 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		1BB76E3E1CFD78B000CA0958 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		1BB76E411CFD79F100CA0958 /* InfoText.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = InfoText.rtf; sourceTree = "<group>"; };
+		1BB76E461CFDDF0D00CA0958 /* acadnusx.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = acadnusx.ttf; sourceTree = "<group>"; };
+		1BB76E481CFDDF2100CA0958 /* litnusx.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = litnusx.ttf; sourceTree = "<group>"; };
 		1BDD4BB21CE1D14E00DC0694 /* ShowCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowCommentsViewController.h; sourceTree = "<group>"; };
 		1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCommentsViewController.m; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -394,6 +400,15 @@
 			name = InfoView;
 			sourceTree = "<group>";
 		};
+		1BB76E451CFDDEB400CA0958 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1BB76E481CFDDF2100CA0958 /* litnusx.ttf */,
+				1BB76E461CFDDF0D00CA0958 /* acadnusx.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		8B852BC61CC4D30F001BE270 = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +470,7 @@
 		8B8D067A1CC4D44D003EAC28 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1BB76E451CFDDEB400CA0958 /* Fonts */,
 				1BAE23CF1CE4771F006D068C /* Separators */,
 				1B466C351CDC77A700564BC0 /* sidebars */,
 				AED53AD11CDBA47A0043A1EB /* lines3.png */,
@@ -596,7 +612,9 @@
 			files = (
 				1B345F731CEB4C3F007AC1D9 /* Assets.xcassets in Resources */,
 				1B345F761CEB4C40007AC1D9 /* MainMenu.xib in Resources */,
+				1BB76E4A1CFDDF2100CA0958 /* litnusx.ttf in Resources */,
 				1B345F7C1CEB4CD5007AC1D9 /* Gospel.entitlements in Resources */,
+				1BB76E4B1CFDDF3400CA0958 /* acadnusx.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +623,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B466C451CDC782200564BC0 /* img_sidebar_grey.jpg in Resources */,
+				1BB76E491CFDDF2100CA0958 /* litnusx.ttf in Resources */,
 				AED53AD71CDBA47A0043A1EB /* lines1.png in Resources */,
 				8BF1E34C1CC4DE5E009DC8F2 /* icon_info.png in Resources */,
 				8BF1E3691CC609DC009DC8F2 /* txt_reset.png in Resources */,
@@ -619,6 +638,7 @@
 				1BB76E401CFD78B000CA0958 /* InfoViewController.xib in Resources */,
 				8BF1E36B1CC609DC009DC8F2 /* txt_tracking.png in Resources */,
 				AED53AD81CDBA47A0043A1EB /* font-size-big.png in Resources */,
+				1BB76E471CFDDF0D00CA0958 /* acadnusx.ttf in Resources */,
 				1B213CA81CD8F25E00B8E673 /* Localizable.strings in Resources */,
 				8BF1E34F1CC4DE5E009DC8F2 /* icon_theme.png in Resources */,
 				1B466C461CDC782200564BC0 /* img_sidebar_blue.png in Resources */,

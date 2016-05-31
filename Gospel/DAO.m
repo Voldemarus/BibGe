@@ -207,7 +207,7 @@
 		for (NSInteger i = 0; i < 30; i++) {
 			NSDate *newDate = [cal dateFromComponents:comps];
 			comps.day++;
-			NSString *title = [NSString stringWithFormat: @"Article #%ld - წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ წმინდა ბიბლიის შესახებ!",(long)i];
+			NSString *title = [NSString stringWithFormat:@"saRvTo liturgia - %ld", (long)i];
 			NSMutableString *newStr = [[NSMutableString alloc] initWithCapacity:30];
 			NSMutableString *tr1 = [[NSMutableString alloc] initWithCapacity:20];
 			NSMutableString *tr2 = [[NSMutableString alloc] initWithCapacity:20];
@@ -215,7 +215,7 @@
 			
 			for (NSInteger j = 0; j < 40; j++) {
 				NSString *t = [NSString stringWithFormat:@"Record #%ld line %ld\n",(long)i,(long)j];
-				[newStr appendString:t];
+//				[newStr appendString:t];
 				t = [NSString stringWithFormat:@"Translation %ld/1 line %ld\n",
 					 (long) i, (long) j];
 				[tr1 appendString:t];
@@ -225,9 +225,11 @@
 				t = [NSString stringWithFormat:@"Translation %ld/3 line %ld\n",
 					 (long) i, (long) j];
 				[tr3 appendString:t];
-
 				
 			}
+			
+			newStr = @"imis gamo, rom Zveli qarTuli ena sagrZnoblad daSorda Tanamedrove qarTuls, saWirod miviCnieT, wminda ioane oqropiris saRvTo liturgia Zvelidan Tanamedrove qarTul enaze gadmogveRo. winamdebare Targmanis mizania, taZarSi misul mrevls gauadvildes wirvaze aRsrulebuli locvebisa da saga-loblebis gageba.";
+			
 			NSString *link = (i %2 ? @"http://armada.cardarmy.ru" : @"http://geomatix.sweb.cz");
 			
 			Paragraph *newRec = [Paragraph newObjectForParagraphTitle:title date:newDate linl:link andText:newStr inMoc:self.managedObjectContext];

@@ -41,6 +41,9 @@
 	
 	self.waitingController = [[WaitingViewController alloc] init];
  
+	NSLog(@"%@", [UIFont fontNamesForFamilyName:@"AcadNusx"]);
+	
+	
 }
 
 - (void)viewWillAppear:(BOOL)animated
