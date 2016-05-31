@@ -25,6 +25,10 @@
 @property (weak) IBOutlet NSTextField *recordTitleField;
 @property (weak) IBOutlet NSTextField *linkTextField;
 
+@property (unsafe_unretained) IBOutlet NSTextView *articleTextView;
+
+
+
 @end
 
 @implementation EDAppDelegate
@@ -37,6 +41,8 @@
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
 	// Insert code here to tear down your application
 }
+
+
 
 #pragma mark - Core Data stack
 
@@ -62,6 +68,10 @@
 	self.creationDateLabel.stringValue = [currentParagraph dateCreatedAsString];
 }
 
+- (NSFont *) georgianFont
+{
+	return [NSFont fontWithName:@"AcadNusx" size:14.0];
+}
 
 - (IBAction)checkLinkPressed:(id)sender
 {

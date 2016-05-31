@@ -30,5 +30,10 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>acadnusx.ttf</string>
+		<string>litnusx.ttf</string>
+	</array>
 </dict>
 </plist>

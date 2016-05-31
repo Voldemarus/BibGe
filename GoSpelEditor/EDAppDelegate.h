@@ -14,6 +14,7 @@
 @property (nonatomic, assign) IBOutlet NSManagedObjectContext *moc;
 @property (weak) IBOutlet NSTableView *tableView;
 
+@property (nonatomic, retain) NSFont *georgianFont;
 
 @end
 
