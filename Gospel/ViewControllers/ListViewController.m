@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *m_imgSidebar;
 @property (weak, nonatomic) IBOutlet UITableView *tvList;
 
+- (IBAction)processInfoButton:(id)sender;
+
 @end
 
 @implementation ListViewController
@@ -114,6 +116,16 @@
     [self.navigationController pushViewController:self.tuneController animated:YES];
 	//[self presentViewController:self.tuneController animated:YES completion:nil];
 }
+
+- (IBAction)processInfoButton:(id)sender
+{
+	if (!self.infoController) {
+		self.infoController = [[InfoViewController alloc] init];
+	}
+	[self.navigationController pushViewController:_infoController animated:YES];
+}
+
+
 
 - (IBAction)processClickSetting:(id)sender {
     //[self performSegueWithIdentifier:@"goSetting" sender:nil];

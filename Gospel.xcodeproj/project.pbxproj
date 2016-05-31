@@ -59,6 +59,9 @@
 		1BAE23CA1CE34637006D068C /* Cloud-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C91CE34637006D068C /* Cloud-icon.png */; };
 		1BAE23CD1CE3B3D2006D068C /* day_nigh_hrt.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23CB1CE3B3D2006D068C /* day_nigh_hrt.png */; };
 		1BAE23CE1CE3B3D2006D068C /* day_nigh_hrt_day.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23CC1CE3B3D2006D068C /* day_nigh_hrt_day.png */; };
+		1BB76E3F1CFD78B000CA0958 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB76E3D1CFD78B000CA0958 /* InfoViewController.m */; };
+		1BB76E401CFD78B000CA0958 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E3E1CFD78B000CA0958 /* InfoViewController.xib */; };
+		1BB76E421CFD79F100CA0958 /* InfoText.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E411CFD79F100CA0958 /* InfoText.rtf */; };
 		1BDD4BB41CE1D14E00DC0694 /* ShowCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
@@ -155,6 +158,10 @@
 		1BAE23C91CE34637006D068C /* Cloud-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cloud-icon.png"; sourceTree = "<group>"; };
 		1BAE23CB1CE3B3D2006D068C /* day_nigh_hrt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = day_nigh_hrt.png; sourceTree = "<group>"; };
 		1BAE23CC1CE3B3D2006D068C /* day_nigh_hrt_day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = day_nigh_hrt_day.png; sourceTree = "<group>"; };
+		1BB76E3C1CFD78B000CA0958 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		1BB76E3D1CFD78B000CA0958 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		1BB76E3E1CFD78B000CA0958 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		1BB76E411CFD79F100CA0958 /* InfoText.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = InfoText.rtf; sourceTree = "<group>"; };
 		1BDD4BB21CE1D14E00DC0694 /* ShowCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowCommentsViewController.h; sourceTree = "<group>"; };
 		1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCommentsViewController.m; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -376,6 +383,17 @@
 			name = IconBack;
 			sourceTree = "<group>";
 		};
+		1BB76E391CFD788F00CA0958 /* InfoView */ = {
+			isa = PBXGroup;
+			children = (
+				1BB76E3C1CFD78B000CA0958 /* InfoViewController.h */,
+				1BB76E3D1CFD78B000CA0958 /* InfoViewController.m */,
+				1BB76E3E1CFD78B000CA0958 /* InfoViewController.xib */,
+				1BB76E411CFD79F100CA0958 /* InfoText.rtf */,
+			);
+			name = InfoView;
+			sourceTree = "<group>";
+		};
 		8B852BC61CC4D30F001BE270 = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +486,7 @@
 		8B8D067B1CC4D44D003EAC28 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1BB76E391CFD788F00CA0958 /* InfoView */,
 				1B466C511CDC969E00564BC0 /* LaunchScreen */,
 				1B213CA91CD9C51200B8E673 /* ThemeTuning */,
 				1B213C9B1CD8C86000B8E673 /* ProgressCircle */,
@@ -597,6 +616,7 @@
 				1BAE23CA1CE34637006D068C /* Cloud-icon.png in Resources */,
 				8BF1E3681CC609DC009DC8F2 /* txt_icloud.png in Resources */,
 				8B852BE51CC4D30F001BE270 /* LaunchScreen.storyboard in Resources */,
+				1BB76E401CFD78B000CA0958 /* InfoViewController.xib in Resources */,
 				8BF1E36B1CC609DC009DC8F2 /* txt_tracking.png in Resources */,
 				AED53AD81CDBA47A0043A1EB /* font-size-big.png in Resources */,
 				1B213CA81CD8F25E00B8E673 /* Localizable.strings in Resources */,
@@ -605,6 +625,7 @@
 				1B466C421CDC782200564BC0 /* dark.jpg in Resources */,
 				8BFEBE021CC6E8B400DDB4BE /* icon_Back_red.png in Resources */,
 				8BF1E3561CC5FE02009DC8F2 /* img_text.png in Resources */,
+				1BB76E421CFD79F100CA0958 /* InfoText.rtf in Resources */,
 				1B466C411CDC782200564BC0 /* orange.jpg in Resources */,
 				1BAE23CD1CE3B3D2006D068C /* day_nigh_hrt.png in Resources */,
 				1BAE23C71CE3457B006D068C /* WaitingViewController.xib in Resources */,
@@ -680,6 +701,7 @@
 				1B466C5B1CDE28F000564BC0 /* DAO.m in Sources */,
 				1B213C9E1CD8C88800B8E673 /* ProgressCircleView.m in Sources */,
 				1B213CB01CDA0DCB00B8E673 /* ThemeTuneViewController.m in Sources */,
+				1BB76E3F1CFD78B000CA0958 /* InfoViewController.m in Sources */,
 				1BDD4BB41CE1D14E00DC0694 /* ShowCommentsViewController.m in Sources */,
 				1B213CAC1CD9D54500B8E673 /* CircleIndicator.m in Sources */,
 				8BF1E35C1CC60028009DC8F2 /* ListTableViewCell.m in Sources */,
@@ -908,6 +930,7 @@
 				1B8A09E61CF1D97F0030BAEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B852BCA1CC4D30F001BE270 /* Build configuration list for PBXProject "Gospel" */ = {
 			isa = XCConfigurationList;

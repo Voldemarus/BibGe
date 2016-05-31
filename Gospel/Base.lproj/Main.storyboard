@@ -72,6 +72,9 @@
                                     <constraint firstAttribute="height" constant="32" id="y0Q-Ny-iY9"/>
                                 </constraints>
                                 <state key="normal" image="icon_info.png"/>
+                                <connections>
+                                    <action selector="processInfoButton:" destination="2QK-YB-yTK" eventType="touchUpInside" id="CvT-fk-b5d"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRK-9r-Yfd">
                                 <rect key="frame" x="9" y="550" width="29" height="29"/>
