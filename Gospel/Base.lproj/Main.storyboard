@@ -46,13 +46,16 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="KxD-Hd-bbW"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnm-Wp-4kB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnm-Wp-4kB" customClass="Book">
                                 <rect key="frame" x="11" y="387" width="25" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="DBX-jM-yfM"/>
                                     <constraint firstAttribute="width" constant="25" id="NrF-n2-86U"/>
                                 </constraints>
                                 <state key="normal" image="icon_lead.png"/>
+                                <connections>
+                                    <segue destination="UcW-Kh-hvl" kind="push" id="XuX-9R-tLm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ckv-Al-3FY">
                                 <rect key="frame" x="11" y="445" width="25" height="35"/>
@@ -401,6 +404,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJk-9N-km6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-863" y="1784"/>
+        </scene>
+        <!--Book View View Controller-->
+        <scene sceneID="NHR-Xl-HxF">
+            <objects>
+                <viewController id="UcW-Kh-hvl" customClass="BookViewViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="llv-1L-1I1"/>
+                        <viewControllerLayoutGuide type="bottom" id="u2r-bX-u5m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ggU-Uj-WDE">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zas-8D-OD0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zas-8D-OD0" firstAttribute="top" secondItem="llv-1L-1I1" secondAttribute="bottom" id="0d3-Xn-a2j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zas-8D-OD0" secondAttribute="trailing" constant="-20" id="QtU-T2-g4S"/>
+                            <constraint firstItem="zas-8D-OD0" firstAttribute="leading" secondItem="ggU-Uj-WDE" secondAttribute="leadingMargin" constant="-20" id="jpP-NC-DsW"/>
+                            <constraint firstItem="u2r-bX-u5m" firstAttribute="top" secondItem="zas-8D-OD0" secondAttribute="bottom" id="yKT-G6-dgx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7Cv-Qi-nEu"/>
+                    <connections>
+                        <outlet property="webView" destination="zas-8D-OD0" id="sAB-Be-bM1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAT-6o-mXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1262.5" y="992.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ZXt-Pv-nNA">
