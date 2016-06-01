@@ -20,7 +20,7 @@
 }
 #endif
 
-+ (Paragraph *)newObjectForParagraphTitle:(NSString *)aTitle date:(NSDate *)aDate linl:(NSString *)aLink andText:(NSString *)aText inMoc:(NSManagedObjectContext *)moc
++ (Paragraph *)newObjectForParagraphTitle:(NSString *)aTitle date:(NSDate *)aDate linl:(NSString *)aLink  inMoc:(NSManagedObjectContext *)moc
 {
 	NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"Paragraph"];
 	req.predicate = [NSPredicate predicateWithFormat:@"title = %@",aTitle];
@@ -40,7 +40,6 @@
 		newParagraph.title = aTitle;
 		newParagraph.dateCreated = aDate;
 		newParagraph.link = aLink;
-		newParagraph.text = aText;
 		newParagraph.viewed = @(0);
 	}
 	return newParagraph;

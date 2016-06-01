@@ -50,21 +50,38 @@
 	self.view.backgroundColor = prefs.themeBackgroundColor;
     [self.commentTextView setBackgroundColor:prefs.themeBackgroundColor];
 	
+	NSData *translationData = nil;
 	// setup title andd data
 	switch (prefs.commentKind) {
 		case CommentKindOldTestament:
 			self.navigationController.title = RStr(@"Old Testament");
-			self.commentTextView.text = prefs.selectedParagraph.translation1;
+			translationData = prefs.selectedParagraph.translation1;
 			break;
 		case CommentKindNewTestament:
 			self.navigationController.title = RStr(@"New Testament");
-			self.commentTextView.text = prefs.selectedParagraph.translation2;
+			translationData = prefs.selectedParagraph.translation2;
 			break;
 		case CommentKindPsalm:
 			self.navigationController.title = RStr(@"Psalm");
-			self.commentTextView.text = prefs.selectedParagraph.translation3;
+			translationData = prefs.selectedParagraph.translation3;
 	}
+	NSDictionary *options = @{NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType};
+	NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc]
+				  initWithData:translationData
+				  options:options
+				  documentAttributes:nil
+				  error:nil];
+	
+	NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+	[style setLineSpacing:prefs.lineHeight];
+	[attrString addAttribute:NSParagraphStyleAttributeName
+					   value:style
+					   range:NSMakeRange(0, attrString.length)];
+	UIFont *textFont = [UIFont systemFontOfSize:prefs.fontSize];
+	[attrString addAttribute:NSFontAttributeName value:textFont range:NSMakeRange(0, attrString.length)];
 
+	self.commentTextView.attributedText = attrString;
+	self.commentTextView.textColor = prefs.themeTextColor;
 }
 
 

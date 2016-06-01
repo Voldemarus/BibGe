@@ -203,39 +203,25 @@
 	comps.day = 1;
 	comps.month = 3;
 	if (count == 0) {
+		NSBundle *mb = [ NSBundle mainBundle];
+
 		NSCalendar *cal = [NSCalendar currentCalendar];
-		for (NSInteger i = 0; i < 30; i++) {
-			NSDate *newDate = [cal dateFromComponents:comps];
+		for (NSInteger i = 1; i < 9; i++) {
+			NSDate *newDate = [cal dateFromComponents:comps]; // for demo only!
 			comps.day++;
-			NSString *title = [NSString stringWithFormat:@"saRvTo liturgia - %ld", (long)i];
-			NSMutableString *newStr = [[NSMutableString alloc] initWithCapacity:30];
-			NSMutableString *tr1 = [[NSMutableString alloc] initWithCapacity:20];
-			NSMutableString *tr2 = [[NSMutableString alloc] initWithCapacity:20];
-			NSMutableString *tr3 = [[NSMutableString alloc] initWithCapacity:20];
+			NSString *title = [NSString stringWithFormat:@"%ld იანვარი", (long)i];
+			NSString *articleName = [NSString stringWithFormat:@"article%ld",(long)i];
+			NSURL *url = [mb URLForResource:articleName withExtension:@"rtf"];
 			
-			for (NSInteger j = 0; j < 40; j++) {
-				NSString *t = [NSString stringWithFormat:@"Record #%ld line %ld\n",(long)i,(long)j];
-//				[newStr appendString:t];
-				t = [NSString stringWithFormat:@"Translation %ld/1 line %ld\n",
-					 (long) i, (long) j];
-				[tr1 appendString:t];
-				t = [NSString stringWithFormat:@"Translation %ld/2 line %ld\n",
-					 (long) i, (long) j];
-				[tr2 appendString:t];
-				t = [NSString stringWithFormat:@"Translation %ld/3 line %ld\n",
-					 (long) i, (long) j];
-				[tr3 appendString:t];
-				
-			}
-			
-			newStr = @"imis gamo, rom Zveli qarTuli ena sagrZnoblad daSorda Tanamedrove qarTuls, saWirod miviCnieT, wminda ioane oqropiris saRvTo liturgia Zvelidan Tanamedrove qarTul enaze gadmogveRo. winamdebare Targmanis mizania, taZarSi misul mrevls gauadvildes wirvaze aRsrulebuli locvebisa da saga-loblebis gageba.";
+			NSData *data = [[NSFileManager defaultManager] contentsAtPath:[url path]];
+			// attributed string can be stored in warehouse as NSData!
 			
 			NSString *link = (i %2 ? @"http://armada.cardarmy.ru" : @"http://geomatix.sweb.cz");
-			
-			Paragraph *newRec = [Paragraph newObjectForParagraphTitle:title date:newDate linl:link andText:newStr inMoc:self.managedObjectContext];
-			newRec.translation1 = tr1;
-			newRec.translation2 = tr2;
-			newRec.translation3 = tr3;
+			Paragraph *newRec = [Paragraph newObjectForParagraphTitle:title date:newDate linl:link  inMoc:self.managedObjectContext];
+			newRec.text = data;
+			newRec.translation1 = data;
+			newRec.translation2 = data;
+			newRec.translation3 = data;
 #pragma unused (newRec)
 		}
 	}

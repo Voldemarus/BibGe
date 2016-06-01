@@ -16,7 +16,7 @@
 {
 	Preferences *prefs;
     NSFetchedResultsController *fetchController;
-
+	NSMutableAttributedString *attrString;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -41,8 +41,6 @@
 	
     prefs = [Preferences sharedInstance];
     fetchController =[[DAO sharedInstance] fetchedController];
-
-    
 
 }
 
@@ -73,6 +71,21 @@
     [tab1 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
     [tab2 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
     [tab3 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
+
+	NSDictionary *options = @{NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType};
+	attrString = [[NSMutableAttributedString alloc]
+											 initWithData:self.par.text
+														options:options
+											 documentAttributes:nil
+															error:nil];
+	
+	NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+	[style setLineSpacing:prefs.lineHeight];
+	[attrString addAttribute:NSParagraphStyleAttributeName
+					   value:style
+					   range:NSMakeRange(0, attrString.length)];
+	UIFont *textFont = [UIFont systemFontOfSize:prefs.fontSize];
+	[attrString addAttribute:NSFontAttributeName value:textFont range:NSMakeRange(0, attrString.length)];
 
 }
 
@@ -108,20 +121,13 @@
     }
     if (indexPath.row == 2) {
         
-        NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString:self.par.text];
-        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-        [style setLineSpacing:prefs.lineHeight];
-        [attrString addAttribute:NSParagraphStyleAttributeName
-                           value:style
-                           range:NSMakeRange(0, attrString.length)];
-		UIFont *textFont = [UIFont fontWithName:@"AcadNusx" size:prefs.fontSize];
-		[attrString addAttribute:NSFontAttributeName value:textFont range:NSMakeRange(0, attrString.length)];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCell" forIndexPath:indexPath];
-        UILabel *contentLabel = (UILabel*)[cell viewWithTag:301];
+       cell = [tableView dequeueReusableCellWithIdentifier:@"ContentCell" forIndexPath:indexPath];
+        UITextView *contentLabel = (UITextView*)[cell viewWithTag:301];
         
         //article text
         contentLabel.attributedText = attrString;
 		contentLabel.textColor = prefs.themeTextColor;
+		contentLabel.backgroundColor = [UIColor clearColor];
     }
 	cell.contentView.backgroundColor = prefs.themeBackgroundColor;
 
@@ -131,7 +137,7 @@
 -(CGFloat)tableView: (UITableView*)tableView heightForRowAtIndexPath: (NSIndexPath*) indexPath
 {
     if (indexPath.row == 0) {
-		UIFont *titleFont = [UIFont fontWithName:@"AcadNusx" size:prefs.fontSize + 4.0f];
+		UIFont *titleFont = [UIFont systemFontOfSize:prefs.fontSize + 4.0f];
         NSDictionary *attributes = @{NSFontAttributeName: titleFont};
         CGRect rect = [self.par.title boundingRectWithSize:CGSizeMake(self.view.frame.size.width, MAXFLOAT)
                                                          options:NSStringDrawingUsesLineFragmentOrigin
@@ -144,33 +150,10 @@
     }
     if (indexPath.row == 2) {
         // article text
-//        NSString *text = self.par.text;
-//		UIFont *textFont = [UIFont fontWithName:@"AcadNusx" size:prefs.fontSize];
-//        NSDictionary *attributes = @{NSFontAttributeName: textFont};
-        // NSString class method: boundingRectWithSize:options:attributes:context is
-        // available only on ios7.0 sdk.
-		
-		NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString:self.par.text];
-		NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-		[style setLineSpacing:prefs.lineHeight];
-		[attrString addAttribute:NSParagraphStyleAttributeName
-						   value:style
-						   range:NSMakeRange(0, attrString.length)];
-		UIFont *textFont = [UIFont fontWithName:@"AcadNusx" size:prefs.fontSize];
-		[attrString addAttribute:NSFontAttributeName value:textFont range:NSMakeRange(0, attrString.length)];
-		
 		CGRect rect =
 		[attrString boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width, CGFLOAT_MAX)
 							   options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
 							   context:nil];
-		
-//		CGRect rect = [text boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width, MAXFLOAT)
-//                                                      options:NSStringDrawingUsesLineFragmentOrigin
-//                                                   attributes:attributes
-//                                                      context:nil];
-        //contentLabel.frame = rect;
-        //cell.frame = rect;
-        
         return rect.size.height;
     }
     return 44;
