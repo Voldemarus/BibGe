@@ -33,7 +33,7 @@
     // Do any additional setup after loading the view.
 
     self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+	self.tableView.delegate = self;
 
 	[tab1 setTitle:RStr(@"Old Testament") forState:UIControlStateNormal];
 	[tab2 setTitle:RStr(@"New Testament") forState:UIControlStateNormal];
@@ -141,6 +141,7 @@
         contentLabel.attributedText = attrString;
 		contentLabel.textColor = prefs.themeTextColor;
 		contentLabel.backgroundColor = [UIColor clearColor];
+		contentLabel.delegate = self;
     }
 	cell.contentView.backgroundColor = prefs.themeBackgroundColor;
 
