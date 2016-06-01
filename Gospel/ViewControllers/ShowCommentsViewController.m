@@ -72,14 +72,27 @@
 				  documentAttributes:nil
 				  error:nil];
 	
-	NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-	[style setLineSpacing:prefs.lineHeight];
-	[attrString addAttribute:NSParagraphStyleAttributeName
-					   value:style
-					   range:NSMakeRange(0, attrString.length)];
-	UIFont *textFont = [UIFont systemFontOfSize:prefs.fontSize];
-	[attrString addAttribute:NSFontAttributeName value:textFont range:NSMakeRange(0, attrString.length)];
-
+	NSRange attrLength = NSMakeRange(0, attrString.length);
+	[attrString enumerateAttribute:NSFontAttributeName
+						   inRange:attrLength options:0
+						usingBlock:^(id value, NSRange range, BOOL *stop) {
+							if (value) {
+								UIFont *oldFont = (UIFont *)value;
+								UIFont *newFont = [oldFont fontWithSize:prefs.fontSize];
+								[attrString removeAttribute:NSFontAttributeName range:range];
+								[attrString addAttribute:NSFontAttributeName value:newFont range:range];
+							}
+						}];
+	[attrString enumerateAttribute:NSParagraphStyleAttributeName
+						   inRange:attrLength options:0
+						usingBlock:^(id value, NSRange range, BOOL *stop) {
+							if (value) {
+								NSMutableParagraphStyle *style = [value mutableCopy];
+								[style setLineSpacing:prefs.lineHeight];
+								[attrString removeAttribute:NSParagraphStyleAttributeName range:range];
+								[attrString addAttribute:NSParagraphStyleAttributeName value:style range:range];
+							}
+						}];
 	self.commentTextView.attributedText = attrString;
 	self.commentTextView.textColor = prefs.themeTextColor;
 }
