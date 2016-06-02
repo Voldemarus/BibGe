@@ -228,7 +228,6 @@
 			newRec.translation1 = attrString;
 			newRec.translation2 = attrString;
 			newRec.translation3 = attrString;
-#pragma unused (newRec)
 		}
 	}
 	[self.managedObjectContext save:nil];

@@ -25,9 +25,10 @@
 @property (weak) IBOutlet NSTextField *recordTitleField;
 @property (weak) IBOutlet NSTextField *linkTextField;
 
-@property (unsafe_unretained) IBOutlet NSTextView *articleTextView;
-
-
+@property (unsafe_unretained) IBOutlet NSTextView *textEditor;
+@property (unsafe_unretained) IBOutlet NSTextView *translation1Editor;
+@property (unsafe_unretained) IBOutlet NSTextView *translation2Editor;
+@property (unsafe_unretained) IBOutlet NSTextView *translation3Editor;
 
 @end
 
@@ -36,6 +37,11 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	dao = [DAO sharedInstance];
 	self.moc = dao.managedObjectContext;
+	
+	[self.textEditor setUsesRuler:YES];
+	[self.translation1Editor setUsesRuler:YES];
+	[self.translation2Editor setUsesRuler:YES];
+	[self.translation3Editor setUsesRuler:YES];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -66,11 +72,6 @@
 	Paragraph *currentParagraph = [[self.sataController selectedObjects] objectAtIndex:0];
 	currentParagraph.dateCreated = [NSDate date];
 	self.creationDateLabel.stringValue = [currentParagraph dateCreatedAsString];
-}
-
-- (NSFont *) georgianFont
-{
-	return [NSFont fontWithName:@"AcadNusx" size:14.0];
 }
 
 - (IBAction)checkLinkPressed:(id)sender
