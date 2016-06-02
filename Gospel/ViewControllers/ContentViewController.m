@@ -72,13 +72,7 @@
     [tab2 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
     [tab3 setTitleColor:prefs.themeTintColor forState:UIControlStateNormal];
 
-	NSDictionary *options = @{NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType};
-	attrString = [[NSMutableAttributedString alloc]
-											 initWithData:self.par.text
-														options:options
-											 documentAttributes:nil
-															error:nil];
-	
+	attrString = [self.par.text mutableCopy];
 	NSRange attrLength = NSMakeRange(0, attrString.length);
 	[attrString enumerateAttribute:NSFontAttributeName
 						   inRange:attrLength options:0

@@ -132,7 +132,7 @@
 		dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
 		dict[NSLocalizedFailureReasonErrorKey] = failureReason;
 		dict[NSUnderlyingErrorKey] = error;
-		error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
+		error = [NSError errorWithDomain:@"GoSpelErrorDomain" code:9999 userInfo:dict];
 		// Replace this with code to handle the error appropriately.
 		// abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -214,14 +214,20 @@
 			NSURL *url = [mb URLForResource:articleName withExtension:@"rtf"];
 			
 			NSData *data = [[NSFileManager defaultManager] contentsAtPath:[url path]];
-			// attributed string can be stored in warehouse as NSData!
-			
+			// attributed string can be stored in warehouse as such due to transformation
+			NSDictionary *options = @{NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType};
+			NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc]
+													 initWithData:data
+													 options:options
+													 documentAttributes:nil
+													 error:nil];
+
 			NSString *link = (i %2 ? @"http://armada.cardarmy.ru" : @"http://geomatix.sweb.cz");
 			Paragraph *newRec = [Paragraph newObjectForParagraphTitle:title date:newDate linl:link  inMoc:self.managedObjectContext];
-			newRec.text = data;
-			newRec.translation1 = data;
-			newRec.translation2 = data;
-			newRec.translation3 = data;
+			newRec.text = attrString;
+			newRec.translation1 = attrString;
+			newRec.translation2 = attrString;
+			newRec.translation3 = attrString;
 #pragma unused (newRec)
 		}
 	}

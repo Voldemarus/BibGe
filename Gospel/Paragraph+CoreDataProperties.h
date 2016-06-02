@@ -16,13 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Paragraph (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSDate *dateCreated;
-@property (nullable, nonatomic, retain) NSData *text;
+@property (nullable, nonatomic, retain) NSAttributedString *text;
 @property (nullable, nonatomic, retain) NSString *title;
 @property (nullable, nonatomic, retain) NSNumber *viewed;
 @property (nullable, nonatomic, retain) NSString *link;
-@property (nullable, nonatomic, retain) NSData *translation1;
-@property (nullable, nonatomic, retain) NSData *translation2;
-@property (nullable, nonatomic, retain) NSData *translation3;
+@property (nullable, nonatomic, retain) NSAttributedString *translation1;
+@property (nullable, nonatomic, retain) NSAttributedString *translation2;
+@property (nullable, nonatomic, retain) NSAttributedString *translation3;
 
 
 

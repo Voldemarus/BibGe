@@ -6,6 +6,12 @@
 //  Copyright © 2016 Aron. All rights reserved.
 //
 
+
+#ifdef GOBIBLEEDITOR
+#import <Cocoa/Cocoa.h>
+#else
+#import <UIKit/UIKit.h>
+#endif
 #import "Paragraph.h"
 #import "DebugPrint.h"
 

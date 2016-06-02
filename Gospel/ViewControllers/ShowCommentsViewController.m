@@ -50,7 +50,7 @@
 	self.view.backgroundColor = prefs.themeBackgroundColor;
     [self.commentTextView setBackgroundColor:prefs.themeBackgroundColor];
 	
-	NSData *translationData = nil;
+	NSAttributedString *translationData = nil;
 	// setup title andd data
 	switch (prefs.commentKind) {
 		case CommentKindOldTestament:
@@ -65,12 +65,8 @@
 			self.navigationController.title = RStr(@"Psalm");
 			translationData = prefs.selectedParagraph.translation3;
 	}
-	NSDictionary *options = @{NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType};
-	NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc]
-				  initWithData:translationData
-				  options:options
-				  documentAttributes:nil
-				  error:nil];
+	
+	NSMutableAttributedString *attrString = [translationData mutableCopy];
 	
 	NSRange attrLength = NSMakeRange(0, attrString.length);
 	[attrString enumerateAttribute:NSFontAttributeName
