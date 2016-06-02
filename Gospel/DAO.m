@@ -10,12 +10,16 @@
 #import "DebugPrint.h"
 #ifndef GOBIBLEEDITOR
 #import "Preferences.h"
+#import <CloudKit/CloudKit.h>
 #endif
 
 @interface DAO () {
 #ifndef GOBIBLEEDITOR
 	Preferences *prefs;
 #endif
+	CKContainer *container;
+	CKDatabase *publicDatabase;
+	CKDatabase *privateDatabase;
 }
 
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -73,6 +77,22 @@
 				 [[NSNotificationCenter defaultCenter] postNotificationName:VVVpersistentStoreChanged object:nil];
 			 }];
 		 }];
+		// Init CloudKit connectors
+//		container = [CKContainer defaultContainer];
+//		publicDatabase = [container publicCloudDatabase];
+//		privateDatabase = [container privateCloudDatabase];
+//		// Now we try to load data from CloudKit
+//		 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"TRUEPREDICATE"];
+//		CKQuery *query = [[CKQuery alloc] initWithRecordType:@"BibleArticle"
+//												   predicate:predicate];
+//		[publicDatabase performQuery:query inZoneWithID:nil completionHandler:^(NSArray *results, NSError *error) {
+//			if (!error) {
+//				DLog(@"%@", results);
+//			} else {
+//				DLog(@"%@", error);
+//			}
+//		}];
+
 #endif
 	}
 	return self;
