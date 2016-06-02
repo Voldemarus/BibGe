@@ -4,14 +4,34 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>GoSpelEditor.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Gospel.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>UpdateVersion.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1B345F661CEB4C3F007AC1D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1B8A09E31CF1D97F0030BAEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8B852BCE1CC4D30F001BE270</key>
 		<dict>
 			<key>primary</key>
