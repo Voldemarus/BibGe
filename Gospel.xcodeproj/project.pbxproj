@@ -83,6 +83,7 @@
 		1BB76E741CFF748A00CA0958 /* !stIconDoc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E731CFF748A00CA0958 /* !stIconDoc.pdf */; };
 		1BB76E771CFF752A00CA0958 /* BookViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB76E761CFF752A00CA0958 /* BookViewViewController.m */; };
 		1BB76E7D1D007E1C00CA0958 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BB76E7C1D007E1C00CA0958 /* CloudKit.framework */; };
+		1BB76E7F1D009B6F00CA0958 /* Loading-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E7E1D009B6F00CA0958 /* Loading-icon.png */; };
 		1BDD4BB41CE1D14E00DC0694 /* ShowCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */; };
 		8B852BD41CC4D30F001BE270 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD31CC4D30F001BE270 /* main.m */; };
 		8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B852BD61CC4D30F001BE270 /* AppDelegate.m */; };
@@ -198,6 +199,7 @@
 		1BB76E751CFF752A00CA0958 /* BookViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookViewViewController.h; sourceTree = "<group>"; };
 		1BB76E761CFF752A00CA0958 /* BookViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookViewViewController.m; sourceTree = "<group>"; };
 		1BB76E7C1D007E1C00CA0958 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		1BB76E7E1D009B6F00CA0958 /* Loading-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Loading-icon.png"; sourceTree = "<group>"; };
 		1BDD4BB21CE1D14E00DC0694 /* ShowCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowCommentsViewController.h; sourceTree = "<group>"; };
 		1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCommentsViewController.m; sourceTree = "<group>"; };
 		8B852BCF1CC4D30F001BE270 /* Gospel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gospel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -399,6 +401,7 @@
 				1BAE23C41CE3457B006D068C /* WaitingViewController.m */,
 				1BAE23C51CE3457B006D068C /* WaitingViewController.xib */,
 				1BAE23C91CE34637006D068C /* Cloud-icon.png */,
+				1BB76E7E1D009B6F00CA0958 /* Loading-icon.png */,
 			);
 			name = WaitingViewController;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				8BFEBE031CC6E8B400DDB4BE /* icon_upload_red.png in Resources */,
 				1BAE23CA1CE34637006D068C /* Cloud-icon.png in Resources */,
 				8BF1E3681CC609DC009DC8F2 /* txt_icloud.png in Resources */,
+				1BB76E7F1D009B6F00CA0958 /* Loading-icon.png in Resources */,
 				8B852BE51CC4D30F001BE270 /* LaunchScreen.storyboard in Resources */,
 				1BB76E401CFD78B000CA0958 /* InfoViewController.xib in Resources */,
 				8BF1E36B1CC609DC009DC8F2 /* txt_tracking.png in Resources */,

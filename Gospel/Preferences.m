@@ -124,7 +124,8 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 
 - (ThemeStyle) actualTheme
 {
-	return 	(self.nightThemeSelected ? ThemeNightView : self.currentTheme);
+	return self.currentTheme;
+	//return 	(self.nightThemeSelected ? ThemeNightView : self.currentTheme);
 }
 
 - (UIImage *) themeSideBar
@@ -167,55 +168,43 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 
 - (UIColor *) themeCellBackgroundColor
 {
-	switch ([self actualTheme]) {
-		case ThemeNightView: return DARK_BACKGROUND_COLOR;
-		default: return LIGHT_BACKGROUND_COLOR;
-	}
+	return (self.nightThemeSelected ? DARK_BACKGROUND_COLOR : LIGHT_BACKGROUND_COLOR);
 }
 
 - (UIColor *) themeBackgroundColor
 {
-    switch ([self actualTheme]) {
-        case ThemeNightView: return DARK_BACKGROUND_COLOR;
-        default: return LIGHT_BACKGROUND_COLOR;
-    }
+	return (self.nightThemeSelected ? DARK_BACKGROUND_COLOR : LIGHT_BACKGROUND_COLOR);
 }
 
 - (UIColor *) themeNavBarBackgroundColor
 {
-    switch ([self actualTheme]) {
-        case ThemeNightView: return DARK_NAVBAR_COLOR;
-        default: return LIGHT_NAVBAR_COLOR;
-    }
+	return (self.nightThemeSelected ? DARK_NAVBAR_COLOR : LIGHT_NAVBAR_COLOR);
 }
 
 
 - (UIColor *) themeTextColor
 {
-	switch ([self actualTheme]) {
-		case ThemeNightView: return LOW_WHITE_COLOR;
-		default: return BLACK_COLOR;
-	}
+		return (self.nightThemeSelected ? LOW_WHITE_COLOR : BLACK_COLOR);
 }
 
 - (UIColor *) themeTintColor
 {
     switch ([self actualTheme]) {
-        case ThemeBlue:         return BLUE_COLOR;
-        case ThemeYellow:       return YELLOW_COLOR;
-        case ThemeGray:         return GRAY_COLOR;
+        case ThemeBlue:         return [self colorWithIntRed:19 green:141 andBlue:255];
+        case ThemeYellow:       return [self colorWithIntRed:255 green:172 andBlue:74];
+        case ThemeGray:         return [self colorWithIntRed:177 green:177 andBlue:177];
         //case ThemeNightView:    return BLACK_COLOR;
-        default:                return RED_COLOR;
+        default:                return[self colorWithIntRed:214 green:64 andBlue:79];
     }
 }
 
 - (UIColor *) themeDetailColor
 {
 	switch ([self actualTheme]) {
-		case ThemeBlue:         return DARK_BLUE_COLOR;
-        case ThemeYellow:       return DARK_YELLOW_COLOR;
+		case ThemeBlue:         return [self colorWithIntRed:19 green:141 andBlue:255];
+        case ThemeYellow:       return [self colorWithIntRed:153 green:102 andBlue:51];
 		case ThemeNightView:    return BLACK_COLOR;
-        case ThemeGray:         return DARK_GRAY_COLOR;
+        case ThemeGray:         return [self colorWithIntRed:102 green:102 andBlue:102];
 		default:
 			return [UIColor lightGrayColor];
 	}
@@ -223,30 +212,28 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 
 - (UIColor *)themeProgressBorder
 {
-	switch([self actualTheme]) {
-		case ThemeDefault:      return RED_COLOR;
-		case ThemeNightView:    return self.themeTintColor;
-		case ThemeBlue:         return BLUE_COLOR;
-        case ThemeGray:         return GRAY_COLOR;
-        case ThemeYellow:       return YELLOW_COLOR;
-	}
+	return self.themeTintColor;
+//	switch([self actualTheme]) {
+//		case ThemeDefault:      return RED_COLOR;
+//		case ThemeNightView:    return self.themeTintColor;
+//		case ThemeBlue:         return BLUE_COLOR;
+//        case ThemeGray:         return GRAY_COLOR;
+//        case ThemeYellow:       return YELLOW_COLOR;
+//	}
 }
 
 - (UIColor *) themeProgressBackgroundColor
 {
-	switch ([self actualTheme]) {
-		case ThemeNightView:	return DARK_BACKGROUND_COLOR;
-		default:                return LIGHT_BACKGROUND_COLOR;
-	}
+	return (self.nightThemeSelected ? DARK_BACKGROUND_COLOR : LIGHT_BACKGROUND_COLOR);
 }
 
 - (UIColor *) themeProgressFiller
 {
 	switch([self actualTheme]) {
-		case ThemeDefault:		return RED_COLOR;
-		case ThemeBlue:			return BLUE_COLOR;
-        case ThemeYellow:       return YELLOW_COLOR;
-        case ThemeGray:         return GRAY_COLOR;
+		case ThemeDefault:		return [self colorWithIntRed:214 green:64 andBlue:79];
+		case ThemeBlue:			return [self colorWithIntRed:19 green:141 andBlue:255];
+        case ThemeYellow:       return [self colorWithIntRed:255 green:172 andBlue:74];
+        case ThemeGray:         return [self colorWithIntRed:177 green:177 andBlue:177];
 		case ThemeNightView:	return self.themeTintColor;
 	}
 }
@@ -266,55 +253,34 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 	CGFloat red  = aRed/255.0;
 	CGFloat green = aGreen / 255.0;
 	CGFloat blue = aBlue / 255.0;
-	return [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+	return [UIColor colorWithRed:red green:green blue:blue alpha:(self.nightThemeSelected ? 0.6 : 1.0)];
 }
 
 
 - (UIColor *)dayModeTintColor
 {
-	if (self.nightThemeSelected) {
-		return [self colorWithIntRed:0xcc green:0xcc andBlue:0xcc];
-	} else {
-		return [self colorWithIntRed:0x7c green:0x7c andBlue:0x7c];
-	}
+	return [self colorWithIntRed:0xcc green:0xcc andBlue:0xcc];
 }
 
 - (UIColor *) nightModeTintColor
 {
-	if (self.nightThemeSelected) {
-		return [self colorWithIntRed:230 green:73 andBlue:91];
-	} else {
-		return [self colorWithIntRed:220 green:63 andBlue:81];
-	}
+	return [self colorWithIntRed:220 green:63 andBlue:81];
 }
 
 - (UIColor *) dayButtonTintColor
 {
-    if (self.nightThemeSelected) {
-        return [self colorWithIntRed:0xcc green:0xcc andBlue:0xcc];
-    } else {
-        return self.themeTintColor;
-    }
+    return self.themeTintColor;
 }
 
 - (UIColor *) nightButtonTintColor
 {
-    if (self.nightThemeSelected) {
-        return self.themeTintColor;
-    } else {
-        return [self colorWithIntRed:0x7c green:0x7c andBlue:0x7c];
-    }
+    return self.themeTintColor;
 }
 
 
 - (UIColor *) fontSliderTintColor
 {
-	if (self.nightThemeSelected) {
-		return self.themeTintColor;
-	} else {
-		return self.themeTintColor;
-	}
-
+	return self.themeTintColor;
 }
 
 - (UIImage *) buttonSeparator
