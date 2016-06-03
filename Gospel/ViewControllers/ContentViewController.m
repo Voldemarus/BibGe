@@ -17,6 +17,7 @@
 	Preferences *prefs;
     NSFetchedResultsController *fetchController;
 	NSMutableAttributedString *attrString;
+	CGRect atrrStringRect;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -94,7 +95,11 @@
 			[attrString addAttribute:NSParagraphStyleAttributeName value:style range:range];
 		}
 	}];
-}
+	atrrStringRect =
+	[attrString boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width, CGFLOAT_MAX)
+							 options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+							 context:nil];
+	}
 
 
 
@@ -132,10 +137,17 @@
         UITextView *contentLabel = (UITextView*)[cell viewWithTag:301];
         
         //article text
+		contentLabel.contentSize = atrrStringRect.size;
+		[contentLabel updateConstraints];
+		CGRect frame = cell.frame;
+		frame.size = attrString.size;
+		cell.frame = frame;
+		[cell updateConstraints];
         contentLabel.attributedText = attrString;
 		contentLabel.textColor = prefs.themeTextColor;
 		contentLabel.backgroundColor = [UIColor clearColor];
 		contentLabel.delegate = self;
+		
     }
 	cell.contentView.backgroundColor = prefs.themeBackgroundColor;
 
@@ -158,11 +170,8 @@
     }
     if (indexPath.row == 2) {
         // article text
-		CGRect rect =
-		[attrString boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width, CGFLOAT_MAX)
-							   options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
-							   context:nil];
-        return rect.size.height;
+		
+        return atrrStringRect.size.height;
     }
     return 44;
 }

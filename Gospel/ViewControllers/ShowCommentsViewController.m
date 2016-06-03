@@ -91,6 +91,7 @@
 						}];
 	self.commentTextView.attributedText = attrString;
 	self.commentTextView.textColor = prefs.themeTextColor;
+
 }
 
 
