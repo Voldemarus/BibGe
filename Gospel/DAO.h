@@ -23,6 +23,10 @@
 - (NSFetchedResultsController *) fetchedController;
 - (void) resetTrackingIndexes;
 - (void) updatePersistentCoordinator;
+
+- (void) sendFeedbackFrom:(NSString *)address withMessae:(NSString *)aMessage
+			andDeviceInfo:(NSString *)aDevInfo;
+
 #endif
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

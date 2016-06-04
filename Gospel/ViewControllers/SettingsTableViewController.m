@@ -11,9 +11,11 @@
 #import "DebugPrint.h"
 #import "SDIPhoneVersion.h"
 #import "DAO.h"
+#import "FeedbackViewController.h"
 
 @interface SettingsTableViewController () {
 	Preferences *prefs;
+	FeedbackViewController *feedbackController;
 }
 
 @end
@@ -107,7 +109,7 @@
 		case iPhone5	:	devName = @"iPhone 5/5C"; break;
 		case iPhone5S	:	devName = @"iPhone 5S"; break;
 		case iPhone6	:	devName = @"iPhone 6"; break;
-		case iPhone6Plus:	devName = @"iPhomne 6+"; break;
+		case iPhone6Plus:	devName = @"iPhone 6+"; break;
 		default:
 			devName = @"Non supported Device!";
 	}
@@ -120,29 +122,37 @@
 
 	NSString *initialText= [NSString stringWithFormat:@"\n\n--- \nMy Device is: %@,\nApplication Version: %@", deviceModel ,versionString];
 	
-	[picker setMessageBody:initialText isHTML:NO];
-	
-	if (picker) {
-		[self presentViewController:picker animated:YES completion:^(void) {
-			
-		}];
-	} else {
-		UIAlertView *alert = [[UIAlertView alloc]
-							  initWithTitle:RStr(@"Cannot send E-Mail")
-							  message:RStr(@"Your Email account is not set up properly") delegate:nil
-							  cancelButtonTitle:RStr(@"Cancel")
-							  otherButtonTitles:nil];
-		[alert show];
-		return;
+	if (!feedbackController) {
+		feedbackController = [[FeedbackViewController alloc] init];
 	}
+	feedbackController.deviceInfo = [NSString stringWithFormat:@" %@,\nApplication Version: %@", deviceModel ,versionString];
+	feedbackController.initialText = initialText;
+	[self.navigationController pushViewController:feedbackController animated:YES];
+	
+	
+//	[picker setMessageBody:initialText isHTML:NO];
+//	
+//	if (picker) {
+//		[self presentViewController:picker animated:YES completion:^(void) {
+//			
+//		}];
+//	} else {
+//		UIAlertView *alert = [[UIAlertView alloc]
+//							  initWithTitle:RStr(@"Cannot send E-Mail")
+//							  message:RStr(@"Your Email account is not set up properly") delegate:nil
+//							  cancelButtonTitle:RStr(@"Cancel")
+//							  otherButtonTitles:nil];
+//		[alert show];
+//		return;
+//	}
 }
 
--(void)mailComposeController:(MFMailComposeViewController*)controller
-		 didFinishWithResult:(MFMailComposeResult)result
-					   error:(NSError*)error
-{
-	[self dismissViewControllerAnimated:YES completion:nil];
-}
+//-(void)mailComposeController:(MFMailComposeViewController*)controller
+//		 didFinishWithResult:(MFMailComposeResult)result
+//					   error:(NSError*)error
+//{
+//	[self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 - (IBAction)trackSwitchChanged:(id)sender {
 	prefs.trackReading = self.swTrackSwitch.on;

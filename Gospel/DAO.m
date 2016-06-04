@@ -78,9 +78,9 @@
 			 }];
 		 }];
 		// Init CloudKit connectors
-//		container = [CKContainer defaultContainer];
-//		publicDatabase = [container publicCloudDatabase];
-//		privateDatabase = [container privateCloudDatabase];
+		container = [CKContainer defaultContainer];
+		publicDatabase = [container publicCloudDatabase];
+		privateDatabase = [container privateCloudDatabase];
 //		// Now we try to load data from CloudKit
 //		 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"TRUEPREDICATE"];
 //		CKQuery *query = [[CKQuery alloc] initWithRecordType:@"BibleArticle"
@@ -298,5 +298,29 @@
 	}
 	[[NSNotificationCenter defaultCenter] postNotificationName:VVVpersistentStoreChanged object:nil];
 }
+	
+#pragma mark - Client side CloudKit support -
+	
+- (void) sendFeedbackFrom:(NSString *)address withMessae:(NSString *)aMessage andDeviceInfo:(NSString *)aDevInfo
+{
+	if (!address || !aMessage) return;
+	// Will use default Record ID generation
+	CKRecord *postRecrod = [[CKRecord alloc] initWithRecordType:@"FeedBack"];
+	postRecrod[@"userAddress"] = address;
+	postRecrod[@"message"] = aMessage;
+	postRecrod[@"isVersion"] = aDevInfo;
+	postRecrod[@"dateCreated"] = [NSDate date];
+	[publicDatabase saveRecord:postRecrod completionHandler:^(CKRecord *record, NSError *error) {
+	 if(error) {
+		 NSLog(@"%@", error);
+	 } else {
+		 NSLog(@"Saved successfully");
+	 }
+ }];
+}
+	
+	
+	
 #endif
+	
 @end

@@ -53,6 +53,8 @@
 		1B466C5B1CDE28F000564BC0 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5A1CDE28F000564BC0 /* DAO.m */; };
 		1B466C601CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */; };
 		1B466C611CDE2A9700564BC0 /* Paragraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5F1CDE2A9700564BC0 /* Paragraph.m */; };
+		1B5E36DE1D01DDA20079A9AA /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E36DC1D01DDA20079A9AA /* FeedbackViewController.m */; };
+		1B5E36DF1D01DDA20079A9AA /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B5E36DD1D01DDA20079A9AA /* FeedbackViewController.xib */; };
 		1B8A09E21CF1D9290030BAEF /* VersionUpdate.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A09E01CF1D9290030BAEF /* VersionUpdate.sh */; };
 		1BAE23C61CE3457B006D068C /* WaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE23C41CE3457B006D068C /* WaitingViewController.m */; };
 		1BAE23C71CE3457B006D068C /* WaitingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C51CE3457B006D068C /* WaitingViewController.xib */; };
@@ -170,6 +172,9 @@
 		1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Paragraph+CoreDataProperties.m"; sourceTree = "<group>"; };
 		1B466C5E1CDE2A9700564BC0 /* Paragraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paragraph.h; sourceTree = "<group>"; };
 		1B466C5F1CDE2A9700564BC0 /* Paragraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paragraph.m; sourceTree = "<group>"; };
+		1B5E36DB1D01DDA20079A9AA /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		1B5E36DC1D01DDA20079A9AA /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		1B5E36DD1D01DDA20079A9AA /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
 		1B8A09E01CF1D9290030BAEF /* VersionUpdate.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = VersionUpdate.sh; sourceTree = "<group>"; };
 		1B8A09EB1CF1E17D0030BAEF /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
 		1BAE23C01CE328AD006D068C /* Gospel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Gospel.entitlements; sourceTree = "<group>"; };
@@ -568,6 +573,9 @@
 				8BFEBE091CC703F100DDB4BE /* ContentViewController.m */,
 				AED53ACE1CD8BEDC0043A1EB /* SettingsTableViewController.h */,
 				AED53ACF1CD8BEDC0043A1EB /* SettingsTableViewController.m */,
+				1B5E36DB1D01DDA20079A9AA /* FeedbackViewController.h */,
+				1B5E36DC1D01DDA20079A9AA /* FeedbackViewController.m */,
+				1B5E36DD1D01DDA20079A9AA /* FeedbackViewController.xib */,
 				1BDD4BB21CE1D14E00DC0694 /* ShowCommentsViewController.h */,
 				1BDD4BB31CE1D14E00DC0694 /* ShowCommentsViewController.m */,
 				1BB76E751CFF752A00CA0958 /* BookViewViewController.h */,
@@ -724,6 +732,7 @@
 				8BF1E34D1CC4DE5E009DC8F2 /* icon_lead.png in Resources */,
 				1B466C471CDC782200564BC0 /* img_sidebar.png in Resources */,
 				1B466C431CDC782200564BC0 /* img_sidebar_dark.jpg in Resources */,
+				1B5E36DF1D01DDA20079A9AA /* FeedbackViewController.xib in Resources */,
 				8BF1E3651CC609DC009DC8F2 /* icon_arrow.png in Resources */,
 				1B466C441CDC782200564BC0 /* grey.jpg in Resources */,
 				1B213C9A1CD8AF1C00B8E673 /* img_sidebar_black.png in Resources */,
@@ -798,6 +807,7 @@
 				1B213CAC1CD9D54500B8E673 /* CircleIndicator.m in Sources */,
 				8BF1E35C1CC60028009DC8F2 /* ListTableViewCell.m in Sources */,
 				1B466C611CDE2A9700564BC0 /* Paragraph.m in Sources */,
+				1B5E36DE1D01DDA20079A9AA /* FeedbackViewController.m in Sources */,
 				8B852BD71CC4D30F001BE270 /* AppDelegate.m in Sources */,
 				8B852BD41CC4D30F001BE270 /* main.m in Sources */,
 				1B213C971CD8994500B8E673 /* Preferences.m in Sources */,
