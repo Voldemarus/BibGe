@@ -34,6 +34,15 @@
 	// set up switch positions
 	self.swTrackSwitch.on = prefs.trackReading;
 	self.iCloudSyncSwitch.on = prefs.storeInCloud;
+	// set up theme
+	self.view.backgroundColor = prefs.themeBackgroundColor;
+	self.tableView.backgroundColor = prefs.themeBackgroundColor;
+	
+	self.trackReadingLabel.textColor = prefs.themeTextColor;
+	self.cloudSyncLabel.textColor = prefs.themeTextColor;
+	
+	self.swTrackSwitch.tintColor = prefs.themeTintColor;
+	self.iCloudSyncSwitch.tintColor = prefs.themeTintColor;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,13 +62,19 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- 	
+	
+	UITableViewCell *cell = nil;
 	switch (indexPath.row) {
-		case 0:	return self.trackReadingCell;
-		case 1: return self.iCloudCell;
-		case 2: return self.contactUsCell;
-		default: return self.resetReadingCell;
+		case 0:	cell =  self.trackReadingCell; break;
+		case 1: cell = self.iCloudCell; break;
+		case 2: cell = self.contactUsCell; break;
+		default: cell = self.resetReadingCell; break;
 	}
+	cell.tintColor = prefs.themeTintColor;
+	cell.textLabel.textColor = prefs.themeTextColor;
+	cell.backgroundColor = prefs.themeCellBackgroundColor;
+	
+	return cell;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -570,12 +570,14 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="cloudSyncLabel" destination="6dA-R6-tOz" id="4V5-52-5VQ"/>
                         <outlet property="contactUsCell" destination="sEA-s1-LoG" id="bJK-Zv-b9H"/>
                         <outlet property="iCloudCell" destination="s8P-uF-MdC" id="BtZ-EP-8cw"/>
                         <outlet property="iCloudSyncSwitch" destination="OjX-TZ-rgL" id="rmZ-vi-B5n"/>
                         <outlet property="resetReadingCell" destination="CUh-sB-XVU" id="V3x-rV-7TA"/>
                         <outlet property="swTrackSwitch" destination="jsR-Cp-BgZ" id="v6w-g2-Yn9"/>
                         <outlet property="trackReadingCell" destination="YAt-Hp-uja" id="b1S-W6-sjs"/>
+                        <outlet property="trackReadingLabel" destination="gQm-5B-sw4" id="8gv-ZN-ABK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3G-Bh-wnr" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -15,6 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UISwitch *swTrackSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *iCloudSyncSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *trackReadingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cloudSyncLabel;
 
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *trackReadingCell;
