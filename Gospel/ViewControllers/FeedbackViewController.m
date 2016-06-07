@@ -41,13 +41,17 @@
 	self.view.backgroundColor = prefs.themeBackgroundColor;
 	self.sendMessageButton.tintColor = prefs.themeTintColor;
 	self.mailAddressField.textColor = prefs.themeTextColor;
-	self.mailAddressField.backgroundColor =  (prefs.nightThemeSelected ? [UIColor darkGrayColor] : prefs.themeBackgroundColor);
+	self.mailAddressField.backgroundColor =  (prefs.nightThemeSelected ? [UIColor darkTextColor] : prefs.themeBackgroundColor);
 	self.messageTextView.textColor = prefs.themeTextColor;
-	self.messageTextView.backgroundColor = (prefs.nightThemeSelected ? [UIColor darkGrayColor] : prefs.themeBackgroundColor);
+	self.messageTextView.backgroundColor = (prefs.nightThemeSelected ? [UIColor darkTextColor] : prefs.themeBackgroundColor);
 	self.messageTextView.text = self.initialText;
 	self.mailLabel.textColor = prefs.themeTextColor;
 	self.mwssageLabel.textColor = prefs.themeTextColor;
 	
+	UIKeyboardAppearance app = (prefs.nightThemeSelected ? UIKeyboardAppearanceAlert : UIKeyboardAppearanceDefault);
+	self.mailAddressField.keyboardAppearance = app;
+	self.messageTextView.keyboardAppearance = app;
+
 }
 
 - (void) setInitialText:(NSString *)initialText
