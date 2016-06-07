@@ -18,6 +18,7 @@
 	FeedbackViewController *feedbackController;
 }
 
+
 @end
 
 @implementation SettingsTableViewController
@@ -31,6 +32,21 @@
 - (void) viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+	
+	self.navigationController.navigationBar.barTintColor = prefs.themeNavBarBackgroundColor;
+	self.navigationController.navigationBar.tintColor = prefs.themeTintColor;
+	self.navigationController.navigationBar.barStyle = (prefs.nightThemeSelected ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault);
+	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : prefs.themeTintColor}];
+	self.navigationController.navigationBar.translucent = NO;
+	
+	self.iCloudSyncSwitch.tintColor = prefs.themeTintColor;
+	self.iCloudSyncSwitch.onTintColor = prefs.themeTintColor;
+	self.swTrackSwitch.tintColor = prefs.themeTintColor;
+	self.swTrackSwitch.onTintColor = prefs.themeTintColor;
+	
+	self.tableView.tintColor = prefs.themeTintColor;
+	
+	
 	// set up switch positions
 	self.swTrackSwitch.on = prefs.trackReading;
 	self.iCloudSyncSwitch.on = prefs.storeInCloud;
@@ -73,9 +89,11 @@
 	cell.tintColor = prefs.themeTintColor;
 	cell.textLabel.textColor = prefs.themeTextColor;
 	cell.backgroundColor = prefs.themeCellBackgroundColor;
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
 	return cell;
 }
+
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -102,17 +120,7 @@
 
 - (void) composeMail
 {
-	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
-	picker.mailComposeDelegate = self;
-	
 	NSString *appName = PRODUCT_NAME;
-	NSString *subject = [NSString stringWithFormat:RStr(@"%@ feedback"),
-						 appName];
-	[picker setSubject:subject];
-//	[picker setToRecipients:@[@"pinwheelsoftware@gmail.com"]];
-	
-	[picker setToRecipients: @[RStr(@"FeedbackEmailID") ]];
-	
 	UIDevice *myDevice = [UIDevice currentDevice];
 	
 	DeviceVersion devNCode = [SDiPhoneVersion deviceVersion];
@@ -145,29 +153,7 @@
 	[self.navigationController pushViewController:feedbackController animated:YES];
 	
 	
-//	[picker setMessageBody:initialText isHTML:NO];
-//	
-//	if (picker) {
-//		[self presentViewController:picker animated:YES completion:^(void) {
-//			
-//		}];
-//	} else {
-//		UIAlertView *alert = [[UIAlertView alloc]
-//							  initWithTitle:RStr(@"Cannot send E-Mail")
-//							  message:RStr(@"Your Email account is not set up properly") delegate:nil
-//							  cancelButtonTitle:RStr(@"Cancel")
-//							  otherButtonTitles:nil];
-//		[alert show];
-//		return;
-//	}
 }
-
-//-(void)mailComposeController:(MFMailComposeViewController*)controller
-//		 didFinishWithResult:(MFMailComposeResult)result
-//					   error:(NSError*)error
-//{
-//	[self dismissViewControllerAnimated:YES completion:nil];
-//}
 
 - (IBAction)trackSwitchChanged:(id)sender {
 	prefs.trackReading = self.swTrackSwitch.on;

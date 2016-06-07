@@ -50,12 +50,10 @@
 	[super viewWillAppear:animated];
 	[[UINavigationBar appearance]  setTintColor:prefs.themeTintColor];
 	
-	UIColor *navColor = (prefs.nightThemeSelected ? prefs.nightModeTintColor : prefs.themeTintColor);
-	
 	self.navigationController.navigationBar.barTintColor = prefs.themeNavBarBackgroundColor;
-	self.navigationController.navigationBar.tintColor = navColor;
+	self.navigationController.navigationBar.tintColor = prefs.themeTintColor;
 	self.navigationController.navigationBar.barStyle = (prefs.nightThemeSelected ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault);
-	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : navColor}];
+	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : prefs.themeTintColor}];
 	self.navigationController.navigationBar.translucent = NO;
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
 	[df setDateFormat:@"dd MMMM"];

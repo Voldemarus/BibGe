@@ -13,6 +13,7 @@
 
 @interface FeedbackViewController () {
 	DAO *dao;
+	Preferences *prefs;
 }
 
 
@@ -27,15 +28,16 @@
 {
 	if (self = [super initWithNibName:[[self class] description] bundle:nil]) {
 		dao = [DAO sharedInstance];
+		prefs = [Preferences sharedInstance];
 	}
 	return self;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void) viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
 
-	[super viewDidAppear:animated];
 	self.navigationController.title = RStr(@"Feedback");
-	Preferences *prefs = [Preferences sharedInstance];
 	self.view.backgroundColor = prefs.themeBackgroundColor;
 	self.sendMessageButton.tintColor = prefs.themeTintColor;
 	self.mailAddressField.textColor = prefs.themeTextColor;
@@ -80,7 +82,6 @@
 		[textView resignFirstResponder];
 		return NO;
 	}
-	
 	return YES;
 }
 

@@ -18,6 +18,7 @@
 @property (weak) IBOutlet NSWindow *window;
 - (IBAction)saveAction:(id)sender;
 
+- (IBAction) showFeedbackWindow:(id)sender;
 - (IBAction)refreshDatePressed:(id)sender;
 - (IBAction)checkLinkPressed:(id)sender;
 
@@ -132,5 +133,16 @@
 
     return NSTerminateNow;
 }
+
+
+- (IBAction) showFeedbackWindow:(id)sender
+{
+	if (!self.feedbackController) {
+		self.feedbackController = [[FeedbackWindowController alloc] init];
+		
+	}
+	[self.feedbackController showWindow:self];
+}
+
 
 @end

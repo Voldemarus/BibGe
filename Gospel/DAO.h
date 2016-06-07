@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #ifdef GOBIBLEEDITOR
 #import <Cocoa/Cocoa.h>
+#import "Feedback.h"
 #else
 #import <UIKit/UIKit.h>
 #endif
@@ -26,6 +27,12 @@
 
 - (void) sendFeedbackFrom:(NSString *)address withMessae:(NSString *)aMessage
 			andDeviceInfo:(NSString *)aDevInfo;
+#else
+
+
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *feedbackPersistentStoreCoordinator;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *feedbackManagedObjectModel;
+@property (nonatomic, retain) NSManagedObjectContext *feedbackMoc;
 
 #endif
 

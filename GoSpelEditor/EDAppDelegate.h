@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Dao.h"
+#import "FeedbackWindowController.h"
 
 @interface EDAppDelegate : NSObject <NSApplicationDelegate>
 
@@ -15,6 +16,11 @@
 @property (weak) IBOutlet NSTableView *tableView;
 
 @property (nonatomic, retain) NSFont *georgianFont;
+
+@property (nonatomic, retain) FeedbackWindowController *feedbackController;
+
+
+
 
 @end
 

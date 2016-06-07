@@ -8,7 +8,9 @@
 
 #import "DAO.h"
 #import "DebugPrint.h"
-#ifndef GOBIBLEEDITOR
+#ifdef GOBIBLEEDITOR
+#import "GEPreferences.h"
+#else
 #import "Preferences.h"
 #import <CloudKit/CloudKit.h>
 #endif
@@ -16,6 +18,10 @@
 @interface DAO () {
 #ifndef GOBIBLEEDITOR
 	Preferences *prefs;
+#else 
+	GEPreferences *prefs;
+	NSManagedObjectModel *_feedbackManagedObjectModel;
+	NSPersistentStoreCoordinator *_feedbackPersistentStoreCoordinator;
 #endif
 	CKContainer *container;
 	CKDatabase *publicDatabase;
@@ -29,6 +35,8 @@
 @end
 
 @implementation DAO
+
+
 
 + (instancetype) sharedInstance
 {
@@ -44,6 +52,9 @@
 {
 	if (self = [super init]) {
 		[self createDemoSet];
+		container = [CKContainer containerWithIdentifier:@"iCloud.com.alex.Gospel"];
+		publicDatabase = [container publicCloudDatabase];
+		privateDatabase = [container privateCloudDatabase];
 #ifndef GOBIBLEEDITOR
 		prefs = [Preferences sharedInstance];
 		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -78,9 +89,6 @@
 			 }];
 		 }];
 		// Init CloudKit connectors
-		container = [CKContainer defaultContainer];
-		publicDatabase = [container publicCloudDatabase];
-		privateDatabase = [container privateCloudDatabase];
 //		// Now we try to load data from CloudKit
 //		 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"TRUEPREDICATE"];
 //		CKQuery *query = [[CKQuery alloc] initWithRecordType:@"BibleArticle"
@@ -92,7 +100,9 @@
 //				DLog(@"%@", error);
 //			}
 //		}];
-
+#else
+		prefs = [GEPreferences sharedInstance];
+		[self updateFeedback];
 #endif
 	}
 	return self;
@@ -119,6 +129,102 @@
 	_managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
 	return _managedObjectModel;
 }
+
+#ifdef GOBIBLEEDITOR
+
+- (NSManagedObjectModel *)feedbackManagedObjectModel {
+	// The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.
+	if (_feedbackManagedObjectModel != nil) {
+		return _feedbackManagedObjectModel;
+	}
+	NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Feedback" withExtension:@"momd"];
+	_feedbackManagedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+	return _feedbackManagedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator *)feedbackPersistentStoreCoordinator {
+	// The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it.
+	if (_feedbackPersistentStoreCoordinator != nil) {
+		return _feedbackPersistentStoreCoordinator;
+	}
+	
+	// Create the coordinator and store
+	
+	_feedbackPersistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self feedbackManagedObjectModel]];
+	NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"GospelFeedback.sqlite"];
+	NSError *error = nil;
+	NSString *failureReason = @"There was an error creating or loading the application's saved data.";
+	if (![_feedbackPersistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+			// Report any error we got.
+			NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+			dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
+			dict[NSLocalizedFailureReasonErrorKey] = failureReason;
+			dict[NSUnderlyingErrorKey] = error;
+			error = [NSError errorWithDomain:@"GoSpelErrorDomain" code:9999 userInfo:dict];
+			// Replace this with code to handle the error appropriately.
+			// abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			abort();
+		}
+		return _feedbackPersistentStoreCoordinator;
+	}
+
+- (NSManagedObjectContext *)feedbackMoc
+{
+	// Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
+	if (_feedbackMoc != nil) {
+		return _feedbackMoc;
+	}
+	
+	NSPersistentStoreCoordinator *coordinator = [self feedbackPersistentStoreCoordinator];
+	if (!coordinator) {
+		return nil;
+	}
+	_feedbackMoc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+	[_feedbackMoc setPersistentStoreCoordinator:coordinator];
+	return _feedbackMoc;
+}
+
+
+- (void) updateFeedback
+{
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"dateCreated > %@",prefs.lastFeedbackDate];
+	CKQuery *query = [[CKQuery alloc] initWithRecordType:@"FeedBack" predicate:predicate];
+	[publicDatabase performQuery:query inZoneWithID:nil completionHandler:^(NSArray *results, NSError *error) {
+	if (!error) {
+		 DLog(@"%@", results);
+		NSDate *lastDate = prefs.lastFeedbackDate;
+		for (CKRecord *record in results) {
+			// iterate through received data
+			NSString *addres = record[@"userAddress"];
+			NSDate *dateCreated = record[@"dateCreated"];
+			NSString *message = record[@"message"];
+			NSString *deviceInfo = record[@"isVersion"];
+			NSString *recordId = record.recordID.recordName;
+			Feedback *feedbackRecord = [Feedback getOrCreateFeedbackForRecordId:recordId inMoc:self.feedbackMoc];
+			if (feedbackRecord) {
+				feedbackRecord.userAddress = addres;
+				feedbackRecord.timestamp = dateCreated;
+				feedbackRecord.message = message;
+				feedbackRecord.deviceInfo = deviceInfo;
+				lastDate = [lastDate laterDate:dateCreated];
+			}
+		}
+		NSError *error = nil;
+		[self.feedbackMoc save:&error];
+		if (!error) {
+			prefs.lastFeedbackDate = lastDate;
+			[[NSNotificationCenter defaultCenter] postNotificationName:VVVupdateFeedbackTable object:nil];
+		}
+		
+	 } else {
+		 DLog(@"%@", error);
+	 }
+ }];
+}
+
+
+#endif
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
 	// The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it.

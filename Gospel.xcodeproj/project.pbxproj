@@ -24,7 +24,6 @@
 		1B213C971CD8994500B8E673 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213C961CD8994500B8E673 /* Preferences.m */; };
 		1B213C9A1CD8AF1C00B8E673 /* img_sidebar_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B213C991CD8AF1C00B8E673 /* img_sidebar_black.png */; };
 		1B213C9E1CD8C88800B8E673 /* ProgressCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213C9D1CD8C88800B8E673 /* ProgressCircleView.m */; };
-		1B213CA11CD8EF5B00B8E673 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B213CA01CD8EF5B00B8E673 /* MessageUI.framework */; };
 		1B213CA61CD8F06A00B8E673 /* SDiPhoneVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213CA51CD8F06A00B8E673 /* SDiPhoneVersion.m */; };
 		1B213CA81CD8F25E00B8E673 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B213CA71CD8F25E00B8E673 /* Localizable.strings */; };
 		1B213CAC1CD9D54500B8E673 /* CircleIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B213CAB1CD9D54500B8E673 /* CircleIndicator.m */; };
@@ -55,6 +54,13 @@
 		1B466C611CDE2A9700564BC0 /* Paragraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B466C5F1CDE2A9700564BC0 /* Paragraph.m */; };
 		1B5E36DE1D01DDA20079A9AA /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E36DC1D01DDA20079A9AA /* FeedbackViewController.m */; };
 		1B5E36DF1D01DDA20079A9AA /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B5E36DD1D01DDA20079A9AA /* FeedbackViewController.xib */; };
+		1B5E36E31D034C2B0079A9AA /* Feedback.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E36E01D034BD10079A9AA /* Feedback.xcdatamodeld */; };
+		1B5E36EA1D03F5650079A9AA /* Feedback+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E36E51D03F55B0079A9AA /* Feedback+CoreDataProperties.m */; };
+		1B5E36EB1D03F56B0079A9AA /* Feedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E36E71D03F55B0079A9AA /* Feedback.m */; };
+		1B5E36EE1D03F6170079A9AA /* GEPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E36ED1D03F6170079A9AA /* GEPreferences.m */; };
+		1B6C71581D042DAD0049DFA4 /* FeedbackWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6C71561D042DAD0049DFA4 /* FeedbackWindowController.m */; };
+		1B6C71591D042DAD0049DFA4 /* FeedbackWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6C71571D042DAD0049DFA4 /* FeedbackWindowController.xib */; };
+		1B6C715C1D0453A40049DFA4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6C715B1D0453A40049DFA4 /* CloudKit.framework */; };
 		1B8A09E21CF1D9290030BAEF /* VersionUpdate.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A09E01CF1D9290030BAEF /* VersionUpdate.sh */; };
 		1BAE23C61CE3457B006D068C /* WaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE23C41CE3457B006D068C /* WaitingViewController.m */; };
 		1BAE23C71CE3457B006D068C /* WaitingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C51CE3457B006D068C /* WaitingViewController.xib */; };
@@ -175,6 +181,18 @@
 		1B5E36DB1D01DDA20079A9AA /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		1B5E36DC1D01DDA20079A9AA /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		1B5E36DD1D01DDA20079A9AA /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
+		1B5E36E11D034BD10079A9AA /* Feedback.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Feedback.xcdatamodel; sourceTree = "<group>"; };
+		1B5E36E41D03F55B0079A9AA /* Feedback+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Feedback+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1B5E36E51D03F55B0079A9AA /* Feedback+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Feedback+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1B5E36E61D03F55B0079A9AA /* Feedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feedback.h; sourceTree = "<group>"; };
+		1B5E36E71D03F55B0079A9AA /* Feedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feedback.m; sourceTree = "<group>"; };
+		1B5E36EC1D03F6170079A9AA /* GEPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEPreferences.h; sourceTree = "<group>"; };
+		1B5E36ED1D03F6170079A9AA /* GEPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEPreferences.m; sourceTree = "<group>"; };
+		1B6C71551D042DAD0049DFA4 /* FeedbackWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackWindowController.h; sourceTree = "<group>"; };
+		1B6C71561D042DAD0049DFA4 /* FeedbackWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackWindowController.m; sourceTree = "<group>"; };
+		1B6C71571D042DAD0049DFA4 /* FeedbackWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackWindowController.xib; sourceTree = "<group>"; };
+		1B6C715A1D04539C0049DFA4 /* GoSpelEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GoSpelEditor.entitlements; sourceTree = "<group>"; };
+		1B6C715B1D0453A40049DFA4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		1B8A09E01CF1D9290030BAEF /* VersionUpdate.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = VersionUpdate.sh; sourceTree = "<group>"; };
 		1B8A09EB1CF1E17D0030BAEF /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
 		1BAE23C01CE328AD006D068C /* Gospel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Gospel.entitlements; sourceTree = "<group>"; };
@@ -256,6 +274,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B6C715C1D0453A40049DFA4 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +282,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B213CA11CD8EF5B00B8E673 /* MessageUI.framework in Frameworks */,
 				1BB76E7D1D007E1C00CA0958 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +312,11 @@
 			isa = PBXGroup;
 			children = (
 				8B852BDE1CC4D30F001BE270 /* Gospel.xcdatamodeld */,
+				1B5E36E01D034BD10079A9AA /* Feedback.xcdatamodeld */,
+				1B5E36E41D03F55B0079A9AA /* Feedback+CoreDataProperties.h */,
+				1B5E36E51D03F55B0079A9AA /* Feedback+CoreDataProperties.m */,
+				1B5E36E61D03F55B0079A9AA /* Feedback.h */,
+				1B5E36E71D03F55B0079A9AA /* Feedback.m */,
 				1B466C5C1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.h */,
 				1B466C5D1CDE2A9700564BC0 /* Paragraph+CoreDataProperties.m */,
 				1B466C5E1CDE2A9700564BC0 /* Paragraph.h */,
@@ -337,12 +360,18 @@
 		1B345F681CEB4C3F007AC1D9 /* GoSpelEditor */ = {
 			isa = PBXGroup;
 			children = (
+				1B6C715A1D04539C0049DFA4 /* GoSpelEditor.entitlements */,
 				1B345F691CEB4C3F007AC1D9 /* EDAppDelegate.h */,
 				1B345F6A1CEB4C3F007AC1D9 /* EDAppDelegate.m */,
 				1B345F721CEB4C3F007AC1D9 /* Assets.xcassets */,
 				1B345F741CEB4C40007AC1D9 /* MainMenu.xib */,
 				1B345F771CEB4C40007AC1D9 /* Info.plist */,
 				1B345F6C1CEB4C3F007AC1D9 /* Supporting Files */,
+				1B5E36EC1D03F6170079A9AA /* GEPreferences.h */,
+				1B5E36ED1D03F6170079A9AA /* GEPreferences.m */,
+				1B6C71551D042DAD0049DFA4 /* FeedbackWindowController.h */,
+				1B6C71561D042DAD0049DFA4 /* FeedbackWindowController.m */,
+				1B6C71571D042DAD0049DFA4 /* FeedbackWindowController.xib */,
 			);
 			path = GoSpelEditor;
 			sourceTree = "<group>";
@@ -393,6 +422,7 @@
 		1BAE23BF1CE3286A006D068C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B6C715B1D0453A40049DFA4 /* CloudKit.framework */,
 				1BB76E7C1D007E1C00CA0958 /* CloudKit.framework */,
 				1B213CA01CD8EF5B00B8E673 /* MessageUI.framework */,
 			);
@@ -633,6 +663,12 @@
 				TargetAttributes = {
 					1B345F661CEB4C3F007AC1D9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = UKBNTL7HA9;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					1B8A09E31CF1D97F0030BAEF = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -683,6 +719,7 @@
 				1BB76E551CFDF95500CA0958 /* article3.rtf in Resources */,
 				1B345F7C1CEB4CD5007AC1D9 /* Gospel.entitlements in Resources */,
 				1BB76E581CFDF97D00CA0958 /* article4.rtf in Resources */,
+				1B6C71591D042DAD0049DFA4 /* FeedbackWindowController.xib in Resources */,
 				1BB76E5B1CFDF99C00CA0958 /* article5.rtf in Resources */,
 				1BB76E641CFDFD3E00CA0958 /* article8.rtf in Resources */,
 			);
@@ -777,12 +814,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B5E36EA1D03F5650079A9AA /* Feedback+CoreDataProperties.m in Sources */,
 				1B345F6E1CEB4C3F007AC1D9 /* main.m in Sources */,
 				1B345F7E1CEB4D00007AC1D9 /* Paragraph+CoreDataProperties.m in Sources */,
 				1B345F7D1CEB4CFB007AC1D9 /* Gospel.xcdatamodeld in Sources */,
+				1B5E36E31D034C2B0079A9AA /* Feedback.xcdatamodeld in Sources */,
 				1B345F7F1CEB4D05007AC1D9 /* Paragraph.m in Sources */,
+				1B5E36EE1D03F6170079A9AA /* GEPreferences.m in Sources */,
+				1B5E36EB1D03F56B0079A9AA /* Feedback.m in Sources */,
 				1B345F6B1CEB4C3F007AC1D9 /* EDAppDelegate.m in Sources */,
 				1B345F801CEB4D0B007AC1D9 /* DAO.m in Sources */,
+				1B6C71581D042DAD0049DFA4 /* FeedbackWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -858,7 +900,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_ENTITLEMENTS = GoSpelEditor/GoSpelEditor.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "GOBIBLEEDITOR=1";
 				INFOPLIST_FILE = GoSpelEditor/Info.plist;
@@ -866,6 +910,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = geomatix.cz.GoSpelEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -875,7 +920,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_ENTITLEMENTS = GoSpelEditor/GoSpelEditor.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "GOBIBLEEDITOR=1";
 				INFOPLIST_FILE = GoSpelEditor/Info.plist;
@@ -883,6 +930,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = geomatix.cz.GoSpelEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -986,8 +1034,10 @@
 		8B852BEA1CC4D30F001BE270 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gospel/Gospel.entitlements;
+				HEADER_SEARCH_PATHS = "$(PROJECT_ROOT)/**";
 				INFOPLIST_FILE = Gospel/Info.plist;
 				INFOPLIST_PREFIX_HEADER = Version.h;
 				INFOPLIST_PREPROCESS = YES;
@@ -1001,8 +1051,10 @@
 		8B852BEB1CC4D30F001BE270 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gospel/Gospel.entitlements;
+				HEADER_SEARCH_PATHS = "$(PROJECT_ROOT)/**";
 				INFOPLIST_FILE = Gospel/Info.plist;
 				INFOPLIST_PREFIX_HEADER = Version.h;
 				INFOPLIST_PREPROCESS = YES;
@@ -1055,6 +1107,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		1B5E36E01D034BD10079A9AA /* Feedback.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1B5E36E11D034BD10079A9AA /* Feedback.xcdatamodel */,
+			);
+			currentVersion = 1B5E36E11D034BD10079A9AA /* Feedback.xcdatamodel */;
+			path = Feedback.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		8B852BDE1CC4D30F001BE270 /* Gospel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

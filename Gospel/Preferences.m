@@ -10,9 +10,6 @@
 
 @interface Preferences () {
 	NSUserDefaults *prefs;
-	NSMutableSet *imagesSelected;
-	NSMutableSet *soundsSelected;
-	NSMutableArray *_imagePosition;
 }
 
 @end

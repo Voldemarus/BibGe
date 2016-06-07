@@ -11,7 +11,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 
 
-@interface SettingsTableViewController : UITableViewController <MFMailComposeViewControllerDelegate>
+@interface SettingsTableViewController : UITableViewController 
 
 @property (weak, nonatomic) IBOutlet UISwitch *swTrackSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *iCloudSyncSwitch;
