@@ -10,7 +10,8 @@
 
 NSString * const VVVupdateFeedbackTable		=	@"VVVupdateFeedbackTable";
 NSString * const VVVupdateParagraphTable	=	@" VVVupdateParagraphTable";
-
+NSString * const VVVsubscribedToCloudKit	=	@"VVVsubscribedToCloudKit";
+NSString * const VVVlastUpdateDate			=	@"VVVlastUpdateDate";
 
 @interface GEPreferences() {
 	NSUserDefaults *prefs;
@@ -40,6 +41,9 @@ NSString * const VVVLastFeedBackDate	=	@"VVVLastFeedBackDate";
 	NSMutableDictionary  *defaultValues = [NSMutableDictionary dictionary];
 	// set up default parameters
 	[defaultValues setObject:[NSDate dateWithTimeIntervalSince1970:1000] forKey:VVVLastFeedBackDate];
+	[defaultValues setObject:[NSDate dateWithTimeIntervalSince1970:1000] forKey:VVVlastUpdateDate];
+
+	[defaultValues setObject:@(NO) forKey:VVVsubscribedToCloudKit];
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults: defaultValues];
 	
@@ -62,6 +66,28 @@ NSString * const VVVLastFeedBackDate	=	@"VVVLastFeedBackDate";
 {
 	[prefs setObject:lastFeedbackDate forKey:VVVLastFeedBackDate];
 }
+
+- (BOOL) subscribedToCloudKit
+{
+	return [prefs boolForKey:VVVsubscribedToCloudKit];
+}
+
+- (void) setSubscribedToCloudKit:(BOOL)subscribedToCloudKit
+{
+	[prefs setBool:subscribedToCloudKit forKey:VVVsubscribedToCloudKit];
+}
+
+
+- (NSDate *) lastUpdateDate
+{
+	return [prefs objectForKey:VVVlastUpdateDate];
+}
+
+- (void) setLastUpdateDate:(NSDate *)lastUpdateDate
+{
+	[prefs setObject:lastUpdateDate forKey:VVVlastUpdateDate];
+}
+
 
 
 @end

@@ -223,8 +223,94 @@
  }];
 }
 
-
 #endif
+
+// IOS part specific methods
+
+#ifdef GOBIBLEEDITOR
+- (void) subscribeToFeedbackChanges {
+#else
+- (void)subscribeToBibleArticleChanges {
+#endif
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"TRUEPREDICATE"];
+#ifdef GOBIBLEEDITOR
+	CKSubscription *subscription = [[CKSubscription alloc] initWithRecordType:@"FeedBack"
+#else
+	CKSubscription *subscription = [[CKSubscription alloc] initWithRecordType:@"BibleArticle"
+#endif
+	predicate:predicate options:CKSubscriptionOptionsFiresOnRecordCreation | CKSubscriptionOptionsFiresOnRecordUpdate | CKSubscriptionOptionsFiresOnRecordDeletion];
+	
+	[publicDatabase saveSubscription:subscription completionHandler:^(CKSubscription * _Nullable subscription, NSError * _Nullable error) {
+		if (error) {
+			// Handle here the error
+		} else {
+			// Save that we have subscribed successfully to keep track and avoid trying to subscribe again
+		}
+	}];
+}
+
+
+
+
+//
+// This method is required both to client and editor parts
+// Editor should be informed on Feedback record changes, while app - on changes in main database
+//
+- (void)fetchNotificationChanges {
+	CKFetchNotificationChangesOperation *operation = [[CKFetchNotificationChangesOperation alloc] initWithPreviousServerChangeToken:nil];
+	
+	NSMutableArray *notificationIDsToMarkRead = [NSMutableArray array];
+	
+	operation.notificationChangedBlock = ^(CKNotification * notification) {
+		// Process each notification received
+		if (notification.notificationType == CKNotificationTypeQuery) {
+			CKQueryNotification *queryNotification = (CKQueryNotification *)notification;
+			CKQueryNotificationReason reason = queryNotification.queryNotificationReason;
+			CKRecordID *recordID = queryNotification.recordID;
+#ifdef GOBIBLEEDITOR
+			// process Feedback records to be received on server
+#else
+			// process BibleArticle records on the IOS side
+#endif
+			
+			// Add the notification id to the array of processed notifications to mark them as read
+			[notificationIDsToMarkRead addObject:queryNotification.notificationID];
+		}
+	};
+	
+	operation.fetchNotificationChangesCompletionBlock = ^(CKServerChangeToken * serverChangeToken, NSError * operationError) {
+		if (operationError) {
+#ifdef GOBIBLEEDITOR
+			NSLog(@"Error 1 during Feedback data uploading - %@",[operationError localizedDescription]);
+#else
+			DLog(@"Error during BibleArticle data uploading - %@",[operationError localizedDescription]);
+	
+#endif
+
+		} else {
+			// Mark the notifications as read to avoid processing them again
+			CKMarkNotificationsReadOperation *markOperation = [[CKMarkNotificationsReadOperation alloc] initWithNotificationIDsToMarkRead:notificationIDsToMarkRead];
+			markOperation.markNotificationsReadCompletionBlock = ^(NSArray<CKNotificationID *> * notificationIDsMarkedRead, NSError * operationError) {
+				if (operationError) {
+					// Handle the error here
+#ifdef GOBIBLEEDITOR
+					NSLog(@"Error 2 during Feedback mark as read - %@",[operationError localizedDescription]);
+#else
+					DLog(@"Error during BibleArticle mark as read - %@",[operationError localizedDescription]);
+					
+#endif
+				}
+			};
+			
+			NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+			[operationQueue addOperation:markOperation];
+		}
+	};
+	
+	NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+	[operationQueue addOperation:operation];
+}
+
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
 	// The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it.

@@ -13,6 +13,7 @@
 #import "Feedback.h"
 #else
 #import <UIKit/UIKit.h>
+
 #endif
 #import "Paragraph.h"
 
@@ -27,8 +28,10 @@
 
 - (void) sendFeedbackFrom:(NSString *)address withMessae:(NSString *)aMessage
 			andDeviceInfo:(NSString *)aDevInfo;
-#else
 
+- (void)subscribeToBibleArticleChanges;
+#else
+- (void)subscribeToFeedbackChanges;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *feedbackPersistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *feedbackManagedObjectModel;

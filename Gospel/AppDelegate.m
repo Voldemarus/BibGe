@@ -19,8 +19,47 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	[DAO sharedInstance];
+	
+	// Register CloudKit notifications
+	UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert categories:nil];
+	[application registerUserNotificationSettings:notificationSettings];
+	[application registerForRemoteNotifications];
+	
+	
 	return YES;
 }
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+	CKNotification *cloudKitNotification = [CKNotification notificationFromRemoteNotificationDictionary:userInfo];
+	if (cloudKitNotification.notificationType == CKNotificationTypeQuery) {
+		CKQueryNotification *queryNotification = (CKQueryNotification *)cloudKitNotification;
+		
+		if (queryNotification.queryNotificationReason == CKQueryNotificationReasonRecordDeleted) {
+			// If the record has been deleted in CloudKit then delete the local copy here
+		} else {
+			// If the record has been created or changed, we fetch the data from CloudKit
+			CKDatabase *database;
+			if (queryNotification.isPublicDatabase) {
+				database = [[CKContainer defaultContainer] publicCloudDatabase];
+			} else  {
+				database = [[CKContainer defaultContainer] privateCloudDatabase];
+			}
+			[database fetchRecordWithID:queryNotification.recordID completionHandler:^(CKRecord * _Nullable record, NSError * _Nullable error) {
+				if (error) {
+					// Handle the error here
+				} else {
+					if (queryNotification.queryNotificationReason == CKQueryNotificationReasonRecordUpdated) {
+						// Use the information in the record object to modify your local data
+					} else {
+						// Use the information in the record object to create a new local object
+					}
+				}
+			}];
+		}
+	}
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

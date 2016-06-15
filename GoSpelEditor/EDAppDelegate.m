@@ -7,10 +7,12 @@
 //
 
 #import "EDAppDelegate.h"
+#import "GEPreferences.h"
 
 @interface EDAppDelegate () {
 	DAO *dao;
 	Paragraph *selectedParagraph;
+	GEPreferences *prefs;
 }
 
 - (IBAction)dateModificationTapped:(id)sender;
@@ -39,27 +41,73 @@
 @property (unsafe_unretained) IBOutlet NSTextView *translation2Editor;
 @property (unsafe_unretained) IBOutlet NSTextView *translation3Editor;
 
+@property (weak) IBOutlet NSTextField *uploadInfoLabel;
+- (IBAction)uploadButtonTapped:(id)sender;
+
+
 @end
 
 @implementation EDAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	dao = [DAO sharedInstance];
+	prefs = [GEPreferences sharedInstance];
 	self.moc = dao.managedObjectContext;
 	
 	[self.textEditor setUsesRuler:YES];
 	[self.translation1Editor setUsesRuler:YES];
 	[self.translation2Editor setUsesRuler:YES];
 	[self.translation3Editor setUsesRuler:YES];
+	
+	self.uploadInfoLabel.stringValue = @"Press button below to propagate local changes";
+	// Register CloudKit notifications
+	[NSApp registerForRemoteNotificationTypes:NSRemoteNotificationTypeNone];
+	
+	// subscribe to notification
+	if (prefs.subscribedToCloudKit == NO) {
+		[dao subscribeToFeedbackChanges];
+	}
+	
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
 	// Insert code here to tear down your application
 }
 
+#pragma mark - Notifications from CloudKit
 
 
-#pragma mark - Core Data stack
+- (void)application:(NSApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+	CKNotification *cloudKitNotification = [CKNotification notificationFromRemoteNotificationDictionary:userInfo];
+	if (cloudKitNotification.notificationType == CKNotificationTypeQuery) {
+		CKQueryNotification *queryNotification = (CKQueryNotification *)cloudKitNotification;
+		
+		if (queryNotification.queryNotificationReason == CKQueryNotificationReasonRecordDeleted) {
+			// If the record has been deleted in CloudKit then delete the local copy here
+		} else {
+			// If the record has been created or changed, we fetch the data from CloudKit
+			CKDatabase *database;
+			if (queryNotification.isPublicDatabase) {
+				database = [[CKContainer defaultContainer] publicCloudDatabase];
+			} else  {
+				database = [[CKContainer defaultContainer] privateCloudDatabase];
+			}
+			[database fetchRecordWithID:queryNotification.recordID completionHandler:^(CKRecord * _Nullable record, NSError * _Nullable error) {
+				if (error) {
+					NSLog(@"Error during notification processing - %@", [error localizedDescription]);
+				} else {
+					if (queryNotification.queryNotificationReason == CKQueryNotificationReasonRecordUpdated) {
+						// Use the information in the record object to modify your local data
+					} else {
+						// Use the information in the record object to create a new local object
+					}
+				}
+			}];
+		}
+	}
+}
+
 
 
 #pragma mark - Core Data Saving and Undo support
@@ -153,7 +201,6 @@
 {
 	if (!self.feedbackController) {
 		self.feedbackController = [[FeedbackWindowController alloc] init];
-		
 	}
 	[self.feedbackController showWindow:self];
 }
@@ -182,5 +229,13 @@
 - (IBAction)dateSelectorCanceled:(id)sender
 {
 	[self.dateSelectorView close];
+}
+- (IBAction)uploadButtonTapped:(id)sender
+{
+	NSError *error = nil;
+	[dao.managedObjectContext save:&error];
+	if (!error) {
+		//
+	}
 }
 @end

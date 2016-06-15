@@ -16,5 +16,8 @@ extern NSString * const VVVupdateParagraphTable;
 + (GEPreferences *) sharedInstance;
 
 @property (nonatomic, retain) NSDate *lastFeedbackDate;
+@property (nonatomic, readwrite) BOOL subscribedToCloudKit;
+
+@property (nonatomic, retain) NSDate *lastUpdateDate;
 
 @end

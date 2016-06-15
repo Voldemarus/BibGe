@@ -25,6 +25,7 @@
                 <outlet property="translation1Editor" destination="S0s-oM-RbF" id="C4K-TC-bmS"/>
                 <outlet property="translation2Editor" destination="4yH-qz-Xv1" id="dth-ST-dd1"/>
                 <outlet property="translation3Editor" destination="ZYT-E3-DqY" id="VXT-4e-X1R"/>
+                <outlet property="uploadInfoLabel" destination="0M9-8C-KOB" id="Vx9-9J-Vf1"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -477,6 +478,24 @@
                             <action selector="refreshDatePressed:" target="Voe-Tx-rLC" id="JIb-zb-AvC"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BbR-Sp-ah4">
+                        <rect key="frame" x="520" y="59" width="402" height="56"/>
+                        <buttonCell key="cell" type="smallSquare" title="Upload Data to CloudKit" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tOL-l4-1bz">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="uploadButtonTapped:" target="Voe-Tx-rLC" id="jYk-UX-Q0G"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0M9-8C-KOB">
+                        <rect key="frame" x="478" y="129" width="508" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="Uc4-x0-4hA">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="612.5" y="420.5"/>
@@ -529,4 +548,7 @@
             <point key="canvasLocation" x="575.5" y="910.5"/>
         </customView>
     </objects>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+    </resources>
 </document>

@@ -61,6 +61,7 @@
 		1B6C71581D042DAD0049DFA4 /* FeedbackWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6C71561D042DAD0049DFA4 /* FeedbackWindowController.m */; };
 		1B6C71591D042DAD0049DFA4 /* FeedbackWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6C71571D042DAD0049DFA4 /* FeedbackWindowController.xib */; };
 		1B6C715C1D0453A40049DFA4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6C715B1D0453A40049DFA4 /* CloudKit.framework */; };
+		1B7D71121D11BBEB006E2BD5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B213CA01CD8EF5B00B8E673 /* MessageUI.framework */; };
 		1B8A09E21CF1D9290030BAEF /* VersionUpdate.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A09E01CF1D9290030BAEF /* VersionUpdate.sh */; };
 		1BAE23C61CE3457B006D068C /* WaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE23C41CE3457B006D068C /* WaitingViewController.m */; };
 		1BAE23C71CE3457B006D068C /* WaitingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C51CE3457B006D068C /* WaitingViewController.xib */; };
@@ -282,6 +283,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B7D71121D11BBEB006E2BD5 /* MessageUI.framework in Frameworks */,
 				1BB76E7D1D007E1C00CA0958 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1044,6 +1046,7 @@
 				INFOPLIST_PREPROCESS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alex.Gospel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1062,6 +1065,7 @@
 				INFOPLIST_PREPROCESS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alex.Gospel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
