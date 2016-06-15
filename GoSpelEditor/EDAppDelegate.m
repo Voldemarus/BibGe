@@ -10,10 +10,18 @@
 
 @interface EDAppDelegate () {
 	DAO *dao;
+	Paragraph *selectedParagraph;
 }
 
+- (IBAction)dateModificationTapped:(id)sender;
 
 @property (weak) IBOutlet NSArrayController *sataController;
+@property (weak) IBOutlet NSPopover *dateSelectorView;
+@property (weak) IBOutlet NSDatePicker *dateSelectorPicker;
+@property (weak) IBOutlet NSButton *dateSelectorButton;
+
+- (IBAction)dateSelectorChanged:(id)sender;
+- (IBAction)dateSelectorCanceled:(id)sender;
 
 @property (weak) IBOutlet NSWindow *window;
 - (IBAction)saveAction:(id)sender;
@@ -145,4 +153,28 @@
 }
 
 
+- (IBAction)dateModificationTapped:(id)sender
+{
+	CGRect frame = self.dateSelectorButton.frame;
+	// set up initial value from the selected Paragraph record
+	NSArray *selObjects = self.sataController.selectedObjects;
+	if (selObjects.count > 0) {
+		selectedParagraph = selObjects[0];
+		self.dateSelectorPicker.dateValue = selectedParagraph.dateCreated;
+		[self.dateSelectorView showRelativeToRect:frame
+										   ofView:self.window.contentView preferredEdge:NSMaxYEdge];
+	}
+	
+}
+- (IBAction)dateSelectorChanged:(id)sender
+{
+	selectedParagraph.dateCreated = self.dateSelectorPicker.dateValue;
+	[self.dateSelectorView close];
+	
+}
+
+- (IBAction)dateSelectorCanceled:(id)sender
+{
+	[self.dateSelectorView close];
+}
 @end
