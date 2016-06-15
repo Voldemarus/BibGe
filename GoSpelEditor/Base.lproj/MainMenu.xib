@@ -454,7 +454,7 @@
                         </tabViewItems>
                     </tabView>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1sO-99-Rkh">
-                        <rect key="frame" x="625" y="553" width="376" height="25"/>
+                        <rect key="frame" x="625" y="553" width="241" height="25"/>
                         <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UxR-KI-cj8">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -465,6 +465,16 @@
                         <connections>
                             <action selector="dateModificationTapped:" target="Voe-Tx-rLC" id="zaG-xu-lQy"/>
                             <binding destination="hRX-bQ-Bmr" name="title" keyPath="selection.dateCreatedAsString" id="st9-Vk-Jhl"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bhi-g9-HR9">
+                        <rect key="frame" x="876" y="551" width="125" height="25"/>
+                        <buttonCell key="cell" type="roundTextured" title="Refresh date" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="515-9d-YGA">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="refreshDatePressed:" target="Voe-Tx-rLC" id="JIb-zb-AvC"/>
                         </connections>
                     </button>
                 </subviews>

@@ -80,7 +80,13 @@
 {
 	Paragraph *currentParagraph = [[self.sataController selectedObjects] objectAtIndex:0];
 	currentParagraph.dateCreated = [NSDate date];
-	self.creationDateLabel.stringValue = [currentParagraph dateCreatedAsString];
+	NSError *error = nil;
+	[dao.managedObjectContext processPendingChanges];
+	[self.sataController fetchWithRequest:nil merge:YES error:&error];
+	if (error) {
+		NSLog(@"Cannot reload data - %@", [error localizedDescription]);
+	}
+	[self.sataController rearrangeObjects];
 }
 
 - (IBAction)checkLinkPressed:(id)sender
