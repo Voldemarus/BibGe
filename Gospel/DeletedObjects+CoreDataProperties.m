@@ -1,5 +1,5 @@
 //
-//  Paragraph+CoreDataProperties.m
+//  DeletedObjects+CoreDataProperties.m
 //  Gospel
 //
 //  Created by Водолазкий В.В. on 15.06.16.
@@ -9,18 +9,11 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Paragraph+CoreDataProperties.h"
+#import "DeletedObjects+CoreDataProperties.h"
 
-@implementation Paragraph (CoreDataProperties)
+@implementation DeletedObjects (CoreDataProperties)
 
-@dynamic dateCreated;
-@dynamic link;
-@dynamic text;
-@dynamic title;
-@dynamic translation1;
-@dynamic translation2;
-@dynamic translation3;
-@dynamic viewed;
 @dynamic recordID;
+@dynamic recordType;
 
 @end

@@ -233,9 +233,11 @@
 - (IBAction)uploadButtonTapped:(id)sender
 {
 	NSError *error = nil;
+	[dao clearWorkingArrays];
 	[dao.managedObjectContext save:&error];
 	if (!error) {
-		//
+		[dao processCKUpdate];
 	}
+	NSBeep();
 }
 @end

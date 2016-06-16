@@ -62,12 +62,16 @@
 		1B6C71591D042DAD0049DFA4 /* FeedbackWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6C71571D042DAD0049DFA4 /* FeedbackWindowController.xib */; };
 		1B6C715C1D0453A40049DFA4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6C715B1D0453A40049DFA4 /* CloudKit.framework */; };
 		1B7D71121D11BBEB006E2BD5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B213CA01CD8EF5B00B8E673 /* MessageUI.framework */; };
+		1B7D711C1D11C396006E2BD5 /* DeletedObjects+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D71191D11C396006E2BD5 /* DeletedObjects+CoreDataProperties.m */; };
+		1B7D711D1D11C396006E2BD5 /* DeletedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D711B1D11C396006E2BD5 /* DeletedObjects.m */; };
 		1B8A09E21CF1D9290030BAEF /* VersionUpdate.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A09E01CF1D9290030BAEF /* VersionUpdate.sh */; };
 		1BAE23C61CE3457B006D068C /* WaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE23C41CE3457B006D068C /* WaitingViewController.m */; };
 		1BAE23C71CE3457B006D068C /* WaitingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C51CE3457B006D068C /* WaitingViewController.xib */; };
 		1BAE23CA1CE34637006D068C /* Cloud-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23C91CE34637006D068C /* Cloud-icon.png */; };
 		1BAE23CD1CE3B3D2006D068C /* day_nigh_hrt.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23CB1CE3B3D2006D068C /* day_nigh_hrt.png */; };
 		1BAE23CE1CE3B3D2006D068C /* day_nigh_hrt_day.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE23CC1CE3B3D2006D068C /* day_nigh_hrt_day.png */; };
+		1BB138641D12E454006F5E91 /* DeletedObjects+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D71191D11C396006E2BD5 /* DeletedObjects+CoreDataProperties.m */; };
+		1BB138651D12E459006F5E91 /* DeletedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D711B1D11C396006E2BD5 /* DeletedObjects.m */; };
 		1BB76E3F1CFD78B000CA0958 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB76E3D1CFD78B000CA0958 /* InfoViewController.m */; };
 		1BB76E401CFD78B000CA0958 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E3E1CFD78B000CA0958 /* InfoViewController.xib */; };
 		1BB76E421CFD79F100CA0958 /* InfoText.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1BB76E411CFD79F100CA0958 /* InfoText.rtf */; };
@@ -194,6 +198,10 @@
 		1B6C71571D042DAD0049DFA4 /* FeedbackWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackWindowController.xib; sourceTree = "<group>"; };
 		1B6C715A1D04539C0049DFA4 /* GoSpelEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GoSpelEditor.entitlements; sourceTree = "<group>"; };
 		1B6C715B1D0453A40049DFA4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		1B7D71181D11C396006E2BD5 /* DeletedObjects+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DeletedObjects+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1B7D71191D11C396006E2BD5 /* DeletedObjects+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DeletedObjects+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1B7D711A1D11C396006E2BD5 /* DeletedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeletedObjects.h; sourceTree = "<group>"; };
+		1B7D711B1D11C396006E2BD5 /* DeletedObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeletedObjects.m; sourceTree = "<group>"; };
 		1B8A09E01CF1D9290030BAEF /* VersionUpdate.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = VersionUpdate.sh; sourceTree = "<group>"; };
 		1B8A09EB1CF1E17D0030BAEF /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
 		1BAE23C01CE328AD006D068C /* Gospel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Gospel.entitlements; sourceTree = "<group>"; };
@@ -314,6 +322,10 @@
 			isa = PBXGroup;
 			children = (
 				8B852BDE1CC4D30F001BE270 /* Gospel.xcdatamodeld */,
+				1B7D71181D11C396006E2BD5 /* DeletedObjects+CoreDataProperties.h */,
+				1B7D71191D11C396006E2BD5 /* DeletedObjects+CoreDataProperties.m */,
+				1B7D711A1D11C396006E2BD5 /* DeletedObjects.h */,
+				1B7D711B1D11C396006E2BD5 /* DeletedObjects.m */,
 				1B5E36E01D034BD10079A9AA /* Feedback.xcdatamodeld */,
 				1B5E36E41D03F55B0079A9AA /* Feedback+CoreDataProperties.h */,
 				1B5E36E51D03F55B0079A9AA /* Feedback+CoreDataProperties.m */,
@@ -818,12 +830,14 @@
 			files = (
 				1B5E36EA1D03F5650079A9AA /* Feedback+CoreDataProperties.m in Sources */,
 				1B345F6E1CEB4C3F007AC1D9 /* main.m in Sources */,
+				1BB138641D12E454006F5E91 /* DeletedObjects+CoreDataProperties.m in Sources */,
 				1B345F7E1CEB4D00007AC1D9 /* Paragraph+CoreDataProperties.m in Sources */,
 				1B345F7D1CEB4CFB007AC1D9 /* Gospel.xcdatamodeld in Sources */,
 				1B5E36E31D034C2B0079A9AA /* Feedback.xcdatamodeld in Sources */,
 				1B345F7F1CEB4D05007AC1D9 /* Paragraph.m in Sources */,
 				1B5E36EE1D03F6170079A9AA /* GEPreferences.m in Sources */,
 				1B5E36EB1D03F56B0079A9AA /* Feedback.m in Sources */,
+				1BB138651D12E459006F5E91 /* DeletedObjects.m in Sources */,
 				1B345F6B1CEB4C3F007AC1D9 /* EDAppDelegate.m in Sources */,
 				1B345F801CEB4D0B007AC1D9 /* DAO.m in Sources */,
 				1B6C71581D042DAD0049DFA4 /* FeedbackWindowController.m in Sources */,
@@ -836,7 +850,9 @@
 			files = (
 				1BAE23C61CE3457B006D068C /* WaitingViewController.m in Sources */,
 				8BF1E3591CC5FFDB009DC8F2 /* ListViewController.m in Sources */,
+				1B7D711C1D11C396006E2BD5 /* DeletedObjects+CoreDataProperties.m in Sources */,
 				8B852BDA1CC4D30F001BE270 /* ViewController.m in Sources */,
+				1B7D711D1D11C396006E2BD5 /* DeletedObjects.m in Sources */,
 				1B213CA61CD8F06A00B8E673 /* SDiPhoneVersion.m in Sources */,
 				AED53AD01CD8BEDC0043A1EB /* SettingsTableViewController.m in Sources */,
 				8B852BE01CC4D30F001BE270 /* Gospel.xcdatamodeld in Sources */,

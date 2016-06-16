@@ -18,10 +18,16 @@
 @interface DAO () {
 #ifndef GOBIBLEEDITOR
 	Preferences *prefs;
-#else 
+#else
 	GEPreferences *prefs;
+	NSMutableArray *addRecords;
+	NSMutableArray *modifyRecords;
+	NSMutableArray *deleteRecords;
+
 	NSManagedObjectModel *_feedbackManagedObjectModel;
 	NSPersistentStoreCoordinator *_feedbackPersistentStoreCoordinator;
+	
+	NSInteger index;
 #endif
 	CKContainer *container;
 	CKDatabase *publicDatabase;
@@ -102,6 +108,11 @@
 //		}];
 #else
 		prefs = [GEPreferences sharedInstance];
+		addRecords = [[NSMutableArray alloc] initWithCapacity:50];
+		modifyRecords = [[NSMutableArray alloc] initWithCapacity:50];
+		deleteRecords = [[NSMutableArray alloc] initWithCapacity:50];
+	
+		
 		[self updateFeedback];
 #endif
 	}
@@ -223,6 +234,122 @@
  }];
 }
 
+- (void) addToInsertArray:(CKRecord *)newRecord
+{
+	if(newRecord) {
+		[addRecords addObject:newRecord];
+	}
+}
+
+- (void) addToUpdateArray:(Paragraph *) updateParagraph
+{
+	if (updateParagraph) {
+		[modifyRecords addObject:updateParagraph];
+	}
+}
+
+//
+// Preparation to iteration
+//
+- (void) clearWorkingArrays
+{
+	[addRecords removeAllObjects];
+	[modifyRecords removeAllObjects];
+	NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"DeletedObjects"];
+	NSError *error = nil;
+	NSArray *deleted = [self.managedObjectContext executeFetchRequest:req error:&error];
+	if (deleted && !error) {
+		for (DeletedObjects *d in deleted) {
+			[self.managedObjectContext deleteObject:d];
+		}
+	}
+}
+
+- (void) processCKUpdate
+{
+	// Step 1. Delete all records, marked to delete
+	NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"DeletedObjects"];
+	NSError *error = nil;
+	NSArray *deleted = [self.managedObjectContext executeFetchRequest:req error:&error];
+	if (deleted && !error) {
+		for (DeletedObjects *d in deleted) {
+			[publicDatabase deleteRecordWithID:d.recordID
+							 completionHandler:^(CKRecordID *recordID, NSError *error) {
+				if(error) {
+					NSLog(@"%@", error);
+				} else {
+					NSLog(@"record deleted!");
+				}
+			}];
+		}
+	}
+	// Step 2. Insert newly created records
+	index = 0;
+	if (addRecords.count > 0) {
+		[self addRecordToCloudKit];
+	}
+}
+
+
+- (void) addRecordToCloudKit {
+	// if all objects added, exit recursive method
+	if(index == [addRecords count]) {
+		[self modifyCKRecords];
+		return;
+	}
+	
+	CKRecord *rec = addRecords[index];
+	
+	[publicDatabase saveRecord:rec completionHandler:^(CKRecord *myRec, NSError *error) {
+		if (!error) {
+			NSLog(@"%ld record Added!",(long)index);
+			index++;
+			[self addRecordToCloudKit];
+		} else {
+			NSLog(@"Cannot add record - %@", error);
+		}
+	}];
+}
+
+- (void) modifyCKRecords
+{
+	// Step 3. modify records
+	index = 0;
+	[self modifyRecord];
+}
+
+- (void) modifyRecord
+{
+	if (index == modifyRecords.count) {
+		return;
+	}
+	Paragraph *p = modifyRecords[index];
+	[publicDatabase fetchRecordWithID:p.recordID completionHandler:^(CKRecord *record, NSError *error) {
+		if(error) {
+			NSLog(@"%@", error);
+		} else {
+			record[@"dateCreated"] = p.dateCreated;
+			record[@"link"] = p.link;
+			record[@"text"] = [NSKeyedArchiver archivedDataWithRootObject:p.text];
+			record[@"title"] = p.title;
+			record[@"trans1"] = [NSKeyedArchiver archivedDataWithRootObject:p.translation1];
+			record[@"trans2"] = [NSKeyedArchiver archivedDataWithRootObject:p.translation2];
+			record[@"trans3"] = [NSKeyedArchiver archivedDataWithRootObject:p.translation3];
+			[publicDatabase saveRecord:record completionHandler:^(CKRecord *record, NSError *error) {
+				if(error) {
+					NSLog(@"Uh oh, there was an error updating ... %@", error);
+				} else {
+					index++;
+					[self modifyRecord];
+					NSLog(@"Updated record %ld successfully", (long) index);
+				}
+			}];
+		}
+	}];
+
+}
+
+
 #endif
 
 // IOS part specific methods
@@ -244,7 +371,7 @@
 		if (error) {
 			// Handle here the error
 		} else {
-			// Save that we have subscribed successfully to keep track and avoid trying to subscribe again
+			prefs.subscribedToCloudKit = YES;
 		}
 	}];
 }
@@ -442,7 +569,6 @@
 			newRec.translation3 = attrString;
 		}
 	}
-	[self.managedObjectContext save:nil];
 }
 
 #ifndef GOBIBLEEDITOR

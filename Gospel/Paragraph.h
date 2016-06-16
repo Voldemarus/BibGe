@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <CloudKit/CloudKit.h>
+#import "DeletedObjects.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (NSString *) dateCreatedAsString;
+- (CKRecord *) newCloudKitRecord;			// Returns new record, if no ID is stored
 
 @end
 

@@ -11,9 +11,10 @@
 #ifdef GOBIBLEEDITOR
 #import <Cocoa/Cocoa.h>
 #import "Feedback.h"
+#import "DeletedObjects.h"
 #else
 #import <UIKit/UIKit.h>
-
+#import <CloudKit/CloudKit.h>
 #endif
 #import "Paragraph.h"
 
@@ -32,6 +33,11 @@
 - (void)subscribeToBibleArticleChanges;
 #else
 - (void)subscribeToFeedbackChanges;
+
+- (void) addToInsertArray:(CKRecord *)newRecord;
+- (void) addToUpdateArray:(Paragraph *) updateParagraph;
+- (void) clearWorkingArrays;
+- (void) processCKUpdate;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *feedbackPersistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *feedbackManagedObjectModel;
