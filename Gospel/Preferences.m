@@ -50,6 +50,7 @@
 NSString * const VVVthemeChanged			= @"VVVthemeChanged";
 NSString * const VVVpersistentStoreChanged	= @"VVVpersistentStoreChanged";
 NSString * const VVVcloudSyncInProgress		= @"VVVcloudSyncInProgress";
+ NSString * const VVVupdateBibleTable		= @"VVVupdateBibleTable";
 
 // Local keys
 
@@ -59,6 +60,8 @@ NSString * const VVVstoreInCloud	=	@"VVVstoreInClooud";
 NSString * const VVVnightTheme		=	@"VVVnightTheme";
 NSString * const VVVfontSize		=	@"VVVfontSize";
 NSString * const VVVlineHeight		=	@"VVVlineHeight";
+NSString * const VVVsubscribed		=	@"VVVsubscribedCK";
+NSString * const VVVlastSynchro		=	@"VVVlastSynchro";
 
 @implementation Preferences
 
@@ -87,6 +90,8 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 	[defaultValues setObject:@(YES) forKey:VVVstoreInCloud];
 	[defaultValues setObject:@(16.0) forKey:VVVfontSize];
 	[defaultValues setObject:@(ThemeLineHeightNormal) forKey:VVVlineHeight];
+	[defaultValues setObject:@(NO) forKey:VVVsubscribed];
+	[defaultValues setObject:[NSDate dateWithTimeIntervalSince1970:0] forKey:VVVlastSynchro];
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults: defaultValues];
 	
@@ -336,6 +341,28 @@ NSString * const VVVlineHeight		=	@"VVVlineHeight";
 - (void) setStoreInCloud:(BOOL)storeInCloud
 {
 	[prefs setBool:storeInCloud forKey:VVVstoreInCloud];
+}
+
+#pragma mark - CK support
+
+- (BOOL) subscribedToCloudKit
+{
+	return [prefs boolForKey:VVVsubscribed];
+}
+
+- (void) setSubscribedToCloudKit:(BOOL)subscribedToCloudKit
+{
+	[prefs setBool:subscribedToCloudKit forKey:VVVsubscribed];
+}
+
+- (NSDate *) lastSynchroDate
+{
+	return [prefs objectForKey:VVVlastSynchro];
+}
+
+- (void)setLastSynchroDate:(NSDate *)lastSynchroDate
+{
+	[prefs setObject:lastSynchroDate forKey:VVVlastSynchro];
 }
 
 @end

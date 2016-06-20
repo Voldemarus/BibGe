@@ -38,6 +38,7 @@
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	[nc addObserver:self selector:@selector(updateTable:) name:VVVpersistentStoreChanged object:nil];
 	[nc addObserver:self selector:@selector(freezeInterface:) name:VVVcloudSyncInProgress  object:nil];
+	[nc addObserver:self selector:@selector(updateTable:) name:VVVupdateBibleTable object:nil];
 	
 	self.waitingController = [[WaitingViewController alloc] init];
  

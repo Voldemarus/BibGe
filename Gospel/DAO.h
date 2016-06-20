@@ -31,6 +31,7 @@
 			andDeviceInfo:(NSString *)aDevInfo;
 
 - (void)subscribeToBibleArticleChanges;
+- (void) checkAndUpdateArticles;
 #else
 - (void)subscribeToFeedbackChanges;
 

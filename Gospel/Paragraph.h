@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (Paragraph *)newObjectForParagraphTitle:(NSString *)aTitle date:(NSDate *)aDate linl:(NSString *)aLink  inMoc:(NSManagedObjectContext *)moc;
 
++ (Paragraph *) getOrCreateParagraphForRecordId:(CKRecordID *)recordId
+										 inMoc:(NSManagedObjectContext *)moc;
 
 - (NSString *) dateCreatedAsString;
 - (CKRecord *) newCloudKitRecord;			// Returns new record, if no ID is stored

@@ -57,7 +57,7 @@
 - (id) init
 {
 	if (self = [super init]) {
-		[self createDemoSet];
+		//		[self createDemoSet];
 		container = [CKContainer containerWithIdentifier:@"iCloud.com.alex.Gospel"];
 		publicDatabase = [container publicCloudDatabase];
 		privateDatabase = [container privateCloudDatabase];
@@ -76,7 +76,7 @@
 				 if ([self.managedObjectContext hasChanges]) {
 					 NSError *saveError;
 					 if (![self.managedObjectContext save:&saveError]) {
-						 NSLog(@"Save error: %@", saveError);
+						 DLog(@"Save error: %@", saveError);
 					 }
 				 } else {
 					 // drop any managed object references
@@ -111,7 +111,6 @@
 		addRecords = [[NSMutableArray alloc] initWithCapacity:50];
 		modifyRecords = [[NSMutableArray alloc] initWithCapacity:50];
 		deleteRecords = [[NSMutableArray alloc] initWithCapacity:50];
-	
 		
 		[self updateFeedback];
 #endif
@@ -174,7 +173,7 @@
 			error = [NSError errorWithDomain:@"GoSpelErrorDomain" code:9999 userInfo:dict];
 			// Replace this with code to handle the error appropriately.
 			// abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			DLog(@"Unresolved error %@, %@", error, [error userInfo]);
 			abort();
 		}
 		return _feedbackPersistentStoreCoordinator;
@@ -276,9 +275,9 @@
 			[publicDatabase deleteRecordWithID:d.recordID
 							 completionHandler:^(CKRecordID *recordID, NSError *error) {
 				if(error) {
-					NSLog(@"%@", error);
+					DLog(@"%@", error);
 				} else {
-					NSLog(@"record deleted!");
+					DLog(@"record deleted!");
 				}
 			}];
 		}
@@ -302,11 +301,11 @@
 	
 	[publicDatabase saveRecord:rec completionHandler:^(CKRecord *myRec, NSError *error) {
 		if (!error) {
-			NSLog(@"%ld record Added!",(long)index);
+			DLog(@"%ld record Added!",(long)index);
 			index++;
 			[self addRecordToCloudKit];
 		} else {
-			NSLog(@"Cannot add record - %@", error);
+			DLog(@"Cannot add record - %@", error);
 		}
 	}];
 }
@@ -326,7 +325,7 @@
 	Paragraph *p = modifyRecords[index];
 	[publicDatabase fetchRecordWithID:p.recordID completionHandler:^(CKRecord *record, NSError *error) {
 		if(error) {
-			NSLog(@"%@", error);
+			DLog(@"%@", error);
 		} else {
 			record[@"dateCreated"] = p.dateCreated;
 			record[@"link"] = p.link;
@@ -337,11 +336,11 @@
 			record[@"trans3"] = [NSKeyedArchiver archivedDataWithRootObject:p.translation3];
 			[publicDatabase saveRecord:record completionHandler:^(CKRecord *record, NSError *error) {
 				if(error) {
-					NSLog(@"Uh oh, there was an error updating ... %@", error);
+					DLog(@"Uh oh, there was an error updating ... %@", error);
 				} else {
 					index++;
 					[self modifyRecord];
-					NSLog(@"Updated record %ld successfully", (long) index);
+					DLog(@"Updated record %ld successfully", (long) index);
 				}
 			}];
 		}
@@ -363,6 +362,37 @@
 #ifdef GOBIBLEEDITOR
 	CKSubscription *subscription = [[CKSubscription alloc] initWithRecordType:@"FeedBack"
 #else
+									[container accountStatusWithCompletionHandler:^(CKAccountStatus accountStatus, NSError *error) {
+		if (((accountStatus == 3) || (accountStatus == 2)) && (!error))
+		{
+			DLog(@"Container:  no error but status %ld",(long)accountStatus);
+			
+			
+			//            typedef NS_ENUM(NSInteger, CKAccountStatus) {
+			//                /* An error occurred when getting the account status, consult the corresponding NSError */
+			//                CKAccountStatusCouldNotDetermine                   = 0,
+			//                /* The iCloud account credentials are available for this application */
+			//                CKAccountStatusAvailable                           = 1,
+			//                /* Parental Controls / Device Management has denied access to iCloud account credentials */
+			//                CKAccountStatusRestricted                          = 2,
+			//                /* No iCloud account is logged in on this device */
+			//                CKAccountStatusNoAccount                           = 3,
+			//
+			//        }
+			
+			// Cannot set up subscription, so we need to update it manually
+			[self checkAndUpdateArticles];
+			return;
+		}
+		
+		
+		if (error)
+		{
+			DLog(@" Container: accountStatus error %@",error);
+			return;
+		}
+	} ];
+									
 	CKSubscription *subscription = [[CKSubscription alloc] initWithRecordType:@"BibleArticle"
 #endif
 	predicate:predicate options:CKSubscriptionOptionsFiresOnRecordCreation | CKSubscriptionOptionsFiresOnRecordUpdate | CKSubscriptionOptionsFiresOnRecordDeletion];
@@ -370,13 +400,12 @@
 	[publicDatabase saveSubscription:subscription completionHandler:^(CKSubscription * _Nullable subscription, NSError * _Nullable error) {
 		if (error) {
 			// Handle here the error
+			DLog(@"Cannot subscribe to CloudKit changes - %@", error);
 		} else {
 			prefs.subscribedToCloudKit = YES;
 		}
 	}];
 }
-
-
 
 
 //
@@ -408,7 +437,7 @@
 	operation.fetchNotificationChangesCompletionBlock = ^(CKServerChangeToken * serverChangeToken, NSError * operationError) {
 		if (operationError) {
 #ifdef GOBIBLEEDITOR
-			NSLog(@"Error 1 during Feedback data uploading - %@",[operationError localizedDescription]);
+			DLog(@"Error 1 during Feedback data uploading - %@",[operationError localizedDescription]);
 #else
 			DLog(@"Error during BibleArticle data uploading - %@",[operationError localizedDescription]);
 	
@@ -607,6 +636,59 @@
 }
 
 
+	//
+	// Method is called when application become active. We need to check database on CloudKit
+	// storage and update loacal data if any
+	//
+- (void) checkAndUpdateArticles
+{
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"modificationDate > %@",prefs.lastSynchroDate];
+	CKQuery *query = [[CKQuery alloc] initWithRecordType:@"BibleArticle" predicate:predicate];
+	[publicDatabase performQuery:query inZoneWithID:nil completionHandler:^(NSArray *results, NSError *error) {
+		if (!error) {
+//		 DLog(@"%@", results);
+			NSDate *lastDate = prefs.lastSynchroDate;
+			for (CKRecord *record in results) {
+				// iterate through received data
+				NSDate *mDate = record.modificationDate;
+				NSDate *dateCreated = record[@"dateCreated"];
+				NSString *link = record[@"link"];
+				NSString *title = record[@"title"];
+				NSAttributedString *text = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"text"]];
+				NSAttributedString *t1 = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"trans1"]];
+				NSAttributedString *t2 = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"trans2"]];
+				NSAttributedString *t3 = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"trans3"]];
+
+				CKRecordID *recordId = record.recordID;
+				
+				Paragraph *pRecord = [Paragraph getOrCreateParagraphForRecordId:recordId
+												 inMoc:self.managedObjectContext];
+				if (pRecord) {
+					pRecord.dateCreated= dateCreated;
+					pRecord.title = title;
+					pRecord.link = link;
+					pRecord.text = text;
+					pRecord.translation1 = t1;
+					pRecord.translation2 = t2;
+					pRecord.translation3 = t3;
+					lastDate = [lastDate laterDate:mDate];
+					
+					DLog(@"added - %@", pRecord);
+				}
+			}
+			NSError *error = nil;
+			[self.managedObjectContext save:&error];
+			if (!error) {
+				prefs.lastSynchroDate= lastDate;
+				[[NSNotificationCenter defaultCenter] postNotificationName:VVVupdateBibleTable object:nil];
+			}
+			
+	 } else {
+		 DLog(@"%@", error);
+	 }
+ }];
+}
+	
 #pragma mark - Selectors -
 
 - (void) persistentStoreChanged:(NSNotification *)note

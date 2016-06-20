@@ -9,8 +9,12 @@
 #import "AppDelegate.h"
 #import "Preferences.h"
 #import "DAO.h"
+#import "DebugPrint.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+	Preferences *prefs;
+	DAO *dao;
+}
 
 @end
 
@@ -18,7 +22,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	[DAO sharedInstance];
+	dao = [DAO sharedInstance];
+	prefs = [Preferences sharedInstance];
 	
 	// Register CloudKit notifications
 	UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert categories:nil];
@@ -26,6 +31,12 @@
 	[application registerForRemoteNotifications];
 	
 	
+	// subscribe to notification
+	if (prefs.subscribedToCloudKit == NO) {
+		[dao subscribeToBibleArticleChanges];
+	}
+	
+
 	return YES;
 }
 
@@ -47,11 +58,13 @@
 			[database fetchRecordWithID:queryNotification.recordID completionHandler:^(CKRecord * _Nullable record, NSError * _Nullable error) {
 				if (error) {
 					// Handle the error here
+					DLog(@"error - %@",error);
 				} else {
 					if (queryNotification.queryNotificationReason == CKQueryNotificationReasonRecordUpdated) {
 						// Use the information in the record object to modify your local data
 					} else {
 						// Use the information in the record object to create a new local object
+						DLog(@"recordId - %@",record.recordID.recordName);
 					}
 				}
 			}];
@@ -75,6 +88,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+	[[DAO sharedInstance] checkAndUpdateArticles];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

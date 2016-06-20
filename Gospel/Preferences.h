@@ -40,7 +40,7 @@ typedef  NS_ENUM(NSInteger, KindOfComment) {
 extern NSString * const VVVthemeChanged;				// theme is changed
 extern NSString * const VVVpersistentStoreChanged;		// iCloud connected/disconnected
 extern NSString * const VVVcloudSyncInProgress;
-
+extern NSString * const VVVupdateBibleTable;
 
 @class Paragraph;
 
@@ -91,5 +91,10 @@ extern NSString * const VVVcloudSyncInProgress;
 
 @property (nonatomic, readwrite) BOOL trackReading;
 @property (nonatomic, readwrite) BOOL storeInCloud;
+
+// CloudKit
+
+@property (nonatomic, readwrite) BOOL subscribedToCloudKit;
+@property (nonatomic, retain)    NSDate *lastSynchroDate;
 
 @end

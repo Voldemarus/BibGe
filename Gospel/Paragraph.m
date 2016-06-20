@@ -92,21 +92,44 @@
 	}
 	
 	// Create record with automatically assigned RecordID
-	CKRecord *newRecrod = [[CKRecord alloc] initWithRecordType:@"BibleArticle"];
-	if (newRecrod) {
+	CKRecord *newRecord = [[CKRecord alloc] initWithRecordType:@"BibleArticle"];
+	if (newRecord) {
 		// store record ID
-		self.recordID = newRecrod.recordID;
+		self.recordID = newRecord.recordID;
 		// fill fields in record
-		newRecrod[@"dateCreated"] = self.dateCreated;
-		newRecrod[@"link"] = self.link;
+		newRecord[@"dateCreated"] = self.dateCreated;
+		newRecord[@"link"] = self.link;
 		
-		newRecrod[@"text"] =  [NSKeyedArchiver archivedDataWithRootObject:self.text];
-		newRecrod[@"title"] = self.title;
-		newRecrod[@"trans1"] =  [NSKeyedArchiver archivedDataWithRootObject:self.translation1];
-		newRecrod[@"trans2"] =  [NSKeyedArchiver archivedDataWithRootObject:self.translation2];
-		newRecrod[@"trans3"] =  [NSKeyedArchiver archivedDataWithRootObject:self.translation3];
+		newRecord[@"text"] =  [NSKeyedArchiver archivedDataWithRootObject:self.text];
+		newRecord[@"title"] = self.title;
+		newRecord[@"trans1"] =  [NSKeyedArchiver archivedDataWithRootObject:self.translation1];
+		newRecord[@"trans2"] =  [NSKeyedArchiver archivedDataWithRootObject:self.translation2];
+		newRecord[@"trans3"] =  [NSKeyedArchiver archivedDataWithRootObject:self.translation3];
 	}
-	return newRecrod;
+	return newRecord;
+}
+
+
++ (Paragraph *) getOrCreateParagraphForRecordId:(CKRecordID *)recordId
+										  inMoc:(NSManagedObjectContext *)moc
+{
+	NSString *eName = [[self class] description];
+	NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:eName];
+	req.predicate = [NSPredicate predicateWithFormat:@"recordID = %@", recordId];
+	NSError *error = nil;
+	NSArray *result = [moc executeFetchRequest:req error:&error];
+	if (!result && error) {
+		DLog(@"Cannot load BibleArticle - %@ ==> %@", req, [error localizedDescription]);
+		return nil;
+	}
+	if (result.count > 0) {
+		return result[0];
+	}
+	Paragraph *newPar = [NSEntityDescription insertNewObjectForEntityForName:eName inManagedObjectContext:moc];
+	if (newPar) {
+		newPar.recordID = recordId;
+	}
+	return newPar;
 }
 
 

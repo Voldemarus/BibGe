@@ -8,6 +8,7 @@
 
 #import "DeletedObjects.h"
 #import "DAO.h"
+#import "DebugPrint.h"
 
 @implementation DeletedObjects
 
@@ -20,7 +21,7 @@
 	NSError *error = nil;
 	NSArray *result = [moc executeFetchRequest:req error:&error];
 	if (!result && error) {
-		NSLog(@"Error during request to DeletedObject - %@", [error localizedDescription]);
+		DLog(@"Error during request to DeletedObject - %@", [error localizedDescription]);
 		return nil;
 	} else {
 		// Prevent creation several record with same ID
