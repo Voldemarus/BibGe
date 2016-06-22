@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, retain) NSDate *dateCreated;
 @property (nullable, nonatomic, retain) NSString *link;
+@property (nullable, nonatomic, retain) NSDate *dateDeleted;
 @property (nullable, nonatomic, retain) id text;
 @property (nullable, nonatomic, retain) NSString *title;
 @property (nullable, nonatomic, retain) id translation1;

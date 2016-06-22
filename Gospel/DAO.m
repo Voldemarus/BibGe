@@ -12,8 +12,8 @@
 #import "GEPreferences.h"
 #else
 #import "Preferences.h"
-#import <CloudKit/CloudKit.h>
 #endif
+#import <CloudKit/CloudKit.h>
 
 @interface DAO () {
 #ifndef GOBIBLEEDITOR
@@ -94,18 +94,6 @@
 				 [[NSNotificationCenter defaultCenter] postNotificationName:VVVpersistentStoreChanged object:nil];
 			 }];
 		 }];
-		// Init CloudKit connectors
-//		// Now we try to load data from CloudKit
-//		 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"TRUEPREDICATE"];
-//		CKQuery *query = [[CKQuery alloc] initWithRecordType:@"BibleArticle"
-//												   predicate:predicate];
-//		[publicDatabase performQuery:query inZoneWithID:nil completionHandler:^(NSArray *results, NSError *error) {
-//			if (!error) {
-//				DLog(@"%@", results);
-//			} else {
-//				DLog(@"%@", error);
-//			}
-//		}];
 #else
 		prefs = [GEPreferences sharedInstance];
 		addRecords = [[NSMutableArray alloc] initWithCapacity:50];
@@ -254,25 +242,41 @@
 {
 	[addRecords removeAllObjects];
 	[modifyRecords removeAllObjects];
-	NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"DeletedObjects"];
-	NSError *error = nil;
-	NSArray *deleted = [self.managedObjectContext executeFetchRequest:req error:&error];
-	if (deleted && !error) {
-		for (DeletedObjects *d in deleted) {
-			[self.managedObjectContext deleteObject:d];
-		}
-	}
+//	NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"DeletedObjects"];
+//	NSError *error = nil;
+//	NSArray *deleted = [self.managedObjectContext executeFetchRequest:req error:&error];
+//	if (deleted && !error) {
+//		for (DeletedObjects *d in deleted) {
+//			[self.managedObjectContext deleteObject:d];
+//		}
+//	}
 }
 
 - (void) processCKUpdate
 {
-	// Step 1. Delete all records, marked to delete
-	NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"DeletedObjects"];
+	// Step 0. Prepare actual list of records to be deleted
+	//         To be sure that all users have enough time to process marked to delete
+	//			records, we will remove marked records after 1 month
+	NSFetchRequest *req = [[NSFetchRequest alloc] initWithEntityName:@"Paragraph"];
+	NSDate *controlDate = [NSDate dateWithTimeIntervalSinceNow:-86400*31];
+	req.predicate = [NSPredicate predicateWithFormat:@"dateDeleted < %@", controlDate];
+	//req.predicate = [NSPredicate predicateWithFormat:@"dateDeleted < %@", [NSDate date]];
+
 	NSError *error = nil;
-	NSArray *deleted = [self.managedObjectContext executeFetchRequest:req error:&error];
-	if (deleted && !error) {
-		for (DeletedObjects *d in deleted) {
-			[publicDatabase deleteRecordWithID:d.recordID
+	NSArray *toDelete = [self.managedObjectContext executeFetchRequest:req error:&error];
+	NSMutableArray *deleted = [[NSMutableArray alloc] initWithCapacity:50];
+	if (toDelete && !error) {
+		// extract record ids to separate array
+		for (Paragraph *p in toDelete) {
+			[deleted addObject:p.recordID];
+			[self.managedObjectContext deleteObject:p];
+		}
+	}
+	
+	// Step 1. Delete all records, actually marked to delete
+	if (deleted.count > 0) {
+		for (CKRecordID *d in deleted) {
+			[publicDatabase deleteRecordWithID:d
 							 completionHandler:^(CKRecordID *recordID, NSError *error) {
 				if(error) {
 					DLog(@"%@", error);
@@ -286,6 +290,8 @@
 	index = 0;
 	if (addRecords.count > 0) {
 		[self addRecordToCloudKit];
+	} else {
+		[self modifyCKRecords];
 	}
 }
 
@@ -328,6 +334,7 @@
 			DLog(@"%@", error);
 		} else {
 			record[@"dateCreated"] = p.dateCreated;
+			record[@"dateDeleted"] = p.dateDeleted;
 			record[@"link"] = p.link;
 			record[@"text"] = [NSKeyedArchiver archivedDataWithRootObject:p.text];
 			record[@"title"] = p.title;
@@ -350,62 +357,6 @@
 
 
 #endif
-
-// IOS part specific methods
-
-#ifdef GOBIBLEEDITOR
-- (void) subscribeToFeedbackChanges {
-#else
-- (void)subscribeToBibleArticleChanges {
-#endif
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"TRUEPREDICATE"];
-#ifdef GOBIBLEEDITOR
-	CKSubscription *subscription = [[CKSubscription alloc] initWithRecordType:@"FeedBack"
-#else
-									[container accountStatusWithCompletionHandler:^(CKAccountStatus accountStatus, NSError *error) {
-		if (((accountStatus == 3) || (accountStatus == 2)) && (!error))
-		{
-			DLog(@"Container:  no error but status %ld",(long)accountStatus);
-			
-			
-			//            typedef NS_ENUM(NSInteger, CKAccountStatus) {
-			//                /* An error occurred when getting the account status, consult the corresponding NSError */
-			//                CKAccountStatusCouldNotDetermine                   = 0,
-			//                /* The iCloud account credentials are available for this application */
-			//                CKAccountStatusAvailable                           = 1,
-			//                /* Parental Controls / Device Management has denied access to iCloud account credentials */
-			//                CKAccountStatusRestricted                          = 2,
-			//                /* No iCloud account is logged in on this device */
-			//                CKAccountStatusNoAccount                           = 3,
-			//
-			//        }
-			
-			// Cannot set up subscription, so we need to update it manually
-			[self checkAndUpdateArticles];
-			return;
-		}
-		
-		
-		if (error)
-		{
-			DLog(@" Container: accountStatus error %@",error);
-			return;
-		}
-	} ];
-									
-	CKSubscription *subscription = [[CKSubscription alloc] initWithRecordType:@"BibleArticle"
-#endif
-	predicate:predicate options:CKSubscriptionOptionsFiresOnRecordCreation | CKSubscriptionOptionsFiresOnRecordUpdate | CKSubscriptionOptionsFiresOnRecordDeletion];
-	
-	[publicDatabase saveSubscription:subscription completionHandler:^(CKSubscription * _Nullable subscription, NSError * _Nullable error) {
-		if (error) {
-			// Handle here the error
-			DLog(@"Cannot subscribe to CloudKit changes - %@", error);
-		} else {
-			prefs.subscribedToCloudKit = YES;
-		}
-	}];
-}
 
 
 //
@@ -635,7 +586,6 @@
 	[self.managedObjectContext save:nil];
 }
 
-
 	//
 	// Method is called when application become active. We need to check database on CloudKit
 	// storage and update loacal data if any
@@ -650,30 +600,37 @@
 			NSDate *lastDate = prefs.lastSynchroDate;
 			for (CKRecord *record in results) {
 				// iterate through received data
-				NSDate *mDate = record.modificationDate;
-				NSDate *dateCreated = record[@"dateCreated"];
-				NSString *link = record[@"link"];
-				NSString *title = record[@"title"];
-				NSAttributedString *text = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"text"]];
-				NSAttributedString *t1 = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"trans1"]];
-				NSAttributedString *t2 = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"trans2"]];
-				NSAttributedString *t3 = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"trans3"]];
-
 				CKRecordID *recordId = record.recordID;
 				
 				Paragraph *pRecord = [Paragraph getOrCreateParagraphForRecordId:recordId
-												 inMoc:self.managedObjectContext];
-				if (pRecord) {
-					pRecord.dateCreated= dateCreated;
-					pRecord.title = title;
-					pRecord.link = link;
-					pRecord.text = text;
-					pRecord.translation1 = t1;
-					pRecord.translation2 = t2;
-					pRecord.translation3 = t3;
-					lastDate = [lastDate laterDate:mDate];
+																		  inMoc:self.managedObjectContext];
+				NSDate *delDate = record[@"dateDeleted"];
+				if (delDate) {
+					// this record was marked to delete on server side
+					[self.managedObjectContext deleteObject:pRecord];
+				} else {
+					// tis is a valid record which should be updated/filled
+					NSDate *mDate = record.modificationDate;
+					NSDate *dateCreated = record[@"dateCreated"];
+					NSString *link = record[@"link"];
+					NSString *title = record[@"title"];
+					NSAttributedString *text = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"text"]];
+					NSAttributedString *t1 = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"trans1"]];
+					NSAttributedString *t2 = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"trans2"]];
+					NSAttributedString *t3 = [NSKeyedUnarchiver unarchiveObjectWithData:record[@"trans3"]];
 					
-					DLog(@"added - %@", pRecord);
+					if (pRecord) {
+						pRecord.dateCreated= dateCreated;
+						pRecord.title = title;
+						pRecord.link = link;
+						pRecord.text = text;
+						pRecord.translation1 = t1;
+						pRecord.translation2 = t2;
+						pRecord.translation3 = t3;
+						lastDate = [lastDate laterDate:mDate];
+						
+						DLog(@"added - %@", pRecord);
+					}
 				}
 			}
 			NSError *error = nil;
@@ -682,7 +639,6 @@
 				prefs.lastSynchroDate= lastDate;
 				[[NSNotificationCenter defaultCenter] postNotificationName:VVVupdateBibleTable object:nil];
 			}
-			
 	 } else {
 		 DLog(@"%@", error);
 	 }

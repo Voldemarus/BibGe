@@ -14,6 +14,7 @@
 
 @property (nonatomic, assign) IBOutlet NSManagedObjectContext *moc;
 @property (weak) IBOutlet NSTableView *tableView;
+- (IBAction)markasDeleted:(id)sender;
 
 @property (nonatomic, retain) NSFont *georgianFont;
 

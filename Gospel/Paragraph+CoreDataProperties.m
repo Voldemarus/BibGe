@@ -13,7 +13,7 @@
 
 @implementation Paragraph (CoreDataProperties)
 
-@dynamic dateCreated;
+@dynamic dateCreated, dateDeleted;
 @dynamic link;
 @dynamic text;
 @dynamic title;

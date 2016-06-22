@@ -30,10 +30,8 @@
 - (void) sendFeedbackFrom:(NSString *)address withMessae:(NSString *)aMessage
 			andDeviceInfo:(NSString *)aDevInfo;
 
-- (void)subscribeToBibleArticleChanges;
 - (void) checkAndUpdateArticles;
 #else
-- (void)subscribeToFeedbackChanges;
 
 - (void) addToInsertArray:(CKRecord *)newRecord;
 - (void) addToUpdateArray:(Paragraph *) updateParagraph;

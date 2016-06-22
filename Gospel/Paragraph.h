@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *) dateCreatedAsString;
 - (CKRecord *) newCloudKitRecord;			// Returns new record, if no ID is stored
 
+- (void) markAsDeleted;						// mark current record as Deleted
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -32,9 +32,7 @@
 	
 	
 	// subscribe to notification
-	if (prefs.subscribedToCloudKit == NO) {
-		[dao subscribeToBibleArticleChanges];
-	}
+	[dao checkAndUpdateArticles];
 	
 
 	return YES;

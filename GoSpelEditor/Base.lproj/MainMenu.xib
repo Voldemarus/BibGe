@@ -205,7 +205,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="remove:" target="hRX-bQ-Bmr" id="y0S-LX-WKP"/>
+                            <action selector="markasDeleted:" target="Voe-Tx-rLC" id="YJ2-Nn-aPV"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wdi-bY-6ga">
@@ -315,17 +315,17 @@
                                         <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4S-cw-XCW">
                                             <rect key="frame" x="4" y="2" width="507" height="297"/>
                                             <clipView key="contentView" ambiguous="YES" id="CBv-00-U0O">
-                                                <rect key="frame" x="1" y="1" width="489" height="295"/>
+                                                <rect key="frame" x="1" y="1" width="505" height="295"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="O45-5F-cQS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="489" height="295"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="505" height="295"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <size key="minSize" width="489" height="295"/>
+                                                        <size key="minSize" width="505" height="295"/>
                                                         <size key="maxSize" width="507" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <size key="minSize" width="489" height="295"/>
+                                                        <size key="minSize" width="505" height="295"/>
                                                         <size key="maxSize" width="507" height="10000000"/>
                                                     </textView>
                                                 </subviews>
@@ -343,17 +343,17 @@
                                         <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifZ-Ur-7qh">
                                             <rect key="frame" x="4" y="2" width="502" height="297"/>
                                             <clipView key="contentView" ambiguous="YES" id="iUo-Ru-UKH">
-                                                <rect key="frame" x="1" y="1" width="484" height="295"/>
+                                                <rect key="frame" x="1" y="1" width="500" height="295"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView ambiguous="YES" importsGraphics="NO" usesInspectorBar="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="S0s-oM-RbF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="484" height="295"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="500" height="295"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" red="0.68399907557470896" green="0.97926992211727404" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <size key="minSize" width="484" height="295"/>
+                                                        <size key="minSize" width="500" height="295"/>
                                                         <size key="maxSize" width="505" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <size key="minSize" width="484" height="295"/>
+                                                        <size key="minSize" width="500" height="295"/>
                                                         <size key="maxSize" width="505" height="10000000"/>
                                                         <connections>
                                                             <binding destination="hRX-bQ-Bmr" name="attributedString" keyPath="selection.translation1" id="HnQ-n4-W4b"/>
@@ -500,7 +500,7 @@
             </view>
             <point key="canvasLocation" x="612.5" y="420.5"/>
         </window>
-        <arrayController mode="entity" entityName="Paragraph" automaticallyPreparesContent="YES" id="hRX-bQ-Bmr" userLabel="Data Array Controller">
+        <arrayController mode="entity" entityName="Paragraph" fetchPredicateFormat="dateDeleted == nil" automaticallyPreparesContent="YES" id="hRX-bQ-Bmr" userLabel="Data Array Controller">
             <connections>
                 <binding destination="Voe-Tx-rLC" name="managedObjectContext" keyPath="self.moc" id="F2a-Hp-AxZ"/>
             </connections>

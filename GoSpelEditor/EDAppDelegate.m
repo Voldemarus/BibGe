@@ -61,12 +61,8 @@
 	
 	self.uploadInfoLabel.stringValue = @"Press button below to propagate local changes";
 	// Register CloudKit notifications
-	[NSApp registerForRemoteNotificationTypes:NSRemoteNotificationTypeNone];
 	
-	// subscribe to notification
-	if (prefs.subscribedToCloudKit == NO) {
-		[dao subscribeToFeedbackChanges];
-	}
+	
 	
 }
 
@@ -237,7 +233,23 @@
 	[dao.managedObjectContext save:&error];
 	if (!error) {
 		[dao processCKUpdate];
+	} else {
+		NSLog(@"Error during database saving - %@", [error localizedDescription]);
 	}
 	NSBeep();
+}
+
+//
+// Mark selected record to be deleted on client side
+//
+
+- (IBAction)markasDeleted:(id)sender
+{
+	NSArray *selObjects = self.sataController.selectedObjects;
+	if (selObjects.count > 0) {
+		selectedParagraph = selObjects[0];
+		[selectedParagraph markAsDeleted];
+	}
+	[self.tableView reloadData];
 }
 @end

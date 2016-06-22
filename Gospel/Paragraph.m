@@ -32,11 +32,11 @@
 {
 	[super willSave];
 	if (self.isDeleted) {
-		if (self.recordID) {
-			// This record just have proper ID to Delete from Server storage
-			// if no record ID is present - it means that record was not saved (se nd to server)
-			[DeletedObjects addDeletedObject:self.recordID withType:CK_RECORD_TYPE];
-		}
+//		if (self.recordID) {
+//			// This record just have proper ID to Delete from Server storage
+//			// if no record ID is present - it means that record was not saved (se nd to server)
+//			[DeletedObjects addDeletedObject:self.recordID withType:CK_RECORD_TYPE];
+//		}
 	} else if (self.isInserted) {
 		// Create new CKRecord and fill it with current fields
 		[[DAO sharedInstance] addToInsertArray:self.newCloudKitRecord];
@@ -132,6 +132,17 @@
 	return newPar;
 }
 
+- (void) markAsDeleted
+{
+	self.dateDeleted = [NSDate date];
+	// clean all data to save storage
+	self.link = @"";
+	self.title = @"";
+	self.text = [[NSAttributedString alloc] initWithString:@""];
+	self.translation3  = [[NSAttributedString alloc] initWithString:@""];
+	self.translation2 = [[NSAttributedString alloc] initWithString:@""];
+	self.translation1 = [[NSAttributedString alloc] initWithString:@""];
+}
 
 - (NSString *)description
 {
