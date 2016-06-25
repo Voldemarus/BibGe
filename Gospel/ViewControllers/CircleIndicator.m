@@ -84,7 +84,7 @@
 		for (NSInteger i = 0; i < count; i++) {
 			// use simple loop to preserve order of themes
 			CGFloat originX = offset + i * (offset + buttonHeight);
-			CGRect frameRect = CGRectMake(originX, drawRect.origin.y,
+			CGRect frameRect = CGRectMake(originX, drawRect.origin.y-6,
 										  buttonHeight, buttonHeight);
 			// Tune up decoration first
 			CircleIndicator *ind = [[CircleIndicator alloc] initWithFrame:frameRect];
