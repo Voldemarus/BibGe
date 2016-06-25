@@ -51,6 +51,15 @@
 	UIKeyboardAppearance app = (prefs.nightThemeSelected ? UIKeyboardAppearanceAlert : UIKeyboardAppearanceDefault);
 	self.mailAddressField.keyboardAppearance = app;
 	self.messageTextView.keyboardAppearance = app;
+    
+    self.messageTextView.layer.borderWidth = 1.0f;
+    self.messageTextView.layer.borderColor = [prefs.themeTintColor CGColor];
+    self.messageTextView.textContainerInset = UIEdgeInsetsMake(0, 10, 0, 10);
+
+    
+    self.sendMessageButton.layer.borderWidth = 1.0f;
+    self.sendMessageButton.layer.borderColor = [prefs.themeTintColor CGColor];
+
 
 }
 
