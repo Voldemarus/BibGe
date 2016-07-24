@@ -26,6 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *viewed;
 @property (nullable, nonatomic, retain) CKRecordID *recordID;
 
+@property (nonatomic, retain) NSNumber	*textOffset;
+@property (nonatomic, retain) NSNumber	*translation1Offset;
+@property (nonatomic, retain) NSNumber	*translation2Offset;
+@property (nonatomic, retain) NSNumber	*translation3Offset;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

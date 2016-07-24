@@ -22,5 +22,6 @@
 @dynamic translation3;
 @dynamic viewed;
 @dynamic recordID;
+@dynamic textOffset, translation1Offset, translation2Offset, translation3Offset;
 
 @end

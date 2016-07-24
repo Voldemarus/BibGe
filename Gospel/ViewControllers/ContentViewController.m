@@ -144,6 +144,13 @@
 		contentLabel.textColor = prefs.themeTextColor;
 		contentLabel.backgroundColor = [UIColor clearColor];
 		contentLabel.delegate = self;
+		//
+		// move to proper offset
+		//
+		CGFloat offset = self.par.textOffset.floatValue;
+		CGPoint oft = CGPointMake(0.0, offset);
+		[contentLabel setContentOffset: oft animated:NO];
+		DLog(@"content.offset = %.0f", contentLabel.contentOffset.y);
 		
     }
 	cell.contentView.backgroundColor = prefs.themeBackgroundColor;
@@ -185,9 +192,12 @@
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView
 {
+	CGFloat currentOffset = scrollView.contentOffset.y;
+	// memorize current offset
+	self.par.textOffset = @(currentOffset);
+	DLog(@"offset = %@", self.par.textOffset);
 	if (prefs.trackReading) {
 		CGFloat maxOffset  = scrollView.contentSize.height - scrollView.frame.size.height;
-		CGFloat currentOffset = scrollView.contentOffset.y;
 		// If  the whole paragraph fits on one page without scroll mark it as read
 		CGFloat delta  = (maxOffset > 0 ? currentOffset / maxOffset : 1.0);
 		

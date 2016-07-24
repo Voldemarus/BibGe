@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
     <entity name="DeletedObjects" representedClassName="DeletedObjects" syncable="YES">
         <attribute name="recordID" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="recordType" optional="YES" attributeType="String" syncable="YES"/>
@@ -10,14 +10,18 @@
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="recordID" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="textOffset" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="translation1" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="translation1Offset" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="translation2" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="translation2Offset" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="translation3" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="translation3Offset" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="viewed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
         <element name="DeletedObjects" positionX="-54" positionY="54" width="128" height="75"/>
-        <element name="Paragraph" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="Paragraph" positionX="-63" positionY="-18" width="128" height="255"/>
     </elements>
 </model>
